@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Register for Guest Loyalty & Table Perks</title>
+  <meta name="description" content="Create a KoreFlame guest account to earn 200 welcome points, unlock priority table bookings, and save your favorite barbecue cuts.">
+  <link rel="canonical" href="https://koreflame.com/register.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="d-flex flex-column min-vh-100 justify-content-between">
+
+  <!-- Minimal Brand Header -->
+  <header class="py-3 border-bottom border-subtle">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+        <div class="kf-brand-logo-wrap">
+          <div class="kf-logo-aura"></div>
+          <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+          <div class="kf-steam-wrap">
+            <span class="kf-steam-particle s1"></span>
+            <span class="kf-steam-particle s2"></span>
+            <span class="kf-steam-particle s3"></span>
+          </div>
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+          <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+        </div>
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun-medium"></i></button>
+        <a href="index.html" class="btn-flame-outline btn-sm-custom">Back to Site</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Register Container -->
+  <main class="py-5 flex-grow-1 d-flex align-items-center">
+    <div class="container" style="max-width: 520px;">
+      <div class="kf-card p-3 p-sm-4 p-md-5">
+        
+        <div class="text-center mb-4">
+          <div class="d-inline-flex p-3 rounded-circle bg-secondary-app text-gold mb-2">
+            <i data-lucide="sparkles" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 class="mb-1">Join KoreFlame Club</h3>
+          <p class="text-secondary small">Receive 200 complimentary loyalty points immediately upon signup.</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="kf-register-form">
+          <div class="mb-3">
+            <label class="form-label-custom" for="reg-name">Full Name *</label>
+            <input type="text" id="reg-name" class="form-control-custom" placeholder="e.g. Min-Ji Kim" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label-custom" for="reg-email">Email Address *</label>
+            <input type="email" id="reg-email" class="form-control-custom" placeholder="guest@domain.com" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label-custom" for="reg-phone">Mobile Phone Number</label>
+            <input type="tel" id="reg-phone" class="form-control-custom" placeholder="+1 (555) 382-7492">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label-custom" for="reg-password">Password (minimum 6 characters) *</label>
+            <div class="input-group">
+              <input type="password" id="reg-password" class="form-control-custom border-end-0" placeholder="••••••••" required>
+              <button class="btn btn-outline-secondary border border-start-0 text-muted password-toggle-btn" type="button" aria-label="Toggle password visibility">
+                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label-custom" for="reg-confirm-password">Confirm Password *</label>
+            <div class="input-group">
+              <input type="password" id="reg-confirm-password" class="form-control-custom border-end-0" placeholder="••••••••" required>
+              <button class="btn btn-outline-secondary border border-start-0 text-muted password-toggle-btn" type="button" aria-label="Toggle password visibility">
+                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="agreeTerms" required checked>
+            <label class="form-check-label small text-secondary" for="agreeTerms">
+              I agree to table reservation policies and loyalty terms.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-flame w-100 py-3 mb-3">
+            <span>Create Account & Claim 200 Points</span>
+          </button>
+        </form>
+
+        <div class="text-center pt-3 border-top border-subtle">
+          <span class="small text-muted">Already have a dining account? </span>
+          <a href="login.html" class="small text-flame fw-bold">Sign In Here</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="py-3 border-top border-subtle text-center text-muted small">
+    <div class="container">
+      &copy; 2026 KoreFlame Korean BBQ. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    if (window.lucide) window.lucide.createIcons();
+  </script>
+</body>
+</html>
+

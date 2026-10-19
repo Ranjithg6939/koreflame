@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Guest Dining Dashboard & Loyalty Portal</title>
+  <meta name="description" content="Manage your KoreFlame BBQ reservations, track loyalty points, redeem vouchers, and review saved cuts.">
+  <link rel="canonical" href="https://koreflame.com/dashboard.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Dashboard Main Layout Wrapper -->
+  <div class="dashboard-wrapper">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand">
+        <a href="index.html" class="nav-brand-logo fs-5" aria-label="KoreFlame Korean BBQ">
+          <div class="kf-brand-logo-wrap" style="width: 38px; height: 38px;">
+            <div class="kf-logo-aura"></div>
+            <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+            <div class="kf-steam-wrap">
+              <span class="kf-steam-particle s1"></span>
+              <span class="kf-steam-particle s2"></span>
+              <span class="kf-steam-particle s3"></span>
+            </div>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title" style="font-size: 1.2rem;">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub" style="font-size: 0.55rem;">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="sidebar-avatar">MK</div>
+        <div>
+          <h6 class="mb-0 text-white" id="sidebar-user-name">Min-Ji Kim</h6>
+          <span class="badge-tag badge-prime" id="sidebar-user-tier">Gold Grillmaster</span>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav-list">
+        <li class="sidebar-nav-item">
+          <a href="#overview" class="sidebar-nav-link active" data-tab="overview">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Overview</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#reservations" class="sidebar-nav-link" data-tab="reservations">
+            <i data-lucide="calendar"></i>
+            <span>My Reservations</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#loyalty" class="sidebar-nav-link" data-tab="loyalty">
+            <i data-lucide="award"></i>
+            <span>Loyalty & Rewards</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#favorites" class="sidebar-nav-link" data-tab="favorites">
+            <i data-lucide="heart"></i>
+            <span>Saved Favorites</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#profile" class="sidebar-nav-link" data-tab="profile">
+            <i data-lucide="user"></i>
+            <span>Profile Settings</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item mt-3 pt-3 border-top border-subtle">
+          <a href="menu.html" class="sidebar-nav-link">
+            <i data-lucide="utensils"></i>
+            <span>Order Menu</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="reservations.html" class="sidebar-nav-link">
+            <i data-lucide="plus-circle"></i>
+            <span>Book New Table</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="sidebar-nav-link text-muted mb-2">
+          <i data-lucide="arrow-left"></i>
+          <span>Back to Restaurant</span>
+        </a>
+        <button type="button" class="btn btn-sm btn-outline-danger w-100" onclick="handleLogout()">
+          <i data-lucide="log-out"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      
+      <!-- Topbar -->
+      <div class="dashboard-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button type="button" class="btn-icon-nav d-lg-none" id="dash-sidebar-toggle" aria-label="Toggle Sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <h5 class="mb-0 d-none d-sm-block">Guest Portal</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun-medium"></i></button>
+          <button type="button" class="btn-icon-nav kf-rtl-toggle" aria-label="Toggle RTL/LTR"><i data-lucide="arrow-left-right"></i></button>
+          <a href="reservations.html" class="btn-flame btn-sm-custom">
+            <i data-lucide="calendar"></i>
+            <span class="d-none d-sm-inline">Book Table</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Container -->
+      <div class="dashboard-container">
+        
+        <!-- ================================================================
+             Tab 1: Overview
+             ================================================================ -->
+        <section id="view-overview" class="dash-view-content">
+          <div class="mb-4">
+            <h2 class="mb-1">Annyeonghaseyo, <span id="dash-user-name" class="text-gold-gradient">Min-Ji</span>!</h2>
+            <p class="text-secondary">Welcome to your KoreFlame guest dashboard. Check your rewards and reservation status.</p>
+          </div>
+
+          <!-- Stat Cards Row -->
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-orange"><i data-lucide="award"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Loyalty Tier</span>
+                  <h4 class="mb-0 text-gold" id="dash-user-tier">Gold Grillmaster</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-gold"><i data-lucide="sparkles"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Points Balance</span>
+                  <h4 class="mb-0" id="dash-user-points">1,240</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-red"><i data-lucide="heart"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Saved Favorites</span>
+                  <h4 class="mb-0" id="dash-fav-count">2</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-green"><i data-lucide="calendar-check"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Bonus Available</span>
+                  <h4 class="mb-0 text-success">1 Voucher</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Upcoming Reservation Banner -->
+          <div class="kf-card p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <i data-lucide="clock" class="text-flame"></i>
+                <h5 class="mb-0">Next Upcoming Table Booking</h5>
+              </div>
+              <a href="reservations.html" class="btn-flame-outline btn-sm-custom">New Booking</a>
+            </div>
+            <div id="dash-upcoming-preview"></div>
+          </div>
+
+          <!-- Quick Actions & Grill Safety Guide -->
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="kf-card h-100 p-4">
+                <h5 class="text-gold mb-3">Quick Actions</h5>
+                <div class="d-grid gap-2">
+                  <a href="menu.html" class="btn-flame-outline d-flex justify-content-between align-items-center">
+                    <span>Order Ahead for Table</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                  <a href="pricing.html" class="btn-flame-outline d-flex justify-content-between align-items-center">
+                    <span>Explore Group Dining Packages</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                  <a href="services.html" class="btn-flame-outline d-flex justify-content-between align-items-center">
+                    <span>Book Private VIP Dining Suite</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="kf-card h-100 p-4">
+                <h5 class="text-flame mb-2">Guest Member Benefits</h5>
+                <p class="text-secondary small mb-3">Every meal booked earns 10 points per dollar spent toward free prime cuts, Korean plum wines, and dessert sparklers.</p>
+                <div class="p-3 bg-secondary-app rounded small text-muted">
+                  <strong class="text-gold d-block mb-1">VIP Priority Seating:</strong>
+                  Gold Grillmasters receive first access to weekend prime evening slots (7:00 PM – 8:30 PM).
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 2: My Reservations
+             ================================================================ -->
+        <section id="view-reservations" class="dash-view-content" style="display: none;">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h2 class="mb-1">My Table Reservations</h2>
+              <p class="text-secondary">Track upcoming table bookings, view details, or cancel if your schedule changes.</p>
+            </div>
+            <a href="reservations.html" class="btn-flame btn-sm-custom">
+              <i data-lucide="plus"></i>
+              <span>Book Table</span>
+            </a>
+          </div>
+
+          <div class="dash-table-card">
+            <div class="dash-table-header">
+              <h5 class="mb-0">Booking History & Active Holds</h5>
+            </div>
+            <div class="table-responsive-custom">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Reference</th>
+                    <th>Date & Time</th>
+                    <th>Party</th>
+                    <th>Table Ambience</th>
+                    <th>Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="dash-reservations-tbody">
+                  <!-- Rendered via assets/js/dashboard.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 3: Loyalty & Rewards
+             ================================================================ -->
+        <section id="view-loyalty" class="dash-view-content" style="display: none;">
+          <div class="mb-4">
+            <h2 class="mb-1">Loyalty Points & Member Vouchers</h2>
+            <p class="text-secondary">Redeem points for complimentary Korean BBQ dishes, specialty sides, and dining credits.</p>
+          </div>
+
+          <!-- Points Progress Card -->
+          <div class="kf-card p-4 mb-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+              <div>
+                <span class="small text-muted text-uppercase">Current Points Balance</span>
+                <div class="display-5 fw-bold text-gold" id="loyalty-balance-display">1,240</div>
+              </div>
+              <div class="text-end">
+                <span class="badge-tag badge-prime fs-6">Target: Imperial Tier (2,500 pts)</span>
+              </div>
+            </div>
+
+            <div class="loyalty-progress-container">
+              <div class="loyalty-progress-fill" id="loyalty-progress-bar" style="width: 50%;"></div>
+            </div>
+            <div class="d-flex justify-content-between small text-muted">
+              <span>Current: Gold Tier</span>
+              <span>1,260 points until Imperial Master Status</span>
+            </div>
+          </div>
+
+          <!-- Available Rewards Grid -->
+          <h4 class="mb-3">Redeemable Vouchers</h4>
+          <div class="row g-3" id="loyalty-rewards-grid">
+            <!-- Rendered dynamically -->
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 4: Saved Favorites
+             ================================================================ -->
+        <section id="view-favorites" class="dash-view-content" style="display: none;">
+          <div class="mb-4">
+            <h2 class="mb-1">Saved Cuts & Favorite Banchan</h2>
+            <p class="text-secondary">Quickly reorder your favorite barbecue cuts and sides.</p>
+          </div>
+
+          <div class="row g-4" id="dash-favorites-grid">
+            <!-- Rendered dynamically -->
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 5: Profile Settings
+             ================================================================ -->
+        <section id="view-profile" class="dash-view-content" style="display: none;">
+          <div class="mb-4">
+            <h2 class="mb-1">Profile & Contact Preferences</h2>
+            <p class="text-secondary">Keep your contact information updated for table confirmations and SMS notifications.</p>
+          </div>
+
+          <div class="kf-card p-4 max-w-lg" style="max-width: 680px;">
+            <form id="profile-update-form" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-custom">Full Name</label>
+                <input type="text" class="form-control-custom" id="profile-name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">Email Address</label>
+                <input type="email" class="form-control-custom" id="profile-email" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">Phone Number</label>
+                <input type="tel" class="form-control-custom" id="profile-phone" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">Member Tier</label>
+                <input type="text" class="form-control-custom" value="Gold Grillmaster" disabled>
+              </div>
+              <div class="col-12 pt-3">
+                <button type="submit" class="btn-flame">Save Profile Changes</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
+

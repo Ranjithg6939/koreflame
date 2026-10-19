@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Dining Packages & All-Inclusive Korean Feasts</title>
+  <meta name="description" content="Compare our all-inclusive Korean BBQ dining packages: Seoul Street, Master Butcher Feast, and Imperial Sura Wagyu Tasting.">
+  <link rel="canonical" href="https://koreflame.com/pricing.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="kf-header d-flex align-items-center">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+          <div class="kf-brand-logo-wrap">
+            <div class="kf-logo-aura"></div>
+            <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+            <div class="kf-steam-wrap">
+              <span class="kf-steam-particle s1"></span>
+              <span class="kf-steam-particle s2"></span>
+              <span class="kf-steam-particle s3"></span>
+            </div>
+            <div class="kf-spark-wrap">
+              <span class="kf-spark-particle p1"></span>
+              <span class="kf-spark-particle p2"></span>
+              <span class="kf-spark-particle p3"></span>
+            </div>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu (Preserved on Desktop and Tablet from 1024px to 992px) -->
+        <nav class="desktop-nav d-none d-lg-block">
+          <ul class="nav-menu-list">
+            <!-- Home Dropdown: Only 'Home' in main navbar, with Home 1 and Home 2 in dropdown -->
+            <li class="nav-dropdown-item">
+              <a href="index.html" class="nav-link-custom">
+                <span>Home</span>
+                <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+              </a>
+              <div class="dropdown-menu-custom">
+                <a href="index.html" class="dropdown-link-custom">
+                  <span>Home 1 — The Grill Experience</span>
+                  <span class="badge-tag badge-prime">Explore</span>
+                </a>
+                <a href="index-2.html" class="dropdown-link-custom">
+                  <span>Home 2 — Celebration Experience</span>
+                  <span class="badge-tag badge-spice">Explore</span>
+                </a>
+              </div>
+            </li>
+            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="reservations.html" class="nav-link-custom">Reservations</a></li>
+            <li><a href="about.html" class="nav-link-custom">About</a></li>
+            <li><a href="pricing.html" class="nav-link-custom active">Packages</a></li>
+            <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+            <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+            <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <!-- Nav Right Actions -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
+            <i data-lucide="sun-medium" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- RTL / LTR Toggle -->
+          <button type="button" class="btn-icon-nav kf-rtl-toggle" aria-label="Toggle RTL/LTR Layout" title="Toggle LTR/RTL">
+            <i data-lucide="arrow-left-right" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- Cart Icon Button -->
+          <button type="button" class="btn-icon-nav cart-open-btn" aria-label="Open Table Cart" title="View Cart">
+            <i data-lucide="shopping-bag" style="width: 18px; height: 18px;"></i>
+            <span class="cart-counter-badge" style="display: none;">0</span>
+          </button>
+
+          <!-- Reserve Table Icon Button -->
+          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+            <span class="nav-reserve-dot"></span>
+            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Account Icon Link -->
+          <a href="login.html" class="btn-icon-nav d-none d-sm-inline-flex" aria-label="Account Login" title="Guest Account">
+            <i data-lucide="user" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Mobile Hamburger Toggle (Switches below 992px) -->
+          <button type="button" class="btn-icon-nav mobile-nav-toggle d-lg-none" aria-label="Open Navigation Menu">
+            <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-subtle">
+      <a href="index.html" class="nav-brand-logo fs-5" aria-label="KoreFlame Korean BBQ">
+        <div class="kf-brand-logo-wrap" style="width: 38px; height: 38px;">
+          <div class="kf-logo-aura"></div>
+          <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+          <div class="kf-steam-wrap">
+            <span class="kf-steam-particle s1"></span>
+            <span class="kf-steam-particle s2"></span>
+            <span class="kf-steam-particle s3"></span>
+          </div>
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title" style="font-size: 1.2rem;">Kore<span class="brand-accent">Flame</span></span>
+          <span class="nav-brand-sub" style="font-size: 0.55rem;">PREMIUM SEOUL BBQ</span>
+        </div>
+      </a>
+      <button type="button" class="btn-icon-nav mobile-drawer-close" aria-label="Close Navigation">
+        <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+
+    <ul class="d-flex flex-column gap-2 p-0 mb-4">
+      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom">Home 2 — Celebration Experience</a></li>
+      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="reservations.html" class="nav-link-custom">Book a Table</a></li>
+      <li><a href="about.html" class="nav-link-custom">About KoreFlame</a></li>
+      <li><a href="pricing.html" class="nav-link-custom text-flame fw-bold">Feast Packages</a></li>
+      <li><a href="blog.html" class="nav-link-custom">K-BBQ Culture Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
+      <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
+      <li><a href="admin/index.html" class="nav-link-custom text-muted">Admin Portal (Demo)</a></li>
+    </ul>
+
+    <div class="pt-3 border-top border-subtle">
+      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+    </div>
+  </aside>
+
+  <!-- Slideover Cart Drawer -->
+  <div id="kf-cart-backdrop" class="mobile-nav-backdrop"></div>
+  <aside id="kf-cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i data-lucide="shopping-bag" class="text-flame"></i>
+        <h5 class="mb-0">Table Grill Cart</h5>
+      </div>
+      <button type="button" id="kf-cart-close" class="btn-icon-nav"><i data-lucide="x"></i></button>
+    </div>
+    <div id="kf-cart-items-list" class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Estimated Subtotal:</span>
+        <strong id="kf-cart-subtotal" class="fs-4 text-gold">$0.00</strong>
+      </div>
+      <button type="button" class="btn-flame w-100" onclick="proceedToCheckout()">
+        <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+        <span>Send Order to Grill</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="py-5 bg-secondary-app border-bottom border-subtle">
+    <div class="container py-3 text-center">
+      <div class="section-label">All-Inclusive Dining Tiers</div>
+      <h1 class="display-4 fw-extrabold mb-3">Curated <span class="text-gold-gradient">Dining Packages</span></h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 620px;">
+        Transparent, per-guest feasts that bundle prime meats, endless banchan refills, savory stews, and beverages with no hidden surprises.
+      </p>
+    </div>
+  </section>
+
+  <!-- Package Comparison Cards -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        
+        <!-- Package 1: Seoul Street -->
+        <div class="col-lg-4">
+          <div class="kf-card h-100 p-4 d-flex flex-column">
+            <div class="mb-3">
+              <span class="badge-tag badge-prime mb-2">Everyday Casual</span>
+              <h3>Seoul Street Experience</h3>
+              <p class="text-secondary small">Authentic bustling Seoul tent-grill vibe for pairs and friends.</p>
+              <div class="fs-2 fw-bold text-flame">$45.00 <span class="fs-6 text-muted fw-normal">/ guest (min 2)</span></div>
+            </div>
+
+            <div class="py-3 border-top border-bottom border-subtle my-3">
+              <strong class="text-gold d-block small mb-2 text-uppercase">What is Included:</strong>
+              <ul class="text-secondary small p-0 mb-0">
+                <li class="mb-2">✓ Choice of 2 Signature Cuts (Pork Belly / Bulgogi)</li>
+                <li class="mb-2">✓ Refillable House Banchan (5 dishes)</li>
+                <li class="mb-2">✓ Unlimited Steamed Rice & Ssam Baskets</li>
+                <li class="mb-2">✓ Kimchi Jjigae or Soybean Stew to share</li>
+                <li class="mb-2">✓ Roasted Korean Barley Tea service</li>
+                <li class="mb-2">✓ Standard Downdraft Table Grill</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <strong class="text-muted d-block small mb-2 text-uppercase">Restrictions:</strong>
+              <ul class="text-muted small p-0 mb-0">
+                <li class="mb-1">✕ USDA Prime Galbi or Wagyu cuts</li>
+                <li class="mb-1">✕ Alcoholic beverages</li>
+                <li class="mb-1">✕ Private VIP dining room</li>
+              </ul>
+            </div>
+
+            <div class="mt-auto">
+              <a href="reservations.html" class="btn-flame-outline w-100">Reserve Street Tier</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2: Butcher's Feast -->
+        <div class="col-lg-4">
+          <div class="kf-card h-100 p-4 d-flex flex-column border-primary position-relative" style="box-shadow: 0 0 35px rgba(249, 115, 22, 0.25);">
+            <div class="position-absolute top-0 end-0 m-3 badge-tag badge-popular">Most Popular</div>
+            <div class="mb-3 pe-5">
+              <span class="badge-tag badge-spice mb-2">Signature Feasting</span>
+              <h3>Master Butcher's Feast</h3>
+              <p class="text-secondary small">Our most requested table set featuring our flagship beef & pork cuts.</p>
+              <div class="fs-2 fw-bold text-flame">$68.00 <span class="fs-6 text-muted fw-normal">/ guest (min 2)</span></div>
+            </div>
+
+            <div class="py-3 border-top border-bottom border-subtle my-3">
+              <strong class="text-gold d-block small mb-2 text-uppercase">What is Included:</strong>
+              <ul class="text-secondary small p-0 mb-0">
+                <li class="mb-2">✓ USDA Prime Marinated Galbi + Berkshire Belly</li>
+                <li class="mb-2">✓ Spicy Dak-Bulgogi or Chadolbaegi Brisket</li>
+                <li class="mb-2">✓ Full 8-Dish Grand Banchan Refills</li>
+                <li class="mb-2">✓ Volcanic Steamed Egg (Gyeran-jjim)</li>
+                <li class="mb-2">✓ Choice of Stew + Cold Buckwheat Naengmyeon</li>
+                <li class="mb-2">✓ 1 Glass of House Draft Beer or Yuzu Ade</li>
+                <li class="mb-2">✓ Priority Window Grill Booth Seating</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <strong class="text-muted d-block small mb-2 text-uppercase">Restrictions:</strong>
+              <ul class="text-muted small p-0 mb-0">
+                <li class="mb-1">✕ A5 Miyazaki Wagyu tier</li>
+                <li class="mb-1">✕ Private VIP room exclusivity</li>
+              </ul>
+            </div>
+
+            <div class="mt-auto">
+              <a href="reservations.html" class="btn-flame w-100">Reserve Butcher's Feast</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3: Imperial Sura Dining -->
+        <div class="col-lg-4">
+          <div class="kf-card h-100 p-4 d-flex flex-column">
+            <div class="mb-3">
+              <span class="badge-tag badge-prime mb-2">Royal Sura Feast</span>
+              <h3>Imperial Sura Dining</h3>
+              <p class="text-secondary small">The pinnacle of luxury Korean BBQ with A5 Miyazaki Wagyu.</p>
+              <div class="fs-2 fw-bold text-gold">$115.00 <span class="fs-6 text-muted fw-normal">/ guest (min 4)</span></div>
+            </div>
+
+            <div class="py-3 border-top border-bottom border-subtle my-3">
+              <strong class="text-gold d-block small mb-2 text-uppercase">What is Included:</strong>
+              <ul class="text-secondary small p-0 mb-0">
+                <li class="mb-2">✓ A5 Miyazaki Wagyu BMS 9+ Ribeye</li>
+                <li class="mb-2">✓ Butterflied Short Rib + Rare Pork Jowl</li>
+                <li class="mb-2">✓ Korean Wagyu Tartare (Yukhoe) Starter</li>
+                <li class="mb-2">✓ Full Artisan Banchan + Seafood Scallion Pancake</li>
+                <li class="mb-2">✓ Table-side Dedicated Grillmaster service</li>
+                <li class="mb-2">✓ 1 Bottle of Premium Soju or Bokbunjaju per pair</li>
+                <li class="mb-2">✓ Private Soundproof VIP Dining Suite</li>
+                <li class="mb-2">✓ Chef's Custom Dessert & Souvenir Menu</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <strong class="text-muted d-block small mb-2 text-uppercase">Restrictions:</strong>
+              <ul class="text-muted small p-0 mb-0">
+                <li class="mb-1 text-success">✓ Zero restrictions — full luxury hospitality</li>
+              </ul>
+            </div>
+
+            <div class="mt-auto">
+              <a href="reservations.html" class="btn-gold w-100">Reserve Imperial Dining</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Comparison Matrix Table -->
+      <div class="mt-5 pt-4 border-top border-subtle">
+        <h3 class="text-center mb-4">Detailed Inclusions Matrix</h3>
+        <div class="dash-table-card">
+          <div class="table-responsive-custom">
+            <table class="dash-table text-center">
+              <thead>
+                <tr>
+                  <th class="text-start">Feature / Cut</th>
+                  <th>Seoul Street ($45)</th>
+                  <th>Master Butcher ($68)</th>
+                  <th>Imperial Sura ($115)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-start">USDA Prime Galbi Short Rib</td>
+                  <td class="text-muted">—</td>
+                  <td class="text-success font-weight-bold">✓ Included</td>
+                  <td class="text-success font-weight-bold">✓ Included</td>
+                </tr>
+                <tr>
+                  <td class="text-start">Berkshire Heirloom Pork Belly</td>
+                  <td class="text-success font-weight-bold">✓ Included</td>
+                  <td class="text-success font-weight-bold">✓ Included</td>
+                  <td class="text-success font-weight-bold">✓ Included</td>
+                </tr>
+                <tr>
+                  <td class="text-start">A5 Miyazaki Wagyu BMS 9+</td>
+                  <td class="text-muted">—</td>
+                  <td class="text-muted">—</td>
+                  <td class="text-gold font-weight-bold">✓ 180g Center-Cut</td>
+                </tr>
+                <tr>
+                  <td class="text-start">Refillable Banchan Varieties</td>
+                  <td>5 Dishes</td>
+                  <td>8 Dishes</td>
+                  <td>8 Dishes + Reserve Kimchi</td>
+                </tr>
+                <tr>
+                  <td class="text-start">Volcano Steamed Egg (Gyeran-jjim)</td>
+                  <td class="text-muted">—</td>
+                  <td class="text-success font-weight-bold">✓ Included</td>
+                  <td class="text-success font-weight-bold">✓ Included</td>
+                </tr>
+                <tr>
+                  <td class="text-start">Private Room & Dedicated Grillmaster</td>
+                  <td class="text-muted">—</td>
+                  <td class="text-muted">—</td>
+                  <td class="text-gold font-weight-bold">✓ Included</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="kf-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="nav-brand-logo mb-3">
+          <div class="nav-brand-icon">
+            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+          <p class="text-secondary small">Authentic Korean BBQ restaurant with table Binchotan grills, USDA Prime meats, and vibrant Seoul street food.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Dining</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="menu.html">A La Carte Menu</a></li>
+            <li><a href="pricing.html">Feast Packages</a></li>
+            <li><a href="services.html">VIP Dining</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Navigation</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reservations.html">Book Online</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-widget-title">Custom Menus</h5>
+          <p class="text-muted small">Special dietary packages (Halal, pescatarian, gluten-friendly) available upon advance request.</p>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 KoreFlame. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

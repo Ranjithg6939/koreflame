@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Midtown Flagship Opening Soon | Korean BBQ</title>
+  <meta name="description" content="KoreFlame is expanding. Sign up for exclusive VIP opening night tastings and secret menu previews.">
+  <link rel="canonical" href="https://koreflame.com/coming-soon.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="d-flex flex-column min-vh-100 justify-content-between ember-glow text-center p-3">
+
+  <!-- Header bar -->
+  <header class="py-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="nav-brand-logo mx-auto" aria-label="KoreFlame Korean BBQ">
+        <div class="kf-brand-logo-wrap">
+          <div class="kf-logo-aura"></div>
+          <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+          <div class="kf-steam-wrap">
+            <span class="kf-steam-particle s1"></span>
+            <span class="kf-steam-particle s2"></span>
+            <span class="kf-steam-particle s3"></span>
+          </div>
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+          <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- Coming Soon Content -->
+  <main class="py-5 my-auto">
+    <div class="container" style="max-width: 760px;">
+      
+      <div class="section-label mb-3">
+        <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+        <span>Second Flagship Location Coming Winter 2026</span>
+      </div>
+
+      <h1 class="display-3 fw-extrabold mb-3">
+        Igniting <span class="text-flame">Midtown Manhattan</span>
+      </h1>
+
+      <p class="lead text-secondary mb-5">
+        We are constructing an expansive two-story Korean grill hall featuring 40 subterranean downdraft booths, an underground fermented banchan cellar, and 6 soundproof VIP suites.
+      </p>
+
+      <!-- Countdown Timer Component -->
+      <div class="row g-3 justify-content-center mb-5" id="countdown-timer">
+        <div class="col-3 col-sm-2">
+          <div class="p-3 bg-surface-app border border-subtle rounded">
+            <span class="display-6 fw-bold text-flame d-block" id="timer-days">42</span>
+            <span class="small text-muted text-uppercase">Days</span>
+          </div>
+        </div>
+        <div class="col-3 col-sm-2">
+          <div class="p-3 bg-surface-app border border-subtle rounded">
+            <span class="display-6 fw-bold text-gold d-block" id="timer-hours">18</span>
+            <span class="small text-muted text-uppercase">Hours</span>
+          </div>
+        </div>
+        <div class="col-3 col-sm-2">
+          <div class="p-3 bg-surface-app border border-subtle rounded">
+            <span class="display-6 fw-bold text-white d-block" id="timer-mins">34</span>
+            <span class="small text-muted text-uppercase">Mins</span>
+          </div>
+        </div>
+        <div class="col-3 col-sm-2">
+          <div class="p-3 bg-surface-app border border-subtle rounded">
+            <span class="display-6 fw-bold text-sizzle d-block" id="timer-secs">50</span>
+            <span class="small text-muted text-uppercase">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIP Invitation Form -->
+      <div class="kf-card p-4 mx-auto max-w-md" style="max-width: 520px;">
+        <h5 class="mb-2">Request an Opening Night VIP Pass</h5>
+        <p class="text-secondary small mb-3">Be among the first 100 diners to experience our second location with a complimentary Wagyu tasting flight.</p>
+
+        <form onsubmit="handleVipSignup(event)" class="d-flex flex-column flex-sm-row gap-2">
+          <input type="email" id="vip-email" class="form-control-custom" placeholder="Enter your email address" required>
+          <button type="submit" class="btn-flame flex-shrink-0">
+            <span>Get Invite</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="mt-4">
+        <a href="index.html" class="text-muted small">← Visit our current active restaurant in Culinary Arts District</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 text-muted small">
+    <div class="container">
+      &copy; 2026 KoreFlame Korean BBQ. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/toast.js"></script>
+  <script>
+    if (window.lucide) window.lucide.createIcons();
+
+    // Interactive countdown
+    let seconds = 50;
+    let mins = 34;
+    let hours = 18;
+    let days = 42;
+
+    setInterval(() => {
+      seconds--;
+      if (seconds < 0) {
+        seconds = 59;
+        mins--;
+        if (mins < 0) {
+          mins = 59;
+          hours--;
+        }
+      }
+      document.getElementById('timer-secs').textContent = seconds < 10 ? '0' + seconds : seconds;
+      document.getElementById('timer-mins').textContent = mins < 10 ? '0' + mins : mins;
+      document.getElementById('timer-hours').textContent = hours < 10 ? '0' + hours : hours;
+    }, 1000);
+
+    function handleVipSignup(e) {
+      e.preventDefault();
+      const email = document.getElementById('vip-email').value.trim();
+      window.showToast(`Invitation reserved for ${email}! We will notify you when opening reservations open.`, 'success', 'VIP Pass Secured');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

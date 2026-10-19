@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — About Our Heritage, Founders & Grill Philosophy</title>
+  <meta name="description" content="Discover the story behind KoreFlame: founded by Chef Min-Jun Kang to bring authentic Seoul street-grill dining and premium Binchotan charcoal hospitality.">
+  <link rel="canonical" href="https://koreflame.com/about.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="kf-header d-flex align-items-center">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+          <div class="kf-brand-logo-wrap">
+            <div class="kf-logo-aura"></div>
+            <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+            <div class="kf-steam-wrap">
+              <span class="kf-steam-particle s1"></span>
+              <span class="kf-steam-particle s2"></span>
+              <span class="kf-steam-particle s3"></span>
+            </div>
+            <div class="kf-spark-wrap">
+              <span class="kf-spark-particle p1"></span>
+              <span class="kf-spark-particle p2"></span>
+              <span class="kf-spark-particle p3"></span>
+            </div>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu (Preserved on Desktop and Tablet from 1024px to 992px) -->
+        <nav class="desktop-nav d-none d-lg-block">
+          <ul class="nav-menu-list">
+            <!-- Home Dropdown: Only 'Home' in main navbar, with Home 1 and Home 2 in dropdown -->
+            <li class="nav-dropdown-item">
+              <a href="index.html" class="nav-link-custom">
+                <span>Home</span>
+                <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+              </a>
+              <div class="dropdown-menu-custom">
+                <a href="index.html" class="dropdown-link-custom">
+                  <span>Home 1 — The Grill Experience</span>
+                  <span class="badge-tag badge-prime">Explore</span>
+                </a>
+                <a href="index-2.html" class="dropdown-link-custom">
+                  <span>Home 2 — Celebration Experience</span>
+                  <span class="badge-tag badge-spice">Explore</span>
+                </a>
+              </div>
+            </li>
+            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="reservations.html" class="nav-link-custom">Reservations</a></li>
+            <li><a href="about.html" class="nav-link-custom active">About</a></li>
+            <li><a href="pricing.html" class="nav-link-custom">Packages</a></li>
+            <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+            <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+            <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <!-- Nav Right Actions -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
+            <i data-lucide="sun-medium" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- RTL / LTR Toggle -->
+          <button type="button" class="btn-icon-nav kf-rtl-toggle" aria-label="Toggle RTL/LTR Layout" title="Toggle LTR/RTL">
+            <i data-lucide="arrow-left-right" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- Cart Icon Button -->
+          <button type="button" class="btn-icon-nav cart-open-btn" aria-label="Open Table Cart" title="View Cart">
+            <i data-lucide="shopping-bag" style="width: 18px; height: 18px;"></i>
+            <span class="cart-counter-badge" style="display: none;">0</span>
+          </button>
+
+          <!-- Reserve Table Icon Button -->
+          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+            <span class="nav-reserve-dot"></span>
+            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Account Icon Link -->
+          <a href="login.html" class="btn-icon-nav d-none d-sm-inline-flex" aria-label="Account Login" title="Guest Account">
+            <i data-lucide="user" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Mobile Hamburger Toggle (Switches below 992px) -->
+          <button type="button" class="btn-icon-nav mobile-nav-toggle d-lg-none" aria-label="Open Navigation Menu">
+            <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-subtle">
+      <a href="index.html" class="nav-brand-logo fs-5" aria-label="KoreFlame Korean BBQ">
+        <div class="kf-brand-logo-wrap" style="width: 38px; height: 38px;">
+          <div class="kf-logo-aura"></div>
+          <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+          <div class="kf-steam-wrap">
+            <span class="kf-steam-particle s1"></span>
+            <span class="kf-steam-particle s2"></span>
+            <span class="kf-steam-particle s3"></span>
+          </div>
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title" style="font-size: 1.2rem;">Kore<span class="brand-accent">Flame</span></span>
+          <span class="nav-brand-sub" style="font-size: 0.55rem;">PREMIUM SEOUL BBQ</span>
+        </div>
+      </a>
+      <button type="button" class="btn-icon-nav mobile-drawer-close" aria-label="Close Navigation">
+        <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+
+    <ul class="d-flex flex-column gap-2 p-0 mb-4">
+      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom">Home 2 — Celebration Experience</a></li>
+      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="reservations.html" class="nav-link-custom">Book a Table</a></li>
+      <li><a href="about.html" class="nav-link-custom text-flame fw-bold">About KoreFlame</a></li>
+      <li><a href="pricing.html" class="nav-link-custom">Feast Packages</a></li>
+      <li><a href="blog.html" class="nav-link-custom">K-BBQ Culture Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
+      <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
+      <li><a href="admin/index.html" class="nav-link-custom text-muted">Admin Portal (Demo)</a></li>
+    </ul>
+
+    <div class="pt-3 border-top border-subtle">
+      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+    </div>
+  </aside>
+
+  <!-- Slideover Cart Drawer -->
+  <div id="kf-cart-backdrop" class="mobile-nav-backdrop"></div>
+  <aside id="kf-cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i data-lucide="shopping-bag" class="text-flame"></i>
+        <h5 class="mb-0">Table Grill Cart</h5>
+      </div>
+      <button type="button" id="kf-cart-close" class="btn-icon-nav"><i data-lucide="x"></i></button>
+    </div>
+    <div id="kf-cart-items-list" class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Estimated Subtotal:</span>
+        <strong id="kf-cart-subtotal" class="fs-4 text-gold">$0.00</strong>
+      </div>
+      <button type="button" class="btn-flame w-100" onclick="proceedToCheckout()">
+        <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+        <span>Send Order to Grill</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Banner -->
+  <section class="py-5 bg-secondary-app border-bottom border-subtle">
+    <div class="container py-3 text-center">
+      <div class="section-label">Our Story & Traditions</div>
+      <h1 class="display-4 fw-extrabold mb-3">The Soul Behind <span class="text-gold-gradient">KoreFlame</span></h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 640px;">
+        Born from the vibrant alleyways of Mapo-gu in Seoul, KoreFlame celebrates the raw energy of sizzling charcoal, hand-cut prime meats, and generational fermentation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story & Mission Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="section-label">Founding Philosophy</div>
+          <h2 class="mb-3">Where Street Energy Meets Culinary Precision</h2>
+          <p class="text-secondary mb-3">
+            In 2024, Executive Chef Min-Jun Kang envisioned a restaurant that captured the authentic warmth of late-night Seoul grill tents (Pojangmacha) combined with pristine, modern Japanese downdraft engineering and artisanal butcher cuts.
+          </p>
+          <p class="text-secondary mb-4">
+            Too often, Western Korean BBQ relies on gas burners and sugary artificial sauces. At KoreFlame, every single ember is pure Kishu white oak Binchotan. Every marinade rests for 48 hours in blended Korean sweet pears, toasted sesame, and raw garlic.
+          </p>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="p-3 bg-surface-app border border-subtle rounded text-center">
+                <span class="display-6 fw-bold text-flame d-block">10,000+</span>
+                <span class="small text-muted">Tables Grilled</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 bg-surface-app border border-subtle rounded text-center">
+                <span class="display-6 fw-bold text-gold d-block">48-Hr</span>
+                <span class="small text-muted">Artisan Marinade</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Chef Preparing Korean BBQ" class="rounded shadow-lg w-100">
+            <div class="position-absolute bottom-0 start-0 m-4 p-3 bg-surface-app backdrop-blur-glass border border-subtle rounded">
+              <strong class="text-gold d-block">Master Butcher Min-Jun Kang</strong>
+              <span class="small text-muted">20+ Years Korean Charcoal Mastery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Pillars of KoreFlame -->
+  <section class="py-5 bg-secondary-app">
+    <div class="container py-4">
+      <div class="section-header text-center">
+        <div class="section-label">Our Pillars</div>
+        <h2>The Four Tenets of Our Craft</h2>
+        <p class="text-secondary">We hold ourselves to uncompromising standards of sourcing, fire, and fermentation.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="kf-card h-100 p-4 text-center">
+            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-flame mb-3">
+              <i data-lucide="flame" style="width: 28px; height: 28px;"></i>
+            </div>
+            <h5>Pure Binchotan Charcoal</h5>
+            <p class="text-secondary small">Fired at 1,000°C for clean far-infrared heat without bitter sulfur or petroleum smoke.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="kf-card h-100 p-4 text-center">
+            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-gold mb-3">
+              <i data-lucide="award" style="width: 28px; height: 28px;"></i>
+            </div>
+            <h5>Uncompromising Cuts</h5>
+            <p class="text-secondary small">USDA Prime black angus, heirloom Berkshire pork belly, and authentic A5 Miyazaki Wagyu.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="kf-card h-100 p-4 text-center">
+            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-sizzle mb-3">
+              <i data-lucide="soup" style="width: 28px; height: 28px;"></i>
+            </div>
+            <h5>Daily Fermentation</h5>
+            <p class="text-secondary small">No canned sides. 8 artisan banchan dishes crafted fresh every morning using natural sea salt and wild probiotics.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="kf-card h-100 p-4 text-center">
+            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-success mb-3">
+              <i data-lucide="heart" style="width: 28px; height: 28px;"></i>
+            </div>
+            <h5>Heartfelt Hospitality</h5>
+            <p class="text-secondary small">Generous hospitality where extra banchan, sizzling hospitality, and smiles are always complimentary.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atmosphere Gallery -->
+  <section class="py-5">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Our Space</div>
+        <h2>Atmosphere & Interior Craft</h2>
+        <p class="text-secondary">Explore our dining booths, downdraft bar, and VIP celebration alcoves.</p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" class="rounded w-100 h-100 object-fit-cover shadow-sm" alt="Atmosphere 1" style="min-height: 240px;">
+        </div>
+        <div class="col-md-4">
+          <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600&auto=format&fit=crop" class="rounded w-100 h-100 object-fit-cover shadow-sm" alt="Atmosphere 2" style="min-height: 240px;">
+        </div>
+        <div class="col-md-4">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=600&auto=format&fit=crop" class="rounded w-100 h-100 object-fit-cover shadow-sm" alt="Atmosphere 3" style="min-height: 240px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-5 bg-secondary-app text-center">
+    <div class="container py-3">
+      <h3 class="mb-3">Join Us at the Grill Tonight</h3>
+      <p class="text-secondary mb-4 mx-auto" style="max-width: 580px;">Experience the vibrant communal spirit and sizzling meats that make KoreFlame unforgettable.</p>
+      <a href="reservations.html" class="btn-flame btn-lg-custom">Reserve Your Table</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="kf-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="nav-brand-logo mb-3">
+          <div class="nav-brand-icon">
+            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+          <p class="text-secondary small">Authentic Korean BBQ restaurant with table Binchotan grills and vibrant dining culture.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">About</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="services.html">Experiences</a></li>
+            <li><a href="blog.html">K-BBQ Guide</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Dining</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="pricing.html">Packages</a></li>
+            <li><a href="reservations.html">Book Online</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-widget-title">Address</h5>
+          <p class="text-muted small">128 Seoul Grill Blvd, Suite 100, Culinary Arts District, NY 10001</p>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 KoreFlame. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

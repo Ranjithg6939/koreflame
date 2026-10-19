@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Online Table Reservations & Booking Engine</title>
+  <meta name="description" content="Reserve your Korean BBQ table online. Choose between smokeless downdraft tables, cozy grill booths, and VIP private dining rooms with instant confirmation.">
+  <link rel="canonical" href="https://koreflame.com/reservations.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="kf-header d-flex align-items-center">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+          <div class="kf-brand-logo-wrap">
+            <div class="kf-logo-aura"></div>
+            <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+            <div class="kf-steam-wrap">
+              <span class="kf-steam-particle s1"></span>
+              <span class="kf-steam-particle s2"></span>
+              <span class="kf-steam-particle s3"></span>
+            </div>
+            <div class="kf-spark-wrap">
+              <span class="kf-spark-particle p1"></span>
+              <span class="kf-spark-particle p2"></span>
+              <span class="kf-spark-particle p3"></span>
+            </div>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu (Preserved on Desktop and Tablet from 1024px to 992px) -->
+        <nav class="desktop-nav d-none d-lg-block">
+          <ul class="nav-menu-list">
+            <!-- Home Dropdown: Only 'Home' in main navbar, with Home 1 and Home 2 in dropdown -->
+            <li class="nav-dropdown-item">
+              <a href="index.html" class="nav-link-custom">
+                <span>Home</span>
+                <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+              </a>
+              <div class="dropdown-menu-custom">
+                <a href="index.html" class="dropdown-link-custom">
+                  <span>Home 1 — The Grill Experience</span>
+                  <span class="badge-tag badge-prime">Explore</span>
+                </a>
+                <a href="index-2.html" class="dropdown-link-custom">
+                  <span>Home 2 — Celebration Experience</span>
+                  <span class="badge-tag badge-spice">Explore</span>
+                </a>
+              </div>
+            </li>
+            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="reservations.html" class="nav-link-custom active">Reservations</a></li>
+            <li><a href="about.html" class="nav-link-custom">About</a></li>
+            <li><a href="pricing.html" class="nav-link-custom">Packages</a></li>
+            <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+            <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+            <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <!-- Nav Right Actions -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
+            <i data-lucide="sun-medium" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- RTL / LTR Toggle -->
+          <button type="button" class="btn-icon-nav kf-rtl-toggle" aria-label="Toggle RTL/LTR Layout" title="Toggle LTR/RTL">
+            <i data-lucide="arrow-left-right" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- Cart Icon Button -->
+          <button type="button" class="btn-icon-nav cart-open-btn" aria-label="Open Table Cart" title="View Cart">
+            <i data-lucide="shopping-bag" style="width: 18px; height: 18px;"></i>
+            <span class="cart-counter-badge" style="display: none;">0</span>
+          </button>
+
+          <!-- Reserve Table Icon Button -->
+          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+            <span class="nav-reserve-dot"></span>
+            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Account Icon Link -->
+          <a href="login.html" class="btn-icon-nav d-none d-sm-inline-flex" aria-label="Account Login" title="Guest Account">
+            <i data-lucide="user" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Mobile Hamburger Toggle (Switches below 992px) -->
+          <button type="button" class="btn-icon-nav mobile-nav-toggle d-lg-none" aria-label="Open Navigation Menu">
+            <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-subtle">
+      <a href="index.html" class="nav-brand-logo fs-5" aria-label="KoreFlame Korean BBQ">
+        <div class="kf-brand-logo-wrap" style="width: 38px; height: 38px;">
+          <div class="kf-logo-aura"></div>
+          <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+          <div class="kf-steam-wrap">
+            <span class="kf-steam-particle s1"></span>
+            <span class="kf-steam-particle s2"></span>
+            <span class="kf-steam-particle s3"></span>
+          </div>
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title" style="font-size: 1.2rem;">Kore<span class="brand-accent">Flame</span></span>
+          <span class="nav-brand-sub" style="font-size: 0.55rem;">PREMIUM SEOUL BBQ</span>
+        </div>
+      </a>
+      <button type="button" class="btn-icon-nav mobile-drawer-close" aria-label="Close Navigation">
+        <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+
+    <ul class="d-flex flex-column gap-2 p-0 mb-4">
+      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom">Home 2 — Celebration Experience</a></li>
+      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="reservations.html" class="nav-link-custom text-flame fw-bold">Book a Table</a></li>
+      <li><a href="about.html" class="nav-link-custom">About KoreFlame</a></li>
+      <li><a href="pricing.html" class="nav-link-custom">Feast Packages</a></li>
+      <li><a href="blog.html" class="nav-link-custom">K-BBQ Culture Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
+      <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
+      <li><a href="admin/index.html" class="nav-link-custom text-muted">Admin Portal (Demo)</a></li>
+    </ul>
+
+    <div class="pt-3 border-top border-subtle">
+      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+    </div>
+  </aside>
+
+  <!-- Slideover Cart Drawer -->
+  <div id="kf-cart-backdrop" class="mobile-nav-backdrop"></div>
+  <aside id="kf-cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i data-lucide="shopping-bag" class="text-flame"></i>
+        <h5 class="mb-0">Table Grill Cart</h5>
+      </div>
+      <button type="button" id="kf-cart-close" class="btn-icon-nav"><i data-lucide="x"></i></button>
+    </div>
+    <div id="kf-cart-items-list" class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Estimated Subtotal:</span>
+        <strong id="kf-cart-subtotal" class="fs-4 text-gold">$0.00</strong>
+      </div>
+      <button type="button" class="btn-flame w-100" onclick="proceedToCheckout()">
+        <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+        <span>Send Order to Grill</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="py-5 bg-secondary-app border-bottom border-subtle">
+    <div class="container py-3 text-center">
+      <div class="section-label">Real-Time Table Booking Engine</div>
+      <h1 class="display-4 fw-extrabold mb-3">Reserve Your <span class="text-gold-gradient">Grill Table</span></h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 620px;">
+        Follow our 5-step interactive wizard to select your party size, table atmosphere, time slot, and dining requests.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Wizard Container -->
+  <section class="py-5">
+    <div class="container" style="max-width: 860px;">
+      
+      <!-- Multi-Step Wizard Engine (Controlled by assets/js/reservations.js) -->
+      <div id="kf-reservation-wizard"></div>
+
+      <!-- FAQ Section for Reservations -->
+      <div class="mt-5 pt-4 border-top border-subtle">
+        <h4 class="mb-4 text-center">Reservation Policy & FAQs</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="p-3 bg-surface-app border border-subtle rounded">
+              <strong class="text-gold d-block mb-1">How long is our table held?</strong>
+              <p class="text-muted small mb-0">We hold confirmed reservations for up to 15 minutes past your booking time before releasing the grill to waiting walk-in guests.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 bg-surface-app border border-subtle rounded">
+              <strong class="text-gold d-block mb-1">What is the dining duration?</strong>
+              <p class="text-muted small mb-0">Parties of 1-4 are allotted 90 minutes; parties of 5+ or VIP private suites are allotted 120 minutes of leisurely table grilling.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 bg-surface-app border border-subtle rounded">
+              <strong class="text-gold d-block mb-1">Can we modify or cancel later?</strong>
+              <p class="text-muted small mb-0">Yes! Use your reference code in the <a href="dashboard.html" class="text-flame">Guest Dashboard</a> to modify your time or cancel anytime up to 2 hours prior.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 bg-surface-app border border-subtle rounded">
+              <strong class="text-gold d-block mb-1">Do downdraft tables really prevent smoke?</strong>
+              <p class="text-muted small mb-0">Yes. Our Japanese-engineered subterranean downdraft system extracts smoke at the grill perimeter before it can rise into the air.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="kf-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="nav-brand-logo mb-3">
+          <div class="nav-brand-icon">
+            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+          <p class="text-secondary small">Authentic Seoul street-grill aesthetic with premium restaurant styling. Experience the art of communal table grilling.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Quick Links</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="index.html">The Grill Experience</a></li>
+            <li><a href="index-2.html">Celebration Dining</a></li>
+            <li><a href="menu.html">Full Menu</a></li>
+            <li><a href="pricing.html">Packages</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Dashboard</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="dashboard.html">Guest Dashboard</a></li>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-widget-title">Need Immediate Help?</h5>
+          <p class="text-muted small">For same-day reservations within 1 hour, please call our front desk directly at +1 (555) 382-7492.</p>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 KoreFlame Korean BBQ. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="index.html" class="text-muted">Home</a>
+          <a href="dashboard.html" class="text-muted">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/reservations.js"></script>
+</body>
+</html>
+

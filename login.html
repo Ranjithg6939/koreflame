@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Guest Sign In & Loyalty Portal Access</title>
+  <meta name="description" content="Sign in to your KoreFlame guest account to track table reservations, manage points balance, and redeem dining rewards.">
+  <link rel="canonical" href="https://koreflame.com/login.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="d-flex flex-column min-vh-100 justify-content-between">
+
+  <!-- Minimal Brand Header -->
+  <header class="py-3 border-bottom border-subtle">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+        <div class="kf-brand-logo-wrap">
+          <div class="kf-logo-aura"></div>
+          <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+          <div class="kf-steam-wrap">
+            <span class="kf-steam-particle s1"></span>
+            <span class="kf-steam-particle s2"></span>
+            <span class="kf-steam-particle s3"></span>
+          </div>
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+          <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+        </div>
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun-medium"></i></button>
+        <a href="index.html" class="btn-flame-outline btn-sm-custom">Back to Site</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Container -->
+  <main class="py-5 flex-grow-1 d-flex align-items-center">
+    <div class="container" style="max-width: 480px;">
+      <div class="kf-card p-3 p-sm-4 p-md-5">
+        
+        <div class="text-center mb-4">
+          <div class="d-inline-flex p-3 rounded-circle bg-secondary-app text-flame mb-2">
+            <i data-lucide="log-in" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 class="mb-1">Guest Sign In</h3>
+          <p class="text-secondary small">Access your table bookings, loyalty vouchers, and saved cuts.</p>
+        </div>
+
+        <!-- Quick 1-Click Demo Logins -->
+        <div class="p-3 bg-secondary-app border border-subtle rounded mb-4 text-center">
+          <span class="small text-gold fw-bold d-block mb-2">⚡ Instant Preview Shortcuts:</span>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn-flame btn-sm-custom flex-grow-1" id="btn-demo-guest-login">
+              Demo Guest
+            </button>
+            <button type="button" class="btn-flame-outline btn-sm-custom flex-grow-1" id="btn-demo-admin-login">
+              Demo Admin
+            </button>
+          </div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="kf-login-form">
+          <div class="mb-3">
+            <label class="form-label-custom" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-control-custom" placeholder="guest@koreflame.com" value="guest@koreflame.com" required>
+          </div>
+
+          <div class="mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <label class="form-label-custom mb-0" for="login-password">Password</label>
+              <a href="#" class="small text-muted" onclick="event.preventDefault(); window.kfToast.info('Demo password reset link dispatched to your email address.', 'Reset Link Sent');">Forgot Password?</a>
+            </div>
+            <div class="input-group">
+              <input type="password" id="login-password" class="form-control-custom border-end-0" placeholder="••••••••" value="demo1234" required>
+              <button class="btn btn-outline-secondary border border-start-0 text-muted password-toggle-btn" type="button" aria-label="Toggle password visibility">
+                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+            <label class="form-check-label small text-secondary" for="rememberMe">
+              Remember my dining session on this device
+            </label>
+          </div>
+
+          <button type="submit" class="btn-flame w-100 py-3 mb-3">
+            <span>Sign In to Dashboard</span>
+          </button>
+        </form>
+
+        <div class="text-center pt-3 border-top border-subtle">
+          <span class="small text-muted">First time grilling with us? </span>
+          <a href="register.html" class="small text-flame fw-bold">Create a Free Account</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="py-3 border-top border-subtle text-center text-muted small">
+    <div class="container">
+      &copy; 2026 KoreFlame Korean BBQ. Built for ThemeForest & TemplateMonster.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    if (window.lucide) window.lucide.createIcons();
+  </script>
+</body>
+</html>
+

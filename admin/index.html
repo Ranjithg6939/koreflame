@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Executive Management & Kitchen Admin Portal</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    
+    <!-- Admin Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="nav-brand-logo fs-5" aria-label="KoreAdmin HQ Portal">
+          <div class="kf-brand-logo-wrap" style="width: 38px; height: 38px;">
+            <div class="kf-logo-aura"></div>
+            <img src="../assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+            <div class="kf-steam-wrap">
+              <span class="kf-steam-particle s1"></span>
+              <span class="kf-steam-particle s2"></span>
+              <span class="kf-steam-particle s3"></span>
+            </div>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title" style="font-size: 1.25rem;">Kore<span class="brand-accent">Admin</span></span>
+            <span class="nav-brand-sub" style="font-size: 0.58rem;">ADMIN HQ PORTAL</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="sidebar-avatar" style="background: linear-gradient(135deg, #EF4444, #F97316);">EX</div>
+        <div>
+          <h6 class="mb-0 text-white">Chef Min-Jun</h6>
+          <span class="badge-tag badge-spice">Executive Admin</span>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav-list">
+        <li class="sidebar-nav-item">
+          <a href="#admin-overview" class="sidebar-nav-link active" data-admin-tab="overview">
+            <i data-lucide="bar-chart-3"></i>
+            <span>Analytics & Overview</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#admin-reservations" class="sidebar-nav-link" data-admin-tab="reservations">
+            <i data-lucide="calendar"></i>
+            <span>Table Reservations</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#admin-menu" class="sidebar-nav-link" data-admin-tab="menu">
+            <i data-lucide="utensils"></i>
+            <span>Menu & Cuts</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#admin-orders" class="sidebar-nav-link" data-admin-tab="orders">
+            <i data-lucide="shopping-cart"></i>
+            <span>Active Grill Orders</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#admin-guests" class="sidebar-nav-link" data-admin-tab="guests">
+            <i data-lucide="users"></i>
+            <span>Guest Accounts</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="#admin-settings" class="sidebar-nav-link" data-admin-tab="settings">
+            <i data-lucide="settings"></i>
+            <span>Restaurant Settings</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-nav-link text-muted mb-2">
+          <i data-lucide="arrow-left"></i>
+          <span>Public Website</span>
+        </a>
+        <a href="../login.html" class="btn btn-sm btn-outline-danger w-100">
+          <i data-lucide="log-out"></i> Exit Portal
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      
+      <!-- Topbar -->
+      <div class="dashboard-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button type="button" class="btn-icon-nav d-lg-none" id="admin-sidebar-toggle" aria-label="Toggle Sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="d-none d-sm-block">
+            <h5 class="mb-0">Executive Kitchen & Reservation Management</h5>
+            <span class="text-gold small">Live Demo Mode Active</span>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun-medium"></i></button>
+          <a href="../reservations.html" class="btn-flame btn-sm-custom">
+            <i data-lucide="plus"></i>
+            <span>Add Walk-in</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Container -->
+      <div class="dashboard-container">
+        
+        <!-- ================================================================
+             Tab 1: Analytics & Overview
+             ================================================================ -->
+        <section id="admin-view-overview" class="admin-view-content">
+          <div class="mb-4">
+            <h2 class="mb-1">Today's <span class="text-gold-gradient">Hearth Performance</span></h2>
+            <p class="text-secondary">Summary metrics for evening dinner service and table grill utilization.</p>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-orange"><i data-lucide="dollar-sign"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Est. Shift Gross</span>
+                  <h4 class="mb-0 text-flame">$8,490.00</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-gold"><i data-lucide="calendar"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Reservations Today</span>
+                  <h4 class="mb-0 text-gold">48 Tables</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-green"><i data-lucide="users"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Seated Diners</span>
+                  <h4 class="mb-0 text-success">142 Guests</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon icon-red"><i data-lucide="flame"></i></div>
+                <div>
+                  <span class="small text-muted text-uppercase">Active Downdrafts</span>
+                  <h4 class="mb-0">28 / 32 Grills</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Table Status -->
+          <div class="row g-4">
+            <div class="col-lg-8">
+              <div class="kf-card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h5 class="mb-0">Table Floor Heatmap</h5>
+                  <span class="badge-tag badge-prime">Service Peak: 7:30 PM</span>
+                </div>
+                <div class="row g-2 text-center small">
+                  ${[1, 2, 3, 4, 5, 6, 7, 8].map(n => `
+                    <div class="col-3 col-sm-3 mb-2">
+                      <div class="p-3 bg-secondary-app rounded border border-subtle">
+                        <strong class="d-block text-white mb-1">Booth ${n}</strong>
+                        <span class="status-badge ${n % 2 === 0 ? 'status-confirmed' : 'status-completed'}">
+                          ${n % 2 === 0 ? 'Seated' : 'Reserved'}
+                        </span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="kf-card p-4">
+                <h5 class="text-gold mb-3">Kitchen Quick Broadcast</h5>
+                <p class="text-secondary small mb-3">Send immediate alerts to dining room floor terminals.</p>
+                <div class="d-grid gap-2">
+                  <button type="button" class="btn-flame-outline btn-sm-custom text-start" onclick="window.kfToast.info('Kitchen notified: A5 Wagyu Ribeye stock at 4 remaining.', 'Inventory Notice')">
+                    86 Cut: Wagyu Ribeye Low Stock
+                  </button>
+                  <button type="button" class="btn-flame-outline btn-sm-custom text-start" onclick="window.kfToast.success('Charcoal team replenished 80kg of white oak Binchotan.', 'Hearth Status')">
+                    Charcoal Refill Logged
+                  </button>
+                  <button type="button" class="btn-flame-outline btn-sm-custom text-start" onclick="window.kfToast.info('Banchan kitchen prep completed 120 sets.', 'Prep Confirmed')">
+                    Banchan Prep Batch #3 Ready
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 2: Table Reservations Management
+             ================================================================ -->
+        <section id="admin-view-reservations" class="admin-view-content" style="display: none;">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h2 class="mb-1">Reservations Console</h2>
+              <p class="text-secondary">Review live holds, seat incoming parties, or cancel reservations.</p>
+            </div>
+            <button type="button" class="btn-flame btn-sm-custom" onclick="renderAdminReservations()">
+              <i data-lucide="rotate-ccw"></i>
+              <span>Refresh Table</span>
+            </button>
+          </div>
+
+          <div class="dash-table-card">
+            <div class="table-responsive-custom">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Guest Details</th>
+                    <th>Party</th>
+                    <th>Date & Time</th>
+                    <th>Table Preference</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-reservations-tbody">
+                  <!-- Rendered dynamically via assets/js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 3: Menu & Cuts
+             ================================================================ -->
+        <section id="admin-view-menu" class="admin-view-content" style="display: none;">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h2 class="mb-1">Menu Catalog & Pricing</h2>
+              <p class="text-secondary">Modify butcher cut prices, serving portions, or availability status.</p>
+            </div>
+            <button type="button" class="btn-flame btn-sm-custom" onclick="window.kfToast.info('New item dialog opened (demo)', 'Admin Action')">
+              <i data-lucide="plus"></i>
+              <span>Add New Cut</span>
+            </button>
+          </div>
+
+          <div class="dash-table-card">
+            <div class="table-responsive-custom">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Item Photo</th>
+                    <th>Item & Korean Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Portion</th>
+                    <th class="text-end">Edit</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-menu-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 4: Active Grill Orders
+             ================================================================ -->
+        <section id="admin-view-orders" class="admin-view-content" style="display: none;">
+          <div class="mb-4">
+            <h2 class="mb-1">Live Table Orders & Kitchen Expediter</h2>
+            <p class="text-secondary">Real-time table cart orders transmitted from guest mobile sessions.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="kf-card p-4 border-primary">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge-tag badge-spice">Order #ORD-841920</span>
+                  <span class="status-badge status-confirmed">Table 04</span>
+                </div>
+                <h5 class="mb-3">Smokeless Booth 4</h5>
+                <ul class="text-secondary small p-0 mb-3 border-top border-bottom border-subtle py-2">
+                  <li class="d-flex justify-content-between mb-1">
+                    <span>1x USDA Prime Galbi</span>
+                    <strong>$38.00</strong>
+                  </li>
+                  <li class="d-flex justify-content-between mb-1">
+                    <span>1x Berkshire Pork Belly</span>
+                    <strong>$29.00</strong>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span>1x Jinro Chamisul Soju</span>
+                    <strong>$14.00</strong>
+                  </li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center">
+                  <strong class="text-gold">Total: $81.00</strong>
+                  <button type="button" class="btn-flame btn-sm-custom" onclick="window.kfToast.success('Order #ORD-841920 marked as expedited to grill.', 'Kitchen Updated'); this.parentElement.parentElement.remove();">
+                    Mark Delivered
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="kf-card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge-tag badge-popular">Order #ORD-612991</span>
+                  <span class="status-badge status-pending">VIP Room 1</span>
+                </div>
+                <h5 class="mb-3">Imperial Suite VIP 1</h5>
+                <ul class="text-secondary small p-0 mb-3 border-top border-bottom border-subtle py-2">
+                  <li class="d-flex justify-content-between mb-1">
+                    <span>1x Grand Wagyu Flight</span>
+                    <strong>$165.00</strong>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span>2x Seafood Scallion Pancake</span>
+                    <strong>$39.00</strong>
+                  </li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center">
+                  <strong class="text-gold">Total: $204.00</strong>
+                  <button type="button" class="btn-flame btn-sm-custom" onclick="window.kfToast.success('Order #ORD-612991 marked as expedited to grill.', 'Kitchen Updated'); this.parentElement.parentElement.remove();">
+                    Mark Delivered
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 5: Guest Accounts
+             ================================================================ -->
+        <section id="admin-view-guests" class="admin-view-content" style="display: none;">
+          <div class="mb-4">
+            <h2 class="mb-1">Registered Guest Diners</h2>
+            <p class="text-secondary">Loyalty tiers, points balances, and dining history records.</p>
+          </div>
+
+          <div class="dash-table-card">
+            <div class="table-responsive-custom">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Guest Name</th>
+                    <th>Email Address</th>
+                    <th>Phone</th>
+                    <th>Tier</th>
+                    <th>Points</th>
+                    <th class="text-end">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Min-Ji Kim</strong></td>
+                    <td>guest@koreflame.com</td>
+                    <td>+1 (555) 382-7492</td>
+                    <td><span class="badge-tag badge-prime">Gold Grillmaster</span></td>
+                    <td class="text-gold font-weight-bold">1,240 pts</td>
+                    <td class="text-end"><span class="status-badge status-confirmed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>David J.</strong></td>
+                    <td>david.j@culinarycritics.org</td>
+                    <td>+1 (555) 712-9901</td>
+                    <td><span class="badge-tag badge-spice">Imperial Tier</span></td>
+                    <td class="text-gold font-weight-bold">3,150 pts</td>
+                    <td class="text-end"><span class="status-badge status-confirmed">VIP</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sarah Lin</strong></td>
+                    <td>sarah.lin@gmail.com</td>
+                    <td>+1 (555) 890-4412</td>
+                    <td><span class="badge-tag badge-popular">Silver Member</span></td>
+                    <td class="text-gold font-weight-bold">780 pts</td>
+                    <td class="text-end"><span class="status-badge status-confirmed">Active</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab 6: Settings
+             ================================================================ -->
+        <section id="admin-view-settings" class="admin-view-content" style="display: none;">
+          <div class="mb-4">
+            <h2 class="mb-1">Restaurant Digital System Configuration</h2>
+            <p class="text-secondary">Operating hours, slot intervals, and demo storage management.</p>
+          </div>
+
+          <div class="kf-card p-4 max-w-lg" style="max-width: 680px;">
+            <div class="mb-4">
+              <label class="form-label-custom">Restaurant Name</label>
+              <input type="text" class="form-control-custom" value="KoreFlame Korean BBQ" disabled>
+            </div>
+            <div class="mb-4">
+              <label class="form-label-custom">Reservation Holding Time Window</label>
+              <input type="text" class="form-control-custom" value="15 Minutes Maximum" disabled>
+            </div>
+            <div class="mb-4">
+              <label class="form-label-custom">Binchotan Heat Alert Threshold</label>
+              <input type="text" class="form-control-custom" value="450°F / 232°C High Sear" disabled>
+            </div>
+            <div class="pt-3 border-top border-subtle d-flex gap-3">
+              <button type="button" class="btn-flame" onclick="window.kfToast.success('Demo settings updated.', 'Saved')">Save Settings</button>
+              <button type="button" class="btn btn-outline-danger" onclick="localStorage.clear(); window.location.reload();">Reset Local Storage Data</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/state.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

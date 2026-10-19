@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoreFlame — Contact, Location & General Dining Inquiries</title>
+  <meta name="description" content="Get in touch with KoreFlame Korean BBQ: restaurant address, parking directions, phone numbers, opening hours, and banquet inquiry form.">
+  <link rel="canonical" href="https://koreflame.com/contact.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="kf-header d-flex align-items-center">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+          <div class="kf-brand-logo-wrap">
+            <div class="kf-logo-aura"></div>
+            <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+            <div class="kf-steam-wrap">
+              <span class="kf-steam-particle s1"></span>
+              <span class="kf-steam-particle s2"></span>
+              <span class="kf-steam-particle s3"></span>
+            </div>
+            <div class="kf-spark-wrap">
+              <span class="kf-spark-particle p1"></span>
+              <span class="kf-spark-particle p2"></span>
+              <span class="kf-spark-particle p3"></span>
+            </div>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu (Preserved on Desktop and Tablet from 1024px to 992px) -->
+        <nav class="desktop-nav d-none d-lg-block">
+          <ul class="nav-menu-list">
+            <!-- Home Dropdown: Only 'Home' in main navbar, with Home 1 and Home 2 in dropdown -->
+            <li class="nav-dropdown-item">
+              <a href="index.html" class="nav-link-custom">
+                <span>Home</span>
+                <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+              </a>
+              <div class="dropdown-menu-custom">
+                <a href="index.html" class="dropdown-link-custom">
+                  <span>Home 1 — The Grill Experience</span>
+                  <span class="badge-tag badge-prime">Explore</span>
+                </a>
+                <a href="index-2.html" class="dropdown-link-custom">
+                  <span>Home 2 — Celebration Experience</span>
+                  <span class="badge-tag badge-spice">Explore</span>
+                </a>
+              </div>
+            </li>
+            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="reservations.html" class="nav-link-custom">Reservations</a></li>
+            <li><a href="about.html" class="nav-link-custom">About</a></li>
+            <li><a href="pricing.html" class="nav-link-custom">Packages</a></li>
+            <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+            <li><a href="contact.html" class="nav-link-custom active">Contact</a></li>
+            <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <!-- Nav Right Actions -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
+            <i data-lucide="sun-medium" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- RTL / LTR Toggle -->
+          <button type="button" class="btn-icon-nav kf-rtl-toggle" aria-label="Toggle RTL/LTR Layout" title="Toggle LTR/RTL">
+            <i data-lucide="arrow-left-right" style="width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- Cart Icon Button -->
+          <button type="button" class="btn-icon-nav cart-open-btn" aria-label="Open Table Cart" title="View Cart">
+            <i data-lucide="shopping-bag" style="width: 18px; height: 18px;"></i>
+            <span class="cart-counter-badge" style="display: none;">0</span>
+          </button>
+
+          <!-- Reserve Table Icon Button -->
+          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+            <span class="nav-reserve-dot"></span>
+            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Account Icon Link -->
+          <a href="login.html" class="btn-icon-nav d-none d-sm-inline-flex" aria-label="Account Login" title="Guest Account">
+            <i data-lucide="user" style="width: 18px; height: 18px;"></i>
+          </a>
+
+          <!-- Mobile Hamburger Toggle (Switches below 992px) -->
+          <button type="button" class="btn-icon-nav mobile-nav-toggle d-lg-none" aria-label="Open Navigation Menu">
+            <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-subtle">
+      <a href="index.html" class="nav-brand-logo fs-5" aria-label="KoreFlame Korean BBQ">
+        <div class="kf-brand-logo-wrap" style="width: 38px; height: 38px;">
+          <div class="kf-logo-aura"></div>
+          <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+          <div class="kf-steam-wrap">
+            <span class="kf-steam-particle s1"></span>
+            <span class="kf-steam-particle s2"></span>
+            <span class="kf-steam-particle s3"></span>
+          </div>
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title" style="font-size: 1.2rem;">Kore<span class="brand-accent">Flame</span></span>
+          <span class="nav-brand-sub" style="font-size: 0.55rem;">PREMIUM SEOUL BBQ</span>
+        </div>
+      </a>
+      <button type="button" class="btn-icon-nav mobile-drawer-close" aria-label="Close Navigation">
+        <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+
+    <ul class="d-flex flex-column gap-2 p-0 mb-4">
+      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom">Home 2 — Celebration Experience</a></li>
+      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="reservations.html" class="nav-link-custom">Book a Table</a></li>
+      <li><a href="about.html" class="nav-link-custom">About KoreFlame</a></li>
+      <li><a href="pricing.html" class="nav-link-custom">Feast Packages</a></li>
+      <li><a href="blog.html" class="nav-link-custom">K-BBQ Culture Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom text-flame fw-bold">Location & Contact</a></li>
+      <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
+      <li><a href="admin/index.html" class="nav-link-custom text-muted">Admin Portal (Demo)</a></li>
+    </ul>
+
+    <div class="pt-3 border-top border-subtle">
+      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+    </div>
+  </aside>
+
+  <!-- Slideover Cart Drawer -->
+  <div id="kf-cart-backdrop" class="mobile-nav-backdrop"></div>
+  <aside id="kf-cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i data-lucide="shopping-bag" class="text-flame"></i>
+        <h5 class="mb-0">Table Grill Cart</h5>
+      </div>
+      <button type="button" id="kf-cart-close" class="btn-icon-nav"><i data-lucide="x"></i></button>
+    </div>
+    <div id="kf-cart-items-list" class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Estimated Subtotal:</span>
+        <strong id="kf-cart-subtotal" class="fs-4 text-gold">$0.00</strong>
+      </div>
+      <button type="button" class="btn-flame w-100" onclick="proceedToCheckout()">
+        <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+        <span>Send Order to Grill</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="py-5 bg-secondary-app border-bottom border-subtle">
+    <div class="container py-3 text-center">
+      <div class="section-label">Connect with Us</div>
+      <h1 class="display-4 fw-extrabold mb-3">Location & <span class="text-gold-gradient">Inquiries</span></h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 620px;">
+        Questions about our meats, large group banquets, or dietary accommodations? Reach our concierge team directly.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- Left: Form -->
+        <div class="col-lg-7">
+          <div class="kf-card p-4 p-md-5">
+            <h3 class="mb-2">Send Us a Direct Message</h3>
+            <p class="text-secondary small mb-4">Our events and dining desk responds to all messages within 2 hours during active business hours.</p>
+
+            <form id="kf-contact-form" onsubmit="handleContactSubmit(event)" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-custom">Full Name *</label>
+                <input type="text" id="contact-name" class="form-control-custom" placeholder="e.g. Min-Ji Kim" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">Email Address *</label>
+                <input type="email" id="contact-email" class="form-control-custom" placeholder="you@domain.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">Phone Number *</label>
+                <input type="tel" id="contact-phone" class="form-control-custom" placeholder="+1 (555) 000-0000" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">Subject / Department *</label>
+                <select id="contact-subject" class="form-select-custom" required>
+                  <option value="" disabled selected>Select Inquiry Type</option>
+                  <option value="General Dining Inquiry">General Dining Inquiry</option>
+                  <option value="Private VIP Room Booking">Private VIP Room Booking</option>
+                  <option value="Corporate Banquet Buyout">Corporate Banquet Buyout</option>
+                  <option value="Dietary & Allergen Question">Dietary & Allergen Question</option>
+                  <option value="Media & Press">Media & Press</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label-custom">Your Message *</label>
+                <textarea id="contact-message" class="form-control-custom" rows="4" placeholder="How can we assist your dining experience?" required></textarea>
+              </div>
+              <div class="col-12 pt-2">
+                <button type="submit" class="btn-flame py-3 px-4">
+                  <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+                  <span>Transmit Inquiry</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Location Info & Interactive Map Card -->
+        <div class="col-lg-5">
+          <div class="d-flex flex-column gap-4">
+            
+            <!-- Address Card -->
+            <div class="kf-card p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="p-3 bg-secondary-app text-flame rounded"><i data-lucide="map-pin"></i></div>
+                <div>
+                  <h5 class="mb-0">Restaurant Location</h5>
+                  <span class="text-gold small">Valet parking available</span>
+                </div>
+              </div>
+              <p class="text-secondary small mb-2">128 Seoul Grill Blvd, Suite 100<br>Culinary Arts District, NY 10001</p>
+              <span class="badge-tag badge-prime">Convenient Subway: L & N Trains</span>
+            </div>
+
+            <!-- Hours Card -->
+            <div class="kf-card p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="p-3 bg-secondary-app text-gold rounded"><i data-lucide="clock"></i></div>
+                <div>
+                  <h5 class="mb-0">Operating Hours</h5>
+                  <span class="text-muted small">Open 7 Days a Week</span>
+                </div>
+              </div>
+              <ul class="text-secondary small p-0 mb-0">
+                <li class="d-flex justify-content-between mb-2">
+                  <span>Lunch Service:</span>
+                  <strong>11:30 AM – 3:00 PM</strong>
+                </li>
+                <li class="d-flex justify-content-between mb-2">
+                  <span>Dinner (Sun – Thu):</span>
+                  <strong>5:00 PM – 11:00 PM</strong>
+                </li>
+                <li class="d-flex justify-content-between">
+                  <span>Late Night (Fri & Sat):</span>
+                  <strong class="text-flame">5:00 PM – 12:30 AM</strong>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Map Mockup Card -->
+            <div class="kf-card p-0 overflow-hidden position-relative" style="height: 220px; background: #1a1a20;">
+              <iframe 
+                title="KoreFlame Restaurant Location Map"
+                src="https://maps.google.com/maps?q=Times%20Square%20New%20York&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0; filter: contrast(1.1) invert(90%) hue-rotate(180deg);" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+              <div class="position-absolute bottom-0 start-0 m-3 p-2 bg-surface-app border border-subtle rounded small">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="text-flame">Open in Google Maps ↗</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="kf-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="nav-brand-logo mb-3">
+          <div class="nav-brand-icon">
+            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          </div>
+        </a>
+          <p class="text-secondary small">Authentic Korean BBQ restaurant with table Binchotan grills and vibrant dining culture.</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Navigation</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Dashboard</h5>
+          <ul class="footer-link-list p-0">
+            <li><a href="dashboard.html">Guest Portal</a></li>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-widget-title">Direct Hotline</h5>
+          <p class="text-muted small">+1 (555) 382-7492<br>concierge@koreflame.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 KoreFlame. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || name.length < 2) {
+        window.kfToast.error('Please enter a valid name.', 'Validation Error');
+        return;
+      }
+      if (!email || !email.includes('@')) {
+        window.kfToast.error('Please enter a valid email address.', 'Validation Error');
+        return;
+      }
+      if (!phone || phone.length < 7) {
+        window.kfToast.error('Please enter a valid phone number.', 'Validation Error');
+        return;
+      }
+      if (!subject) {
+        window.kfToast.error('Please select an inquiry subject.', 'Validation Error');
+        return;
+      }
+      if (!message || message.length < 5) {
+        window.kfToast.error('Please provide message details.', 'Validation Error');
+        return;
+      }
+
+      window.kfToast.success(`Thank you, ${name}! Your inquiry regarding "${subject}" has been logged and sent to our host desk.`, 'Message Dispatched');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

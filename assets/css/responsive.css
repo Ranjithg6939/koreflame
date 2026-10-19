@@ -1,0 +1,547 @@
+/* ==========================================================================
+   KoreFlame - Responsive Breakpoints & Adaptive Layout System
+   Tested & Optimized for: 1920px, 1440px, 1280px, 1024px, 900px, 820px, 768px, 600px, 480px, 375px, 320px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Global Reset & Viewport Constraints
+   Prevents horizontal overflow and ensures seamless full-viewport sizing
+   -------------------------------------------------------------------------- */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
+}
+
+/* Ensure all columns do not burst parents on narrow viewports */
+[class*="col-"] {
+  min-width: 0;
+}
+
+/* Responsive Image and Media Sizing */
+img,
+iframe,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Full Viewport Support across dynamic mobile browser URL bars */
+.min-vh-100 {
+  min-height: 100svh !important;
+  min-height: 100dvh !important;
+}
+
+/* Consistent responsive horizontal container padding */
+.container,
+.container-fluid {
+  width: 100%;
+  padding-left: clamp(1rem, 2.5vw, 2rem);
+  padding-right: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* --------------------------------------------------------------------------
+   1. Desktop Navigation Retained (>= 992px including 1024px, 1280px, 1440px, 1920px)
+   At widths from 1024px to 768px, retain the desktop navbar if all items fit comfortably
+   -------------------------------------------------------------------------- */
+@media (min-width: 992px) {
+  .desktop-nav {
+    display: block !important;
+  }
+  .nav-menu-list {
+    display: flex !important;
+  }
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+}
+
+/* Compact Desktop / Large Tablet (992px to 1120px, including 1024px)
+   Tightened padding and sizing so all 9 links fit with zero collisions */
+@media (min-width: 992px) and (max-width: 1120px) {
+  .kf-header > .container,
+  .kf-header > .container-fluid {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .nav-brand-logo {
+    gap: 0.55rem;
+  }
+
+  .kf-brand-logo-wrap,
+  .nav-brand-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-brand-title {
+    font-size: 1.22rem;
+  }
+
+  .nav-brand-sub {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+  }
+
+  .nav-menu-list {
+    gap: 0.18rem;
+  }
+
+  .nav-link-custom {
+    font-size: 0.76rem;
+    padding: 0.28rem 0.38rem;
+    gap: 0.2rem;
+  }
+
+  .nav-actions {
+    gap: 0.32rem;
+  }
+
+  .btn-icon-nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .btn-icon-nav i {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn-flame,
+  .btn-flame-outline {
+    padding: 0.5rem 1rem;
+    font-size: 0.84rem;
+  }
+
+  .meat-cut-selector {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+  }
+
+  .meat-selector-btn {
+    padding: 0.45rem 0.35rem;
+    min-height: 52px;
+  }
+
+  .meat-selector-btn .cut-name-en {
+    font-size: 0.78rem;
+  }
+
+  .meat-selector-btn .cut-name-kr {
+    font-size: 0.7rem;
+  }
+}
+
+/* Medium Desktop (1121px to 1320px, including 1280px) */
+@media (min-width: 1121px) and (max-width: 1320px) {
+  .nav-menu-list {
+    gap: 0.35rem;
+  }
+
+  .nav-link-custom {
+    font-size: 0.84rem;
+    padding: 0.35rem 0.52rem;
+  }
+
+  .nav-actions {
+    gap: 0.45rem;
+  }
+
+  .btn-icon-nav {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Ultra-Wide Displays (>= 1440px and 1920px) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+  .kf-header > .container {
+    max-width: 1560px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Clean Switch to Mobile Navigation below 992px (< 992px)
+   Supports 900px, 820px (iPad Air portrait), 768px (iPad Mini)
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  :root {
+    --header-height: 74px;
+  }
+
+  .desktop-nav,
+  .nav-menu-list {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex !important;
+  }
+
+  .kf-header {
+    height: var(--header-height);
+  }
+
+  .mobile-nav-drawer {
+    width: min(320px, 86vw);
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cart-drawer {
+    width: min(400px, 92vw);
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* Dashboard sidebar transitions to mobile offcanvas */
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1050;
+    transition: transform var(--transition-base), left var(--transition-base);
+  }
+
+  [dir="rtl"] .dashboard-sidebar {
+    left: auto;
+    right: -290px;
+    transition: transform var(--transition-base), right var(--transition-base);
+  }
+
+  .dashboard-sidebar.active {
+    left: 0;
+  }
+
+  [dir="rtl"] .dashboard-sidebar.active {
+    right: 0;
+  }
+
+  .dashboard-container {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Two-column feast packages on tablet */
+  .packages-row {
+    row-gap: 1.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Tablet & Mobile Phones (< 768px)
+   Covers 768px, 600px, 480px, 375px, 320px
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  /* Dynamic hero min-height on mobile: allow natural content expansion without empty gaps */
+  .kf-hero {
+    min-height: auto;
+    padding: clamp(2.5rem, 5vh, 4rem) 0 3rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  /* Hero stats in a clean 2x2 grid */
+  .hero-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  /* Meat simulator cut selector */
+  .meat-cut-selector {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .meat-selector-btn:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .grill-rack-visual {
+    height: clamp(170px, 25vw, 200px);
+  }
+
+  .active-cut-img {
+    max-height: 140px;
+  }
+
+  /* Category filter buttons: sleek touch-friendly horizontal scrollbar */
+  .menu-filter-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.6rem;
+    gap: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .menu-filter-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.45rem 1rem;
+    font-size: 0.84rem;
+  }
+
+  /* Multi-step reservation wizard on mobile */
+  .reservation-wizard-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .wizard-steps-header::before {
+    display: none;
+  }
+
+  .wizard-steps-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .wizard-node-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .wizard-node-title {
+    font-size: 0.62rem;
+    text-align: center;
+    line-height: 1.15;
+    word-break: break-word;
+  }
+
+  .party-size-selector {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .party-size-btn {
+    padding: 0.6rem 0.3rem;
+    font-size: 0.85rem;
+  }
+
+  /* Live experience section right image */
+  .kf-experience-section img {
+    min-height: 280px;
+    max-height: 380px;
+    object-fit: cover;
+  }
+
+  /* Cart Drawer takes full mobile width */
+  .cart-drawer {
+    width: 100vw;
+    right: -100vw;
+  }
+
+  .cart-drawer.active {
+    right: 0;
+  }
+
+  [dir="rtl"] .cart-drawer {
+    right: auto;
+    left: -100vw;
+  }
+
+  [dir="rtl"] .cart-drawer.active {
+    left: 0;
+  }
+
+  /* Footer bottom stacking */
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Small Mobile Devices (<= 480px, including 375px and 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 66px;
+  }
+
+  /* Compact Navbar Brand & Icons to guarantee zero header overflow on 320px */
+  .nav-brand-logo {
+    gap: 0.5rem;
+  }
+
+  .kf-brand-logo-wrap,
+  .nav-brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-brand-title {
+    font-size: 1.15rem;
+  }
+
+  .nav-brand-sub {
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-actions {
+    gap: 0.3rem;
+  }
+
+  .btn-icon-nav {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .btn-icon-nav i {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Button full width in CTA groups */
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn-flame,
+  .hero-cta-group .btn-flame-outline,
+  .hero-cta-group .btn-gold {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Meat simulator cut buttons */
+  .meat-cut-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .party-size-selector {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Responsive Toast container */
+  .toast-container-custom {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    max-width: none;
+  }
+
+  /* Countdown timer boxes on coming soon page */
+  #countdown-timer .col-3 {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  #countdown-timer .p-3 {
+    padding: 0.5rem 0.25rem !important;
+  }
+
+  #countdown-timer .display-6 {
+    font-size: 1.25rem;
+  }
+
+  #countdown-timer .small {
+    font-size: 0.65rem;
+  }
+
+  /* Utility page cards */
+  .kf-card {
+    padding: 1.25rem;
+  }
+
+  /* Home 2 split hero badges */
+  .kf-hero-badge-mobile {
+    position: static !important;
+    margin-top: 0.75rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Ultra-Compact Screens (<= 360px down to 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .nav-brand-title {
+    font-size: 1.05rem;
+  }
+
+  .nav-brand-sub {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 0.25rem;
+  }
+
+  .btn-icon-nav {
+    width: 32px;
+    height: 32px;
+  }
+
+  .wizard-node-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 0.72rem;
+  }
+
+  .wizard-node-title {
+    font-size: 0.56rem;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .display-3, .display-4 {
+    font-size: 2rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Accessibility & Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
