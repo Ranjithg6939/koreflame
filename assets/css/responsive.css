@@ -22,12 +22,15 @@ body {
 
 /* Responsive Image and Media Sizing */
 img,
-iframe,
 video,
 svg,
 canvas {
   max-width: 100%;
   height: auto;
+}
+
+iframe {
+  max-width: 100%;
 }
 
 /* Full Viewport Support across dynamic mobile browser URL bars */
@@ -119,21 +122,21 @@ canvas {
   }
 
   .meat-cut-selector {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.5rem;
   }
 
   .meat-selector-btn {
-    padding: 0.45rem 0.35rem;
-    min-height: 52px;
+    padding: 0.4rem 0.3rem;
+    min-height: 50px;
   }
 
   .meat-selector-btn .cut-name-en {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
   }
 
   .meat-selector-btn .cut-name-kr {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 }
 
@@ -239,6 +242,12 @@ canvas {
   /* Two-column feast packages on tablet */
   .packages-row {
     row-gap: 1.75rem;
+  }
+
+  /* Service details sticky card reset on mobile/tablet */
+  .col-lg-4 .sticky-top,
+  .col-lg-6 .sticky-top {
+    position: static !important;
   }
 }
 
@@ -379,6 +388,16 @@ canvas {
     flex-direction: column;
     text-align: center;
     gap: 0.75rem;
+  }
+
+  /* Responsive data table cell sizing */
+  .dash-table th {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.75rem;
+  }
+  .dash-table td {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.84rem;
   }
 }
 

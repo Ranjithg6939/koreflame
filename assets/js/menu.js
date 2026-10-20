@@ -94,7 +94,7 @@ function initMenuController() {
       }
 
       // Dietary tags
-      const dietaryTags = item.dietary.map(d => `<span class="badge-tag badge-prime me-1">${d}</span>`).join('');
+      const dietaryTags = item.dietary.map(d => `<span class="badge-tag badge-prime">${d}</span>`).join('');
 
       return `
         <div class="col-xl-4 col-md-6">
@@ -106,26 +106,26 @@ function initMenuController() {
                       aria-label="Save ${item.nameEn} to favorites">
                 <i data-lucide="heart" style="width: 18px; height: 18px;" fill="${isFav ? 'currentColor' : 'none'}"></i>
               </button>
-              ${item.popular ? `<span class="position-absolute bottom-0 start-0 m-3 badge-tag badge-popular">Popular</span>` : ''}
+              ${item.popular ? `<span class="position-absolute bottom-0 start-0 m-3 badge-tag badge-popular d-inline-flex align-items-center gap-1"><i data-lucide="flame" style="width: 12px; height: 12px;"></i><span>Popular</span></span>` : ''}
             </div>
 
             <div class="menu-card-body">
-              <div class="d-flex justify-content-between align-items-start mb-1">
-                <h5 class="mb-0">${item.nameEn}</h5>
+              <div class="menu-card-title-wrap">
+                <h5 class="menu-card-title">${item.nameEn}</h5>
               </div>
-              <div class="korean-tag text-gold mb-2">${item.nameKr}</div>
+              <div class="korean-tag text-gold menu-card-subtitle">${item.nameKr}</div>
 
-              <p class="text-secondary small flex-grow-1 mb-3">${item.description}</p>
+              <p class="menu-card-desc">${item.description}</p>
 
-              <div class="mb-3 d-flex flex-wrap gap-1">
+              <div class="menu-card-badges">
                 ${spiceBadges}
                 ${dietaryTags}
               </div>
 
-              <div class="d-flex align-items-center justify-content-between pt-3 border-top border-subtle mt-auto">
+              <div class="menu-card-footer">
                 <div>
                   <div class="menu-card-price">$${item.price.toFixed(2)}</div>
-                  <div class="text-muted small">${item.portion}</div>
+                  <div class="menu-card-portion">${item.portion}</div>
                 </div>
                 <button type="button" class="btn-flame btn-sm-custom" onclick="handleAddMenuItem('${item.id}')">
                   <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
@@ -164,17 +164,45 @@ function initMenuController() {
 
   // Add Item to Cart
   window.handleAddMenuItem = function(itemId) {
-    const item = items.find(i => i.id === itemId);
+    const user = window.KF_STATE ? window.KF_STATE.getUser() : null;
+    if (!user || !user.isLoggedIn) {
+      const currentPath = window.location.pathname.split('/').pop() || 'menu.html';
+      const redirectUrl = currentPath + window.location.search;
+      if (window.kfToast) {
+        window.kfToast.show(
+          'Please sign in to add items to your cart.',
+          'info',
+          'Sign In Required',
+          6500,
+          { text: 'Sign In', href: `login.html?redirect=${encodeURIComponent(redirectUrl)}` }
+        );
+      }
+      return; // Do not add items to the cart before authentication
+    }
+
+    let item = items.find(i => i.id === itemId);
+    if (!item && window.KF_DATA && window.KF_DATA.menuItems) {
+      item = window.KF_DATA.menuItems.find(i => i.id === itemId);
+    }
     if (!item) return;
 
     window.KF_STATE.addToCart({
       id: item.id,
       nameEn: item.nameEn,
-      nameKr: item.nameKr,
+      nameKr: item.nameKr || '',
       price: item.price,
       image: item.image
     }, 1);
 
     window.kfToast.success(`${item.nameEn} added to your table order!`, 'Added to Cart');
+
+    if (window.triggerCartBounce) {
+      window.triggerCartBounce();
+    }
+
+    // Immediately open the Cart Drawer
+    if (typeof window.openCartDrawer === 'function') {
+      window.openCartDrawer();
+    }
   };
 }

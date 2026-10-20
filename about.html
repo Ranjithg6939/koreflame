@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   
@@ -18,10 +18,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=golden8">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=golden8">
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- Header -->
   <header class="kf-header d-flex align-items-center">
@@ -61,20 +62,18 @@
               </a>
               <div class="dropdown-menu-custom">
                 <a href="index.html" class="dropdown-link-custom">
-                  <span>Home 1 — The Grill Experience</span>
+                  <span>The Grill Experience</span>
                   <span class="badge-tag badge-prime">Explore</span>
                 </a>
                 <a href="index-2.html" class="dropdown-link-custom">
-                  <span>Home 2 — Celebration Experience</span>
+                  <span>Celebration Experience</span>
                   <span class="badge-tag badge-spice">Explore</span>
                 </a>
               </div>
             </li>
-            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
-            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
-            <li><a href="reservations.html" class="nav-link-custom">Reservations</a></li>
             <li><a href="about.html" class="nav-link-custom active">About</a></li>
-            <li><a href="pricing.html" class="nav-link-custom">Packages</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
             <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
             <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
             <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
@@ -100,7 +99,7 @@
           </button>
 
           <!-- Reserve Table Icon Button -->
-          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+          <a href="pricing.html#reservations" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
             <span class="nav-reserve-dot"></span>
             <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
           </a>
@@ -145,13 +144,11 @@
     </div>
 
     <ul class="d-flex flex-column gap-2 p-0 mb-4">
-      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
-      <li><a href="index-2.html" class="nav-link-custom">Home 2 — Celebration Experience</a></li>
-      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
-      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
-      <li><a href="reservations.html" class="nav-link-custom">Book a Table</a></li>
+      <li><a href="index.html" class="nav-link-custom">The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom">Celebration Experience</a></li>
       <li><a href="about.html" class="nav-link-custom text-flame fw-bold">About KoreFlame</a></li>
-      <li><a href="pricing.html" class="nav-link-custom">Feast Packages</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
       <li><a href="blog.html" class="nav-link-custom">K-BBQ Culture Blog</a></li>
       <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
       <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
@@ -159,7 +156,7 @@
     </ul>
 
     <div class="pt-3 border-top border-subtle">
-      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
       <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
     </div>
   </aside>
@@ -184,110 +181,134 @@
         <i data-lucide="send" style="width: 18px; height: 18px;"></i>
         <span>Send Order to Grill</span>
       </button>
+      <a href="cart.html" class="btn-flame-outline w-100 mt-2 text-center d-flex align-items-center justify-content-center gap-2">
+        <i data-lucide="shopping-cart" style="width: 16px; height: 16px;"></i>
+        <span>View Full Cart</span>
+      </a>
     </div>
   </aside>
 
+  <!-- Main Landmark -->
+  <main id="main-content">
+
   <!-- Banner -->
-  <section class="py-5 bg-secondary-app border-bottom border-subtle">
-    <div class="container py-3 text-center">
-      <div class="section-label">Our Story & Traditions</div>
-      <h1 class="display-4 fw-extrabold mb-3">The Soul Behind <span class="text-gold-gradient">KoreFlame</span></h1>
-      <p class="lead text-secondary mx-auto" style="max-width: 640px;">
+  <section class="py-5 bg-secondary-app border-bottom border-subtle position-relative overflow-hidden">
+    <div class="container py-4 text-center position-relative" style="z-index: 2;">
+      <!-- Breadcrumb Navigation -->
+      <div class="d-flex justify-content-center mb-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0 align-items-center">
+            <li class="breadcrumb-item">
+              <a href="index.html" class="text-secondary text-decoration-none d-inline-flex align-items-center gap-1 hover-flame">
+                <i data-lucide="home" style="width: 14px; height: 14px;"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="breadcrumb-item active text-gold fw-semibold" aria-current="page">About Us</li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- Section Label & English Tag -->
+      <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-3">
+        <span class="section-label m-0">Our Story &amp; Traditions</span>
+        <span class="badge-hangul">Authentic Charcoal Grill</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="display-4 fw-extrabold mb-3 kf-reveal">The Soul Behind <span class="text-gold-gradient">KoreFlame</span></h1>
+      
+      <!-- Subtitle -->
+      <p class="lead text-secondary mx-auto mb-4 kf-reveal delay-1" style="max-width: 680px; line-height: 1.8;">
         Born from the vibrant alleyways of Mapo-gu in Seoul, KoreFlame celebrates the raw energy of sizzling charcoal, hand-cut prime meats, and generational fermentation.
       </p>
-    </div>
-  </section>
 
-  <!-- Story & Mission Section -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <div class="section-label">Founding Philosophy</div>
-          <h2 class="mb-3">Where Street Energy Meets Culinary Precision</h2>
-          <p class="text-secondary mb-3">
-            In 2024, Executive Chef Min-Jun Kang envisioned a restaurant that captured the authentic warmth of late-night Seoul grill tents (Pojangmacha) combined with pristine, modern Japanese downdraft engineering and artisanal butcher cuts.
-          </p>
-          <p class="text-secondary mb-4">
-            Too often, Western Korean BBQ relies on gas burners and sugary artificial sauces. At KoreFlame, every single ember is pure Kishu white oak Binchotan. Every marinade rests for 48 hours in blended Korean sweet pears, toasted sesame, and raw garlic.
-          </p>
-
-          <div class="row g-3">
-            <div class="col-6">
-              <div class="p-3 bg-surface-app border border-subtle rounded text-center">
-                <span class="display-6 fw-bold text-flame d-block">10,000+</span>
-                <span class="small text-muted">Tables Grilled</span>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="p-3 bg-surface-app border border-subtle rounded text-center">
-                <span class="display-6 fw-bold text-gold d-block">48-Hr</span>
-                <span class="small text-muted">Artisan Marinade</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Chef Preparing Korean BBQ" class="rounded shadow-lg w-100">
-            <div class="position-absolute bottom-0 start-0 m-4 p-3 bg-surface-app backdrop-blur-glass border border-subtle rounded">
-              <strong class="text-gold d-block">Master Butcher Min-Jun Kang</strong>
-              <span class="small text-muted">20+ Years Korean Charcoal Mastery</span>
-            </div>
-          </div>
-        </div>
+      <!-- Quick Heritage Highlight Badges -->
+      <div class="about-hero-pills kf-reveal delay-2">
+        <span class="about-hero-pill">
+          <i data-lucide="flame" class="text-flame" style="width: 16px; height: 16px;"></i>
+          <span>1,000°C Kishu Binchotan Heat</span>
+        </span>
+        <span class="about-hero-pill">
+          <i data-lucide="award" class="text-gold" style="width: 16px; height: 16px;"></i>
+          <span>USDA Prime &amp; A5 Miyazaki Wagyu</span>
+        </span>
+        <span class="about-hero-pill">
+          <i data-lucide="sparkles" class="text-flame" style="width: 16px; height: 16px;"></i>
+          <span>Generational 48-Hour Marinade</span>
+        </span>
       </div>
     </div>
   </section>
 
   <!-- 4 Pillars of KoreFlame -->
-  <section class="py-5 bg-secondary-app">
+  <section class="py-5 bg-secondary-app border-top border-subtle">
     <div class="container py-4">
-      <div class="section-header text-center">
-        <div class="section-label">Our Pillars</div>
-        <h2>The Four Tenets of Our Craft</h2>
-        <p class="text-secondary">We hold ourselves to uncompromising standards of sourcing, fire, and fermentation.</p>
+      <div class="section-header text-center mb-5">
+        <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-2">
+          <span class="section-label m-0">Our Pillars</span>
+          <span class="badge-hangul">Our Core Pillars</span>
+        </div>
+        <h2 class="display-5 fw-extrabold mb-3">The Four Tenets of Our Craft</h2>
+        <p class="lead text-secondary mx-auto" style="max-width: 600px;">
+          We hold ourselves to uncompromising standards of sourcing, fire, and fermentation.
+        </p>
       </div>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="kf-card h-100 p-4 text-center">
-            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-flame mb-3">
+        <!-- Pillar 1 -->
+        <div class="col-md-6 col-lg-3 kf-reveal delay-1">
+          <div class="about-pillar-card">
+            <div class="about-pillar-icon text-flame">
               <i data-lucide="flame" style="width: 28px; height: 28px;"></i>
             </div>
-            <h5>Pure Binchotan Charcoal</h5>
-            <p class="text-secondary small">Fired at 1,000°C for clean far-infrared heat without bitter sulfur or petroleum smoke.</p>
+            <div class="badge-hangul mb-2">Pure Charcoal Heat</div>
+            <h5 class="fw-bold mb-2">Pure Binchotan Charcoal</h5>
+            <p class="text-secondary small mb-0" style="line-height: 1.6;">
+              Fired at 1,000°C for pristine far-infrared radiant heat without bitter sulfur or petrochemical smoke.
+            </p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="kf-card h-100 p-4 text-center">
-            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-gold mb-3">
+        <!-- Pillar 2 -->
+        <div class="col-md-6 col-lg-3 kf-reveal delay-2">
+          <div class="about-pillar-card">
+            <div class="about-pillar-icon text-gold">
               <i data-lucide="award" style="width: 28px; height: 28px;"></i>
             </div>
-            <h5>Uncompromising Cuts</h5>
-            <p class="text-secondary small">USDA Prime black angus, heirloom Berkshire pork belly, and authentic A5 Miyazaki Wagyu.</p>
+            <div class="badge-hangul badge-hangul-gold mb-2">Prime Cuts Sourcing</div>
+            <h5 class="fw-bold mb-2">Uncompromising Cuts</h5>
+            <p class="text-secondary small mb-0" style="line-height: 1.6;">
+              USDA Prime Black Angus, heirloom Berkshire pork belly, and authentic certified A5 Miyazaki Wagyu ribeye.
+            </p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="kf-card h-100 p-4 text-center">
-            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-sizzle mb-3">
+        <!-- Pillar 3 -->
+        <div class="col-md-6 col-lg-3 kf-reveal delay-3">
+          <div class="about-pillar-card">
+            <div class="about-pillar-icon text-flame">
               <i data-lucide="soup" style="width: 28px; height: 28px;"></i>
             </div>
-            <h5>Daily Fermentation</h5>
-            <p class="text-secondary small">No canned sides. 8 artisan banchan dishes crafted fresh every morning using natural sea salt and wild probiotics.</p>
+            <div class="badge-hangul mb-2">Natural Fermentation</div>
+            <h5 class="fw-bold mb-2">Daily Fermentation</h5>
+            <p class="text-secondary small mb-0" style="line-height: 1.6;">
+              Zero canned sides. 8 artisan banchan dishes crafted fresh every dawn using sea salt and live wild probiotics.
+            </p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="kf-card h-100 p-4 text-center">
-            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-success mb-3">
+        <!-- Pillar 4 -->
+        <div class="col-md-6 col-lg-3 kf-reveal delay-4">
+          <div class="about-pillar-card">
+            <div class="about-pillar-icon text-success">
               <i data-lucide="heart" style="width: 28px; height: 28px;"></i>
             </div>
-            <h5>Heartfelt Hospitality</h5>
-            <p class="text-secondary small">Generous hospitality where extra banchan, sizzling hospitality, and smiles are always complimentary.</p>
+            <div class="badge-hangul badge-hangul-gold mb-2">Heartfelt Service</div>
+            <h5 class="fw-bold mb-2">Heartfelt Hospitality</h5>
+            <p class="text-secondary small mb-0" style="line-height: 1.6;">
+              Genuine heartfelt hospitality where side dish refills, grill grating changes, and warm smiles are always complimentary.
+            </p>
           </div>
         </div>
       </div>
@@ -295,76 +316,426 @@
   </section>
 
   <!-- Atmosphere Gallery -->
-  <section class="py-5">
-    <div class="container">
-      <div class="section-header text-center">
-        <div class="section-label">Our Space</div>
-        <h2>Atmosphere & Interior Craft</h2>
-        <p class="text-secondary">Explore our dining booths, downdraft bar, and VIP celebration alcoves.</p>
+  <section class="py-5 border-top border-subtle">
+    <div class="container py-4">
+      <div class="section-header text-center mb-5">
+        <div class="d-inline-flex align-items-center justify-content-center gap-2 mb-2">
+          <span class="section-label m-0">Our Space</span>
+          <span class="badge-hangul">Space &amp; Ambience</span>
+        </div>
+        <h2 class="display-5 fw-extrabold mb-3">Atmosphere &amp; Interior Craft</h2>
+        <p class="lead text-secondary mx-auto" style="max-width: 620px;">
+          Explore our intimate tabletop hearths, downdraft bar, and VIP celebration alcoves.
+        </p>
       </div>
 
-      <div class="row g-3">
-        <div class="col-md-4">
-          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" class="rounded w-100 h-100 object-fit-cover shadow-sm" alt="Atmosphere 1" style="min-height: 240px;">
+      <div class="row g-4">
+        <!-- Gallery 1 -->
+        <div class="col-lg-4 col-md-6 kf-reveal delay-1">
+          <div class="about-gallery-card">
+            <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop" alt="Smokeless Tabletop Grills" loading="lazy">
+            <div class="about-gallery-overlay">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge-tag badge-spice">The Main Hearth</span>
+              </div>
+              <div>
+                <h5 class="text-white fw-bold mb-1">Smokeless Tabletop Grills</h5>
+                <p class="text-white-50 small mb-0">Downdraft extraction delivering clean infrared heat without smoke.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-          <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600&auto=format&fit=crop" class="rounded w-100 h-100 object-fit-cover shadow-sm" alt="Atmosphere 2" style="min-height: 240px;">
+
+        <!-- Gallery 2 -->
+        <div class="col-lg-4 col-md-6 kf-reveal delay-2">
+          <div class="about-gallery-card">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" alt="VIP Celebration Alcoves" loading="lazy">
+            <div class="about-gallery-overlay">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge-tag badge-prime">Intimate Dining</span>
+              </div>
+              <div>
+                <h5 class="text-white fw-bold mb-1">VIP Celebration Alcoves</h5>
+                <p class="text-white-50 small mb-0">Curated booth seating with warm brass lighting and Seoul playlists.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=600&auto=format&fit=crop" class="rounded w-100 h-100 object-fit-cover shadow-sm" alt="Atmosphere 3" style="min-height: 240px;">
+
+        <!-- Gallery 3 -->
+        <div class="col-lg-4 col-md-6 kf-reveal delay-3">
+          <div class="about-gallery-card">
+            <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=800&auto=format&fit=crop" alt="8 Daily Scratch Fermentations" loading="lazy">
+            <div class="about-gallery-overlay">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge-tag badge-popular">Artisan Sides</span>
+              </div>
+              <div>
+                <h5 class="text-white fw-bold mb-1">8 Daily Scratch Fermentations</h5>
+                <p class="text-white-50 small mb-0">Handmade baechu kimchi, seasoned sprouts, and aged ssamjang.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Banner -->
-  <section class="py-5 bg-secondary-app text-center">
-    <div class="container py-3">
-      <h3 class="mb-3">Join Us at the Grill Tonight</h3>
-      <p class="text-secondary mb-4 mx-auto" style="max-width: 580px;">Experience the vibrant communal spirit and sizzling meats that make KoreFlame unforgettable.</p>
-      <a href="reservations.html" class="btn-flame btn-lg-custom">Reserve Your Table</a>
+  <!-- ======================================================================
+       Timeline Section: Our Journey — A Story Told Around the Grill (Roadmap)
+       ====================================================================== -->
+  <section class="py-5 timeline-section bg-secondary-app border-top border-subtle" id="our-journey">
+    <div class="container py-4">
+      <!-- Section Header -->
+      <div class="text-center mb-5">
+        <div class="section-label mx-auto">Generational Heritage &amp; Evolution</div>
+        <h2 class="display-4 fw-extrabold mb-3">Our <span class="text-gold-gradient">Journey</span></h2>
+        <p class="lead text-secondary mx-auto" style="max-width: 600px;">
+          A Story Told Around the Grill.
+        </p>
+      </div>
+
+      <!-- Roadmap Timeline Container -->
+      <div class="roadmap-timeline-wrapper">
+        
+        <!-- Central Glowing Roadmap Trail (Spine) -->
+        <div class="roadmap-trail-line" aria-hidden="true"></div>
+
+        <!-- Start of Journey Indicator -->
+        <div class="roadmap-start-node text-center mb-5">
+          <span class="roadmap-start-pill">
+            <i data-lucide="compass" style="width: 14px; height: 14px;"></i>
+            <span>The KoreFlame Heritage Roadmap</span>
+          </span>
+        </div>
+
+        <!-- Milestone 01 (Left Side on Desktop) -->
+        <div class="roadmap-milestone-row row g-0 align-items-center mb-5 kf-reveal">
+          <div class="col-lg-5 order-2 order-lg-1">
+            <div class="roadmap-card">
+              <div class="roadmap-img-thumb">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="01 — Our Korean Roots" loading="lazy">
+              </div>
+              <div class="p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-tag badge-prime">Milestone 01 · Heritage</span>
+                  <span class="timeline-dot-separator"></span>
+                  <span class="small text-muted fw-semibold">Origins &amp; Traditions</span>
+                </div>
+                <h3 class="h4 mb-2 text-gold-gradient">01 — Our Korean Roots</h3>
+                <p class="text-secondary small mb-0" style="line-height: 1.7; font-size: 0.95rem;">
+                  Discover the rich heritage of Korean BBQ, where traditional marinades, bold flavors, and shared meals bring people together.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 order-1 order-lg-2 text-center position-relative my-3 my-lg-0">
+            <div class="roadmap-node-hub">
+              <span class="roadmap-node-number">01</span>
+            </div>
+            <div class="roadmap-node-label">Heritage</div>
+          </div>
+          <div class="col-lg-5 order-3 order-lg-3 d-none d-lg-block">
+            <div class="roadmap-side-highlight ps-4">
+              <span class="roadmap-step-tag">Roadmap Stage 01</span>
+              <h6 class="text-gold mt-1 mb-1">Authentic Seoul Foundations</h6>
+              <p class="text-muted small mb-0">Ancient marinade alchemy and the spirit of shared family feasts.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 02 (Right Side on Desktop) -->
+        <div class="roadmap-milestone-row row g-0 align-items-center mb-5 kf-reveal">
+          <div class="col-lg-5 order-3 order-lg-1 d-none d-lg-block text-end">
+            <div class="roadmap-side-highlight pe-4">
+              <span class="roadmap-step-tag">Roadmap Stage 02</span>
+              <h6 class="text-flame mt-1 mb-1">Tabletop Mastery</h6>
+              <p class="text-muted small mb-0">1,000°C Binchotan infrared heat sealing intramuscular flavors.</p>
+            </div>
+          </div>
+          <div class="col-lg-2 order-1 order-lg-2 text-center position-relative my-3 my-lg-0">
+            <div class="roadmap-node-hub">
+              <span class="roadmap-node-number">02</span>
+            </div>
+            <div class="roadmap-node-label">Mastery</div>
+          </div>
+          <div class="col-lg-5 order-2 order-lg-3">
+            <div class="roadmap-card">
+              <div class="roadmap-img-thumb">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop" alt="02 — The Art of the Grill" loading="lazy">
+              </div>
+              <div class="p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-tag badge-spice">Milestone 02 · Tabletop Mastery</span>
+                  <span class="timeline-dot-separator"></span>
+                  <span class="small text-muted fw-semibold">Fire &amp; Flavor</span>
+                </div>
+                <h3 class="h4 mb-2 text-gold-gradient">02 — The Art of the Grill</h3>
+                <p class="text-secondary small mb-0" style="line-height: 1.7; font-size: 0.95rem;">
+                  We celebrate the experience of grilling premium ingredients at the table, combining authentic Korean traditions with modern dining.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 03 (Left Side on Desktop) -->
+        <div class="roadmap-milestone-row row g-0 align-items-center mb-5 kf-reveal">
+          <div class="col-lg-5 order-2 order-lg-1">
+            <div class="roadmap-card">
+              <div class="roadmap-img-thumb">
+                <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=800&auto=format&fit=crop" alt="03 — Quality in Every Ingredient" loading="lazy">
+              </div>
+              <div class="p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-tag badge-popular">Milestone 03 · Sourcing</span>
+                  <span class="timeline-dot-separator"></span>
+                  <span class="small text-muted fw-semibold">Artisanal Purity</span>
+                </div>
+                <h3 class="h4 mb-2 text-gold-gradient">03 — Quality in Every Ingredient</h3>
+                <p class="text-secondary small mb-0" style="line-height: 1.7; font-size: 0.95rem;">
+                  From carefully selected meats and fresh vegetables to signature marinades and Korean side dishes, every detail matters.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 order-1 order-lg-2 text-center position-relative my-3 my-lg-0">
+            <div class="roadmap-node-hub">
+              <span class="roadmap-node-number">03</span>
+            </div>
+            <div class="roadmap-node-label">Sourcing</div>
+          </div>
+          <div class="col-lg-5 order-3 order-lg-3 d-none d-lg-block">
+            <div class="roadmap-side-highlight ps-4">
+              <span class="roadmap-step-tag">Roadmap Stage 03</span>
+              <h6 class="text-gold mt-1 mb-1">Uncompromising Standards</h6>
+              <p class="text-muted small mb-0">USDA Prime cuts, Berkshire pork, and farm-fresh organic produce.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 04 (Right Side on Desktop) -->
+        <div class="roadmap-milestone-row row g-0 align-items-center mb-5 kf-reveal">
+          <div class="col-lg-5 order-3 order-lg-1 d-none d-lg-block text-end">
+            <div class="roadmap-side-highlight pe-4">
+              <span class="roadmap-step-tag">Roadmap Stage 04</span>
+              <h6 class="text-flame mt-1 mb-1">The Communal Hearth</h6>
+              <p class="text-muted small mb-0">Conversations flowing freely around sizzling smokeless grates.</p>
+            </div>
+          </div>
+          <div class="col-lg-2 order-1 order-lg-2 text-center position-relative my-3 my-lg-0">
+            <div class="roadmap-node-hub">
+              <span class="roadmap-node-number">04</span>
+            </div>
+            <div class="roadmap-node-label">Gathering</div>
+          </div>
+          <div class="col-lg-5 order-2 order-lg-3">
+            <div class="roadmap-card">
+              <div class="roadmap-img-thumb">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800&auto=format&fit=crop" alt="04 — A Place to Gather" loading="lazy">
+              </div>
+              <div class="p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-tag badge-prime">Milestone 04 · Communal Hearth</span>
+                  <span class="timeline-dot-separator"></span>
+                  <span class="small text-muted fw-semibold">Together at the Table</span>
+                </div>
+                <h3 class="h4 mb-2 text-gold-gradient">04 — A Place to Gather</h3>
+                <p class="text-secondary small mb-0" style="line-height: 1.7; font-size: 0.95rem;">
+                  KoreFlame creates a welcoming atmosphere for family dinners, celebrations, friends, and unforgettable communal dining experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 05 (Left Side on Desktop) -->
+        <div class="roadmap-milestone-row row g-0 align-items-center mb-5 kf-reveal">
+          <div class="col-lg-5 order-2 order-lg-1">
+            <div class="roadmap-card">
+              <div class="roadmap-img-thumb">
+                <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop" alt="05 — Our Modern Seoul Experience" loading="lazy">
+              </div>
+              <div class="p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-tag badge-spice">Milestone 05 · Seoul Atmosphere</span>
+                  <span class="timeline-dot-separator"></span>
+                  <span class="small text-muted fw-semibold">Modern Street Grill</span>
+                </div>
+                <h3 class="h4 mb-2 text-gold-gradient">05 — Our Modern Seoul Experience</h3>
+                <p class="text-secondary small mb-0" style="line-height: 1.7; font-size: 0.95rem;">
+                  We bring the energy of Seoul’s street-grill culture into a refined restaurant setting with sizzling tabletop grills and attentive hospitality.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 order-1 order-lg-2 text-center position-relative my-3 my-lg-0">
+            <div class="roadmap-node-hub">
+              <span class="roadmap-node-number">05</span>
+            </div>
+            <div class="roadmap-node-label">Atmosphere</div>
+          </div>
+          <div class="col-lg-5 order-3 order-lg-3 d-none d-lg-block">
+            <div class="roadmap-side-highlight ps-4">
+              <span class="roadmap-step-tag">Roadmap Stage 05</span>
+              <h6 class="text-gold mt-1 mb-1">Vibrant Seoul Energy</h6>
+              <p class="text-muted small mb-0">High-energy tabletop sizzle fused with refined dining luxury.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 06 (Right Side on Desktop) -->
+        <div class="roadmap-milestone-row row g-0 align-items-center mb-5 kf-reveal">
+          <div class="col-lg-5 order-3 order-lg-1 d-none d-lg-block text-end">
+            <div class="roadmap-side-highlight pe-4">
+              <span class="roadmap-step-tag">Roadmap Stage 06</span>
+              <h6 class="text-flame mt-1 mb-1">Enduring Horizon</h6>
+              <p class="text-muted small mb-0">Pioneering the future of Korean barbecue hospitality worldwide.</p>
+            </div>
+          </div>
+          <div class="col-lg-2 order-1 order-lg-2 text-center position-relative my-3 my-lg-0">
+            <div class="roadmap-node-hub">
+              <span class="roadmap-node-number">06</span>
+            </div>
+            <div class="roadmap-node-label">Future</div>
+          </div>
+          <div class="col-lg-5 order-2 order-lg-3">
+            <div class="roadmap-card">
+              <div class="roadmap-img-thumb">
+                <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=800&auto=format&fit=crop" alt="06 — Our Vision for the Future" loading="lazy">
+              </div>
+              <div class="p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-tag badge-popular">Milestone 06 · The Horizon</span>
+                  <span class="timeline-dot-separator"></span>
+                  <span class="small text-muted fw-semibold">Enduring Craft</span>
+                </div>
+                <h3 class="h4 mb-2 text-gold-gradient">06 — Our Vision for the Future</h3>
+                <p class="text-secondary small mb-0" style="line-height: 1.7; font-size: 0.95rem;">
+                  Our goal is to make every visit memorable through exceptional food, authentic flavors, warm service, and the joy of gathering around the grill.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Final Call to Action: Destination Node -->
+      <div class="timeline-cta-box text-center p-4 p-md-5 rounded-4 mt-5 position-relative overflow-hidden kf-reveal">
+        <div class="position-relative" style="z-index: 2;">
+          <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-flame mb-3 kf-flame-bounce">
+            <i data-lucide="flame" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h2 class="display-6 fw-extrabold mb-3">Experience <span class="text-gold-gradient">KoreFlame</span></h2>
+          <p class="lead text-secondary mx-auto mb-4" style="max-width: 600px;">
+            Take your place around our Binchotan charcoal hearth and experience the authentic warmth of Seoul table grilling tonight.
+          </p>
+          <a href="pricing.html#reservations" class="btn-flame btn-lg-custom">
+            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+            <span>Reserve Your Table</span>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="kf-footer">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <a href="index.html" class="nav-brand-logo mb-3">
-          <div class="nav-brand-icon">
-            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+      <div class="row g-4 align-items-start">
+        <!-- Brand Col -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="footer-brand-header">
+            <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+              <div class="kf-brand-logo-wrap">
+                <div class="kf-logo-aura"></div>
+                <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+              </div>
+              <div class="nav-brand-text">
+                <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+                <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+              </div>
+            </a>
           </div>
-          <div class="nav-brand-text">
-            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
-            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          <p class="text-secondary small mb-3 pe-lg-3" style="line-height: 1.5; max-width: 320px;">
+            Authentic Seoul street-grill experience with table charcoal, prime cuts, and vibrant hospitality.
+          </p>
+          <div class="d-flex align-items-center gap-2 pt-1">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Instagram" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Facebook" title="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="X (Twitter)" title="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Pinterest" title="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+              </svg>
+            </a>
           </div>
-        </a>
-          <p class="text-secondary small">Authentic Korean BBQ restaurant with table Binchotan grills and vibrant dining culture.</p>
         </div>
+
+        <!-- Quick Links -->
         <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">About</h5>
+          <h5 class="footer-widget-title">Experience</h5>
           <ul class="footer-link-list p-0">
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="services.html">Experiences</a></li>
-            <li><a href="blog.html">K-BBQ Guide</a></li>
+            <li><a href="index.html">The Grill Experience</a></li>
+            <li><a href="index-2.html">Celebration Dining</a></li>
+            <li><a href="menu.html">Full Menu</a></li>
+            <li><a href="pricing.html">Dining Packages</a></li>
+            <li><a href="pricing.html#reservations">Book Table</a></li>
           </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">Dining</h5>
-          <ul class="footer-link-list p-0">
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="pricing.html">Packages</a></li>
-            <li><a href="reservations.html">Book Online</a></li>
-          </ul>
+
+        <!-- Hours & Contact -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Hours & Contact</h5>
+          <div class="d-flex flex-column gap-2 small">
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Mon – Thu: <strong class="footer-highlight-text">5:00 PM – 10:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Fri – Sun: <strong class="footer-highlight-text">4:30 PM – 11:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2 border-top border-subtle">
+              <i data-lucide="phone" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="tel:5553827492" class="footer-link-highlight fw-semibold">(555) 382-7492</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="mail" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="mailto:concierge@koreflame.com" class="footer-link-highlight fw-semibold">concierge@koreflame.com</a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="footer-widget-title">Address</h5>
-          <p class="text-muted small">128 Seoul Grill Blvd, Suite 100, Culinary Arts District, NY 10001</p>
+
+        <!-- Demo Architecture Notice -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Template Notice</h5>
+          <p class="text-muted small mb-0" style="line-height: 1.5;">
+            Premium HTML5 / Vanilla JS restaurant template featuring live mock authentication, cart, and table reservations.
+          </p>
         </div>
       </div>
-      <div class="footer-bottom-bar">
-        <div>&copy; 2026 KoreFlame. All rights reserved.</div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar justify-content-center text-center">
+        <div>&copy; 2026 KoreFlame Korean BBQ Restaurant. All rights reserved.</div>
       </div>
     </div>
   </footer>

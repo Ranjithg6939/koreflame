@@ -3,23 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KoreFlame — Guest Dining Dashboard & Loyalty Portal</title>
+  <title>KoreFlame — Guest Dining Dashboard &amp; Loyalty Portal</title>
   <meta name="description" content="Manage your KoreFlame BBQ reservations, track loyalty points, redeem vouchers, and review saved cuts.">
   <link rel="canonical" href="https://koreflame.com/dashboard.html">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/dashboard.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="assets/css/style.css?v=golden8">
+  <link rel="stylesheet" href="assets/css/dashboard.css?v=golden8">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=golden8">
+  <script>
+    (function() {
+      try {
+        var auth = localStorage.getItem('kf_auth_session');
+        var parsed = auth ? JSON.parse(auth) : null;
+        if (!parsed || !parsed.isLoggedIn) {
+          var target = window.location.pathname.split('/').pop() + window.location.search + window.location.hash;
+          window.location.replace('login.html?redirect=' + encodeURIComponent(target || 'dashboard.html'));
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- Dashboard Main Layout Wrapper -->
   <div class="dashboard-wrapper">
@@ -27,7 +44,7 @@
     <!-- Sidebar -->
     <aside class="dashboard-sidebar">
       <div class="sidebar-brand">
-        <a href="index.html" class="nav-brand-logo fs-5" aria-label="KoreFlame Korean BBQ">
+        <a href="index.html" class="nav-brand-logo fs-5 d-flex align-items-center gap-2" aria-label="KoreFlame Korean BBQ">
           <div class="kf-brand-logo-wrap" style="width: 38px; height: 38px;">
             <div class="kf-logo-aura"></div>
             <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
@@ -44,112 +61,157 @@
         </a>
       </div>
 
+      <!-- User Profile Header in Sidebar -->
       <div class="sidebar-profile">
-        <div class="sidebar-avatar">MK</div>
-        <div>
-          <h6 class="mb-0 text-white" id="sidebar-user-name">Min-Ji Kim</h6>
-          <span class="badge-tag badge-prime" id="sidebar-user-tier">Gold Grillmaster</span>
+        <div class="sidebar-avatar" id="sidebar-avatar">--</div>
+        <div class="sidebar-profile-info">
+          <div class="sidebar-user-name fw-bold text-primary-app text-truncate" id="sidebar-user-name">Guest</div>
+          <div class="sidebar-user-tier-label fw-bold text-uppercase" id="sidebar-user-tier">Member</div>
         </div>
       </div>
 
-      <ul class="sidebar-nav-list">
+      <!-- Sidebar Navigation Links -->
+      <ul class="sidebar-nav-list list-unstyled mb-0">
         <li class="sidebar-nav-item">
           <a href="#overview" class="sidebar-nav-link active" data-tab="overview">
-            <i data-lucide="layout-dashboard"></i>
+            <i data-lucide="layout-dashboard" style="width: 18px; height: 18px;"></i>
             <span>Overview</span>
           </a>
         </li>
         <li class="sidebar-nav-item">
+          <a href="#orders" class="sidebar-nav-link" data-tab="orders">
+            <i data-lucide="flame" style="width: 18px; height: 18px;"></i>
+            <span>My Orders</span>
+          </a>
+        </li>
+        <li class="sidebar-nav-item">
           <a href="#reservations" class="sidebar-nav-link" data-tab="reservations">
-            <i data-lucide="calendar"></i>
+            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
             <span>My Reservations</span>
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#loyalty" class="sidebar-nav-link" data-tab="loyalty">
-            <i data-lucide="award"></i>
-            <span>Loyalty & Rewards</span>
+            <i data-lucide="award" style="width: 18px; height: 18px;"></i>
+            <span>Loyalty &amp; Rewards</span>
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#favorites" class="sidebar-nav-link" data-tab="favorites">
-            <i data-lucide="heart"></i>
+            <i data-lucide="heart" style="width: 18px; height: 18px;"></i>
             <span>Saved Favorites</span>
           </a>
         </li>
         <li class="sidebar-nav-item">
           <a href="#profile" class="sidebar-nav-link" data-tab="profile">
-            <i data-lucide="user"></i>
+            <i data-lucide="user" style="width: 18px; height: 18px;"></i>
             <span>Profile Settings</span>
           </a>
         </li>
         <li class="sidebar-nav-item mt-3 pt-3 border-top border-subtle">
           <a href="menu.html" class="sidebar-nav-link">
-            <i data-lucide="utensils"></i>
+            <i data-lucide="utensils" style="width: 18px; height: 18px;"></i>
             <span>Order Menu</span>
           </a>
         </li>
         <li class="sidebar-nav-item">
-          <a href="reservations.html" class="sidebar-nav-link">
-            <i data-lucide="plus-circle"></i>
+          <a href="pricing.html#reservations" class="sidebar-nav-link">
+            <i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i>
             <span>Book New Table</span>
           </a>
         </li>
       </ul>
 
-      <div class="sidebar-footer">
-        <a href="index.html" class="sidebar-nav-link text-muted mb-2">
-          <i data-lucide="arrow-left"></i>
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer d-flex flex-column gap-2">
+        <a href="index.html" class="sidebar-nav-link text-muted p-2 rounded justify-content-center">
+          <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
           <span>Back to Restaurant</span>
         </a>
-        <button type="button" class="btn btn-sm btn-outline-danger w-100" onclick="handleLogout()">
-          <i data-lucide="log-out"></i> Logout
+        <button type="button" class="btn btn-sm btn-outline-danger w-100 d-inline-flex align-items-center justify-content-center gap-2 py-2" onclick="handleDashLogout()">
+          <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+          <span>Sign Out</span>
         </button>
       </div>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="dashboard-main">
+    <main id="main-content" class="dashboard-main">
       
-      <!-- Topbar -->
-      <div class="dashboard-topbar">
+      <!-- Topbar with Welcome User Name -->
+      <header class="dashboard-topbar">
         <div class="d-flex align-items-center gap-3">
-          <button type="button" class="btn-icon-nav d-lg-none" id="dash-sidebar-toggle" aria-label="Toggle Sidebar">
+          <button type="button" class="btn-icon-nav d-lg-none" id="dash-sidebar-toggle" aria-label="Toggle Navigation Sidebar">
             <i data-lucide="menu"></i>
           </button>
-          <h5 class="mb-0 d-none d-sm-block">Guest Portal</h5>
+          
+          <div class="d-flex align-items-center gap-2.5">
+            <div class="sidebar-avatar d-sm-none" id="topbar-avatar" style="width: 36px; height: 36px; font-size: 0.85rem;">MK</div>
+            <div class="d-flex flex-column justify-content-center">
+              <span class="small text-muted text-uppercase fw-bold" style="font-size: 0.68rem; letter-spacing: 0.08em; line-height: 1; margin-bottom: 3px;">Guest Portal</span>
+              <div class="d-flex align-items-center gap-2">
+                <h5 class="mb-0 text-primary-app fw-bold d-flex align-items-center gap-1.5" style="font-size: 1.05rem; line-height: 1.2;">
+                  <span class="text-secondary fw-normal">Welcome,</span>
+                  <span id="topbar-user-name">Guest</span>
+                </h5>
+                <span class="badge-tag badge-prime d-none d-md-inline-flex" style="font-size: 0.68rem; padding: 0.18rem 0.55rem; line-height: 1.15;" id="topbar-user-tier">Member</span>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <!-- Topbar Utility Actions -->
         <div class="d-flex align-items-center gap-2">
-          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun-medium"></i></button>
-          <button type="button" class="btn-icon-nav kf-rtl-toggle" aria-label="Toggle RTL/LTR"><i data-lucide="arrow-left-right"></i></button>
-          <a href="reservations.html" class="btn-flame btn-sm-custom">
-            <i data-lucide="calendar"></i>
+          <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+            <i data-lucide="sun-medium"></i>
+          </button>
+          <button type="button" class="btn-icon-nav kf-rtl-toggle" aria-label="Toggle RTL/LTR" title="Toggle Text Direction">
+            <i data-lucide="arrow-left-right"></i>
+          </button>
+          <a href="pricing.html#reservations" class="btn-flame btn-sm-custom d-inline-flex align-items-center gap-1.5 shadow-sm">
+            <i data-lucide="calendar" style="width: 15px; height: 15px;"></i>
             <span class="d-none d-sm-inline">Book Table</span>
           </a>
         </div>
-      </div>
+      </header>
 
-      <!-- Container -->
+      <!-- Dashboard Container -->
       <div class="dashboard-container">
         
         <!-- ================================================================
              Tab 1: Overview
              ================================================================ -->
         <section id="view-overview" class="dash-view-content">
-          <div class="mb-4">
-            <h2 class="mb-1">Annyeonghaseyo, <span id="dash-user-name" class="text-gold-gradient">Min-Ji</span>!</h2>
-            <p class="text-secondary">Welcome to your KoreFlame guest dashboard. Check your rewards and reservation status.</p>
+          <!-- Overview Header with Guaranteed Welcome User Name -->
+          <div class="mb-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="section-label m-0" style="font-size: 0.74rem; padding: 0.2rem 0.65rem;">Guest Dashboard</span>
+                <span class="badge-hangul badge-hangul-gold" style="font-size: 0.72rem;">Annyeonghaseyo · 환영합니다</span>
+              </div>
+              <h2 class="mb-1 fw-extrabold" style="font-size: clamp(1.45rem, 2.2vw, 1.95rem); line-height: 1.25;">
+                Welcome, <span id="dash-user-name" class="text-gold-gradient">Guest</span>!
+              </h2>
+              <p class="text-secondary mb-0" style="font-size: 0.92rem;">
+                Welcome to your KoreFlame guest dashboard. Check your rewards, points balance, and table reservation status.
+              </p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge-tag badge-prime fs-6 py-2 px-3 shadow-sm d-inline-flex align-items-center gap-1.5">
+                <i data-lucide="award" style="width: 16px; height: 16px;"></i>
+                <span id="dash-welcome-tier">Member</span>
+              </span>
+            </div>
           </div>
 
-          <!-- Stat Cards Row -->
+          <!-- Stat Cards Row (Uniform 4-Column Grid) -->
           <div class="row g-3 mb-4">
             <div class="col-sm-6 col-xl-3">
               <div class="dash-stat-card">
                 <div class="dash-stat-icon icon-orange"><i data-lucide="award"></i></div>
-                <div>
-                  <span class="small text-muted text-uppercase">Loyalty Tier</span>
-                  <h4 class="mb-0 text-gold" id="dash-user-tier">Gold Grillmaster</h4>
+                <div class="min-w-0">
+                  <span class="small text-muted text-uppercase d-block" style="font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">Loyalty Tier</span>
+                  <h4 class="mb-0 text-gold text-truncate fw-bold" id="dash-user-tier" style="font-size: 1.15rem;">Gold Grillmaster</h4>
                 </div>
               </div>
             </div>
@@ -157,9 +219,9 @@
             <div class="col-sm-6 col-xl-3">
               <div class="dash-stat-card">
                 <div class="dash-stat-icon icon-gold"><i data-lucide="sparkles"></i></div>
-                <div>
-                  <span class="small text-muted text-uppercase">Points Balance</span>
-                  <h4 class="mb-0" id="dash-user-points">1,240</h4>
+                <div class="min-w-0">
+                  <span class="small text-muted text-uppercase d-block" style="font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">Points Balance</span>
+                  <h4 class="mb-0 text-primary-app fw-bold" id="dash-user-points" style="font-size: 1.15rem;">1,240</h4>
                 </div>
               </div>
             </div>
@@ -167,9 +229,9 @@
             <div class="col-sm-6 col-xl-3">
               <div class="dash-stat-card">
                 <div class="dash-stat-icon icon-red"><i data-lucide="heart"></i></div>
-                <div>
-                  <span class="small text-muted text-uppercase">Saved Favorites</span>
-                  <h4 class="mb-0" id="dash-fav-count">2</h4>
+                <div class="min-w-0">
+                  <span class="small text-muted text-uppercase d-block" style="font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">Saved Favorites</span>
+                  <h4 class="mb-0 text-primary-app fw-bold" id="dash-fav-count" style="font-size: 1.15rem;">2</h4>
                 </div>
               </div>
             </div>
@@ -177,9 +239,9 @@
             <div class="col-sm-6 col-xl-3">
               <div class="dash-stat-card">
                 <div class="dash-stat-icon icon-green"><i data-lucide="calendar-check"></i></div>
-                <div>
-                  <span class="small text-muted text-uppercase">Bonus Available</span>
-                  <h4 class="mb-0 text-success">1 Voucher</h4>
+                <div class="min-w-0">
+                  <span class="small text-muted text-uppercase d-block" style="font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">Bonus Available</span>
+                  <h4 class="mb-0 text-success fw-bold" style="font-size: 1.15rem;">1 Voucher</h4>
                 </div>
               </div>
             </div>
@@ -187,47 +249,129 @@
 
           <!-- Next Upcoming Reservation Banner -->
           <div class="kf-card p-4 mb-4">
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
               <div class="d-flex align-items-center gap-2">
-                <i data-lucide="clock" class="text-flame"></i>
-                <h5 class="mb-0">Next Upcoming Table Booking</h5>
+                <i data-lucide="clock" class="text-flame" style="width: 20px; height: 20px;"></i>
+                <h5 class="mb-0 fw-bold">Next Upcoming Table Booking</h5>
               </div>
-              <a href="reservations.html" class="btn-flame-outline btn-sm-custom">New Booking</a>
+              <a href="pricing.html#reservations" class="btn-flame-outline btn-sm-custom d-inline-flex align-items-center gap-1.5">
+                <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
+                <span>New Booking</span>
+              </a>
             </div>
             <div id="dash-upcoming-preview"></div>
           </div>
 
-          <!-- Quick Actions & Grill Safety Guide -->
-          <div class="row g-4">
+          <!-- Recent Table Orders Banner -->
+          <div class="kf-card p-4 mb-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <i data-lucide="flame" class="text-gold" style="width: 20px; height: 20px;"></i>
+                <h5 class="mb-0 fw-bold">Recent Table Grill Orders</h5>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <a href="cart.html" class="btn-flame-outline btn-sm-custom d-inline-flex align-items-center gap-1.5">
+                  <i data-lucide="shopping-cart" style="width: 14px; height: 14px;"></i>
+                  <span>View Cart</span>
+                </a>
+                <a href="menu.html" class="btn-flame btn-sm-custom d-inline-flex align-items-center gap-1.5">
+                  <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
+                  <span>Order Dishes</span>
+                </a>
+              </div>
+            </div>
+            <div id="dash-orders-preview"></div>
+          </div>
+
+          <!-- Quick Actions & Guest Member Benefits -->
+          <div class="row g-4 mb-4">
             <div class="col-lg-6">
-              <div class="kf-card h-100 p-4">
-                <h5 class="text-gold mb-3">Quick Actions</h5>
-                <div class="d-grid gap-2">
-                  <a href="menu.html" class="btn-flame-outline d-flex justify-content-between align-items-center">
-                    <span>Order Ahead for Table</span>
-                    <i data-lucide="arrow-right"></i>
-                  </a>
-                  <a href="pricing.html" class="btn-flame-outline d-flex justify-content-between align-items-center">
-                    <span>Explore Group Dining Packages</span>
-                    <i data-lucide="arrow-right"></i>
-                  </a>
-                  <a href="services.html" class="btn-flame-outline d-flex justify-content-between align-items-center">
-                    <span>Book Private VIP Dining Suite</span>
-                    <i data-lucide="arrow-right"></i>
-                  </a>
+              <div class="kf-card h-100 p-4 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <i data-lucide="zap" class="text-gold" style="width: 20px; height: 20px;"></i>
+                    <h5 class="text-gold mb-0 fw-bold">Quick Actions</h5>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <a href="menu.html" class="btn-flame-outline d-flex justify-content-between align-items-center py-2.5 px-3">
+                      <span>Order Ahead for Table</span>
+                      <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <a href="pricing.html" class="btn-flame-outline d-flex justify-content-between align-items-center py-2.5 px-3">
+                      <span>Explore Group Dining Packages</span>
+                      <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <a href="blog.html#dining-experiences" class="btn-flame-outline d-flex justify-content-between align-items-center py-2.5 px-3">
+                      <span>Book Private VIP Dining Suite</span>
+                      <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-6">
-              <div class="kf-card h-100 p-4">
-                <h5 class="text-flame mb-2">Guest Member Benefits</h5>
-                <p class="text-secondary small mb-3">Every meal booked earns 10 points per dollar spent toward free prime cuts, Korean plum wines, and dessert sparklers.</p>
-                <div class="p-3 bg-secondary-app rounded small text-muted">
-                  <strong class="text-gold d-block mb-1">VIP Priority Seating:</strong>
-                  Gold Grillmasters receive first access to weekend prime evening slots (7:00 PM – 8:30 PM).
+              <div class="kf-card h-100 p-4 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i data-lucide="gift" class="text-flame" style="width: 20px; height: 20px;"></i>
+                    <h5 class="text-flame mb-0 fw-bold">Guest Member Benefits</h5>
+                  </div>
+                  <p class="text-secondary small mb-3" style="line-height: 1.6;">
+                    Every meal booked earns 10 points per dollar spent toward free prime cuts, Korean plum wines, and dessert sparklers.
+                  </p>
+                </div>
+                <div class="p-3 bg-secondary-app rounded-3 border border-subtle small text-secondary">
+                  <div class="d-flex align-items-center gap-2 text-gold fw-bold mb-1">
+                    <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                    <span>VIP Priority Seating:</span>
+                  </div>
+                  <span>Gold Grillmasters receive first access to weekend prime evening slots (7:00 PM – 8:30 PM) and complimentary house banchan refills.</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tab: My Orders
+             ================================================================ -->
+        <section id="view-orders" class="dash-view-content" style="display: none;">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="section-label m-0" style="font-size: 0.74rem; padding: 0.2rem 0.65rem;">Kitchen Tickets</span>
+              </div>
+              <h2 class="mb-1 fw-extrabold" style="font-size: clamp(1.45rem, 2.2vw, 1.95rem);">My Table Orders</h2>
+              <p class="text-secondary mb-0" style="font-size: 0.92rem;">Track active grill tickets, dish breakdown, and past table feasting history.</p>
+            </div>
+            <a href="menu.html" class="btn-flame btn-sm-custom d-inline-flex align-items-center gap-1.5 shadow-sm">
+              <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+              <span>Order More Dishes</span>
+            </a>
+          </div>
+
+          <div class="dash-table-card">
+            <div class="dash-table-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 fw-bold">Order History &amp; Active Grill Tickets</h5>
+              <span class="badge-hangul" style="font-size: 0.72rem;">Table Binchotan Feasts</span>
+            </div>
+            <div class="table-responsive-custom">
+              <table class="dash-table align-middle">
+                <thead>
+                  <tr>
+                    <th>Ticket Ref</th>
+                    <th>Date &amp; Time</th>
+                    <th>Table Seating</th>
+                    <th>Dishes Ordered</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dash-orders-tbody">
+                  <!-- Rendered dynamically via assets/js/dashboard.js -->
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -236,27 +380,31 @@
              Tab 2: My Reservations
              ================================================================ -->
         <section id="view-reservations" class="dash-view-content" style="display: none;">
-          <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
             <div>
-              <h2 class="mb-1">My Table Reservations</h2>
-              <p class="text-secondary">Track upcoming table bookings, view details, or cancel if your schedule changes.</p>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="section-label m-0" style="font-size: 0.74rem; padding: 0.2rem 0.65rem;">Booking Center</span>
+              </div>
+              <h2 class="mb-1 fw-extrabold" style="font-size: clamp(1.45rem, 2.2vw, 1.95rem);">My Table Reservations</h2>
+              <p class="text-secondary mb-0" style="font-size: 0.92rem;">Track upcoming table bookings, view details, or cancel if your schedule changes.</p>
             </div>
-            <a href="reservations.html" class="btn-flame btn-sm-custom">
-              <i data-lucide="plus"></i>
-              <span>Book Table</span>
+            <a href="pricing.html#reservations" class="btn-flame btn-sm-custom d-inline-flex align-items-center gap-1.5 shadow-sm">
+              <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+              <span>Book New Table</span>
             </a>
           </div>
 
           <div class="dash-table-card">
-            <div class="dash-table-header">
-              <h5 class="mb-0">Booking History & Active Holds</h5>
+            <div class="dash-table-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 fw-bold">Booking History &amp; Active Holds</h5>
+              <span class="badge-hangul" style="font-size: 0.72rem;">Table Binchotan Grills</span>
             </div>
             <div class="table-responsive-custom">
-              <table class="dash-table">
+              <table class="dash-table align-middle">
                 <thead>
                   <tr>
                     <th>Reference</th>
-                    <th>Date & Time</th>
+                    <th>Date &amp; Time</th>
                     <th>Party</th>
                     <th>Table Ambience</th>
                     <th>Status</th>
@@ -276,35 +424,38 @@
              ================================================================ -->
         <section id="view-loyalty" class="dash-view-content" style="display: none;">
           <div class="mb-4">
-            <h2 class="mb-1">Loyalty Points & Member Vouchers</h2>
-            <p class="text-secondary">Redeem points for complimentary Korean BBQ dishes, specialty sides, and dining credits.</p>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="section-label m-0" style="font-size: 0.74rem; padding: 0.2rem 0.65rem;">Rewards Tier</span>
+            </div>
+            <h2 class="mb-1 fw-extrabold" style="font-size: clamp(1.45rem, 2.2vw, 1.95rem);">Loyalty Points &amp; Member Vouchers</h2>
+            <p class="text-secondary mb-0" style="font-size: 0.92rem;">Redeem points for complimentary Korean BBQ dishes, specialty sides, and dining credits.</p>
           </div>
 
           <!-- Points Progress Card -->
           <div class="kf-card p-4 mb-4">
             <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
               <div>
-                <span class="small text-muted text-uppercase">Current Points Balance</span>
-                <div class="display-5 fw-bold text-gold" id="loyalty-balance-display">1,240</div>
+                <span class="small text-muted text-uppercase d-block" style="font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">Current Points Balance</span>
+                <div class="display-5 fw-extrabold text-gold" id="loyalty-balance-display">1,240</div>
               </div>
               <div class="text-end">
-                <span class="badge-tag badge-prime fs-6">Target: Imperial Tier (2,500 pts)</span>
+                <span class="badge-tag badge-prime fs-6 py-2 px-3 shadow-sm">Target: Imperial Tier (2,500 pts)</span>
               </div>
             </div>
 
-            <div class="loyalty-progress-container">
+            <div class="loyalty-progress-container my-3">
               <div class="loyalty-progress-fill" id="loyalty-progress-bar" style="width: 50%;"></div>
             </div>
-            <div class="d-flex justify-content-between small text-muted">
-              <span>Current: Gold Tier</span>
+            <div class="d-flex justify-content-between small text-secondary">
+              <span class="fw-semibold">Current: Gold Tier</span>
               <span>1,260 points until Imperial Master Status</span>
             </div>
           </div>
 
           <!-- Available Rewards Grid -->
-          <h4 class="mb-3">Redeemable Vouchers</h4>
+          <h4 class="mb-3 fw-bold">Redeemable Vouchers</h4>
           <div class="row g-3" id="loyalty-rewards-grid">
-            <!-- Rendered dynamically -->
+            <!-- Rendered dynamically via assets/js/dashboard.js -->
           </div>
         </section>
 
@@ -312,13 +463,22 @@
              Tab 4: Saved Favorites
              ================================================================ -->
         <section id="view-favorites" class="dash-view-content" style="display: none;">
-          <div class="mb-4">
-            <h2 class="mb-1">Saved Cuts & Favorite Banchan</h2>
-            <p class="text-secondary">Quickly reorder your favorite barbecue cuts and sides.</p>
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="section-label m-0" style="font-size: 0.74rem; padding: 0.2rem 0.65rem;">Favorites Vault</span>
+              </div>
+              <h2 class="mb-1 fw-extrabold" style="font-size: clamp(1.45rem, 2.2vw, 1.95rem);">Saved Cuts &amp; Favorite Banchan</h2>
+              <p class="text-secondary mb-0" style="font-size: 0.92rem;">Quickly reorder your favorite barbecue cuts, signature marinades, and sides.</p>
+            </div>
+            <a href="menu.html" class="btn-flame btn-sm-custom d-inline-flex align-items-center gap-1.5 shadow-sm">
+              <i data-lucide="book-open" style="width: 16px; height: 16px;"></i>
+              <span>Browse Full Menu</span>
+            </a>
           </div>
 
           <div class="row g-4" id="dash-favorites-grid">
-            <!-- Rendered dynamically -->
+            <!-- Rendered dynamically via assets/js/dashboard.js -->
           </div>
         </section>
 
@@ -327,30 +487,46 @@
              ================================================================ -->
         <section id="view-profile" class="dash-view-content" style="display: none;">
           <div class="mb-4">
-            <h2 class="mb-1">Profile & Contact Preferences</h2>
-            <p class="text-secondary">Keep your contact information updated for table confirmations and SMS notifications.</p>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="section-label m-0" style="font-size: 0.74rem; padding: 0.2rem 0.65rem;">Account Settings</span>
+            </div>
+            <h2 class="mb-1 fw-extrabold" style="font-size: clamp(1.45rem, 2.2vw, 1.95rem);">Profile &amp; Contact Preferences</h2>
+            <p class="text-secondary mb-0" style="font-size: 0.92rem;">Keep your contact information updated for table confirmations and SMS notifications.</p>
           </div>
 
-          <div class="kf-card p-4 max-w-lg" style="max-width: 680px;">
-            <form id="profile-update-form" class="row g-3">
+          <div class="kf-card p-4 shadow-sm" style="max-width: 680px;">
+            <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom border-subtle">
+              <div class="sidebar-avatar" id="profile-avatar-preview" style="width: 56px; height: 56px; font-size: 1.25rem;">--</div>
+              <div class="min-w-0">
+                <h5 class="mb-1 text-primary-app fw-bold text-truncate" id="profile-display-name">Guest</h5>
+                <span class="badge-tag badge-prime" id="profile-display-tier">Member</span>
+              </div>
+            </div>
+            <form id="profile-update-form" novalidate class="row g-3">
               <div class="col-md-6">
-                <label class="form-label-custom">Full Name</label>
-                <input type="text" class="form-control-custom" id="profile-name" required>
+                <label class="form-label-custom fw-semibold" for="profile-name">Full Name</label>
+                <input type="text" class="form-control-custom" id="profile-name" placeholder="Full Name" required>
+                <div class="form-feedback-error" id="profile-name-error"></div>
               </div>
               <div class="col-md-6">
-                <label class="form-label-custom">Email Address</label>
-                <input type="email" class="form-control-custom" id="profile-email" required>
+                <label class="form-label-custom fw-semibold" for="profile-email">Email Address</label>
+                <input type="email" class="form-control-custom" id="profile-email" placeholder="e.g. guest@koreflame.com" required>
+                <div class="form-feedback-error" id="profile-email-error"></div>
               </div>
               <div class="col-md-6">
-                <label class="form-label-custom">Phone Number</label>
-                <input type="tel" class="form-control-custom" id="profile-phone" required>
+                <label class="form-label-custom fw-semibold" for="profile-phone">Phone Number</label>
+                <input type="tel" class="form-control-custom" id="profile-phone" placeholder="e.g. +1 (555) 382-7492" required>
+                <div class="form-feedback-error" id="profile-phone-error"></div>
               </div>
               <div class="col-md-6">
-                <label class="form-label-custom">Member Tier</label>
-                <input type="text" class="form-control-custom" value="Gold Grillmaster" disabled>
+                <label class="form-label-custom fw-semibold" for="profile-tier">Member Tier</label>
+                <input type="text" class="form-control-custom" id="profile-tier" value="Gold Grillmaster" disabled>
               </div>
-              <div class="col-12 pt-3">
-                <button type="submit" class="btn-flame">Save Profile Changes</button>
+              <div class="col-12 pt-2">
+                <button type="submit" class="btn-flame d-inline-flex align-items-center gap-2">
+                  <i data-lucide="check" style="width: 16px; height: 16px;"></i>
+                  <span>Save Profile Changes</span>
+                </button>
               </div>
             </form>
           </div>
@@ -366,7 +542,7 @@
   <script src="assets/js/state.js"></script>
   <script src="assets/js/toast.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/validator.js"></script>
   <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
-

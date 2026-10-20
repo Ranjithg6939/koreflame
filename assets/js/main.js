@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initIcons();
   initStickyHeader();
   initActiveNavLink();
+  initNavDropdowns();
   initMobileNavigation();
   initThemeToggles();
   initCartDrawer();
@@ -45,6 +46,7 @@ function initStickyHeader() {
 function initActiveNavLink() {
   const path = window.location.pathname;
   const page = path.split("/").pop() || 'index.html';
+  const isHome = (page === 'index.html' || page === 'index-2.html' || page === '');
   
   const navLinks = document.querySelectorAll('.nav-link-custom, .dropdown-link-custom, .sidebar-nav-link');
   navLinks.forEach(link => {
@@ -54,6 +56,151 @@ function initActiveNavLink() {
     if (linkPage === page || (page === '' && linkPage === 'index.html')) {
       link.classList.add('active');
     }
+  });
+
+  // Ensure Home dropdown toggle active state
+  const homeToggle = document.getElementById('homeDropdownToggle');
+  if (homeToggle) {
+    if (isHome) {
+      homeToggle.classList.add('active');
+    } else {
+      homeToggle.classList.remove('active');
+    }
+  }
+}
+
+// 3b. Interactive Nav Dropdowns (Click-to-Toggle, Touch, Outside Click, Keyboard Accessibility)
+function initNavDropdowns() {
+  const dropdownItems = document.querySelectorAll('.nav-dropdown-item');
+  
+  dropdownItems.forEach(item => {
+    const toggle = item.querySelector('.nav-dropdown-toggle') || item.querySelector('.nav-link-custom');
+    const menu = item.querySelector('.dropdown-menu-custom');
+    if (!toggle || !menu) return;
+
+    toggle.setAttribute('aria-haspopup', 'true');
+    if (!toggle.hasAttribute('aria-expanded')) {
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function openDropdown() {
+      // Close other open dropdowns
+      dropdownItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          const otherToggle = other.querySelector('.nav-dropdown-toggle') || other.querySelector('.nav-link-custom');
+          if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      item.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDropdown() {
+      item.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleDropdown(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (item.classList.contains('open')) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    }
+
+    // Click & Touch Event on Toggle
+    toggle.addEventListener('click', toggleDropdown);
+
+    // Keyboard Accessibility on Toggle
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        openDropdown();
+        const firstLink = menu.querySelector('a.dropdown-link-custom');
+        if (firstLink) firstLink.focus();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeDropdown();
+      }
+    });
+
+    // Keyboard Navigation inside the Dropdown Menu
+    const menuLinks = menu.querySelectorAll('a.dropdown-link-custom');
+    menuLinks.forEach((link, idx) => {
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeDropdown();
+          toggle.focus();
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const next = menuLinks[idx + 1] || menuLinks[0];
+          next.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = menuLinks[idx - 1] || menuLinks[menuLinks.length - 1];
+          prev.focus();
+        }
+      });
+
+      // Close dropdown when selecting an option (navigation follows naturally)
+      link.addEventListener('click', () => {
+        closeDropdown();
+      });
+    });
+  });
+
+  // Global Click Outside to Close
+  document.addEventListener('click', (e) => {
+    dropdownItems.forEach(item => {
+      if (!item.contains(e.target)) {
+        item.classList.remove('open');
+        const toggle = item.querySelector('.nav-dropdown-toggle') || item.querySelector('.nav-link-custom');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Global Escape Key to Close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      dropdownItems.forEach(item => {
+        if (item.classList.contains('open')) {
+          item.classList.remove('open');
+          const toggle = item.querySelector('.nav-dropdown-toggle') || item.querySelector('.nav-link-custom');
+          if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+          }
+        }
+      });
+    }
+  });
+
+  // Mobile Drawer Dropdown Accordion
+  const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-item');
+  mobileDropdowns.forEach(mItem => {
+    const mToggle = mItem.querySelector('.mobile-dropdown-toggle');
+    const mMenu = mItem.querySelector('.mobile-dropdown-menu');
+    if (!mToggle || !mMenu) return;
+
+    mToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = mItem.classList.contains('open');
+      if (isOpen) {
+        mItem.classList.remove('open');
+        mToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        mItem.classList.add('open');
+        mToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 }
 
@@ -118,73 +265,265 @@ function initThemeToggles() {
   });
 }
 
-// 6. Nav Auth State Sync
-function syncNavAuthState() {
-  const user = window.KF_STATE.getUser();
-  const authContainer = document.querySelectorAll('.nav-auth-container');
+// 6. Nav Auth State Sync & User Account Dropdown
+function getInitials(name) {
+  if (!name || typeof name !== 'string') return 'MK';
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+}
 
-  authContainer.forEach(container => {
-    if (user.isLoggedIn) {
-      container.innerHTML = `
-        <div class="d-flex align-items-center gap-2">
-          <a href="dashboard.html" class="btn-flame-outline btn-sm-custom">
-            <i data-lucide="user" style="width: 16px; height: 16px;"></i>
-            <span>Dashboard</span>
-          </a>
-          <button type="button" class="btn-icon-nav text-danger" title="Logout" onclick="handleLogout()">
-            <i data-lucide="log-out" style="width: 18px; height: 18px;"></i>
+function syncNavAuthState() {
+  const user = window.KF_STATE ? window.KF_STATE.getUser() : { isLoggedIn: false };
+  const esc = window.escapeHtml || (s => s);
+  const initials = getInitials(user ? user.name : '');
+
+  // A. Desktop Navbar Synchronization (.nav-actions)
+  const navActionsList = document.querySelectorAll('.nav-actions');
+  navActionsList.forEach(navActions => {
+    // Check if user wrap or login link already exists
+    let existingWrap = navActions.querySelector('.nav-user-dropdown-wrap');
+    let existingLoginLink = navActions.querySelector('a[href="login.html"], a[title="Guest Account"], a[title="Sign In / Register"]');
+
+    if (user && user.isLoggedIn && user.name) {
+      if (!existingWrap) {
+        const wrap = document.createElement('div');
+        wrap.className = 'nav-user-dropdown-wrap position-relative d-none d-sm-inline-block';
+        wrap.id = 'kf-nav-user-wrap';
+        wrap.innerHTML = `
+          <button type="button" class="btn-icon-nav nav-user-toggle d-flex align-items-center justify-content-center" id="kf-user-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="User Account Menu" title="${esc(user.name)} (${esc(user.tier || 'Member')})">
+            <span class="nav-user-avatar">${esc(initials)}</span>
           </button>
-        </div>
-      `;
+          <div class="nav-user-dropdown-menu shadow-lg" id="kf-user-dropdown-menu" role="menu" aria-labelledby="kf-user-dropdown-toggle">
+            <div class="nav-user-dropdown-header">
+              <div class="fw-bold text-primary-app text-truncate nav-user-display-name" style="font-size: 0.95rem;">${esc(user.name)}</div>
+              <div class="small text-gold text-truncate nav-user-display-tier" style="font-size: 0.78rem;">${esc(user.tier || 'Member')} · ${user.points || 0} pts</div>
+            </div>
+            <div class="nav-user-dropdown-divider"></div>
+            <a href="dashboard.html#profile" class="nav-user-dropdown-item" role="menuitem">
+              <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+              <span>My Profile</span>
+            </a>
+            <a href="dashboard.html#orders" class="nav-user-dropdown-item" role="menuitem">
+              <i data-lucide="flame" style="width: 16px; height: 16px;"></i>
+              <span>My Orders</span>
+            </a>
+            <a href="dashboard.html#reservations" class="nav-user-dropdown-item" role="menuitem">
+              <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+              <span>My Reservations</span>
+            </a>
+            <a href="dashboard.html" class="nav-user-dropdown-item" role="menuitem">
+              <i data-lucide="layout-dashboard" style="width: 16px; height: 16px;"></i>
+              <span>My Dashboard</span>
+            </a>
+            <a href="cart.html" class="nav-user-dropdown-item" role="menuitem">
+              <i data-lucide="shopping-cart" style="width: 16px; height: 16px;"></i>
+              <span>My Cart</span>
+            </a>
+            <div class="nav-user-dropdown-divider"></div>
+            <button type="button" class="nav-user-dropdown-item text-danger w-100 text-start border-0 bg-transparent" role="menuitem" onclick="window.handleLogout()">
+              <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+        `;
+
+        if (existingLoginLink) {
+          existingLoginLink.replaceWith(wrap);
+        } else {
+          const mobileToggle = navActions.querySelector('.mobile-nav-toggle');
+          if (mobileToggle) {
+            navActions.insertBefore(wrap, mobileToggle);
+          } else {
+            navActions.appendChild(wrap);
+          }
+        }
+        setupUserDropdownInteractions(wrap);
+      } else {
+        // ALWAYS synchronize actual authenticated user's name, tier and avatar
+        const avatar = existingWrap.querySelector('.nav-user-avatar');
+        const nameEl = existingWrap.querySelector('.nav-user-display-name, .nav-user-dropdown-header .fw-bold');
+        const tierEl = existingWrap.querySelector('.nav-user-display-tier, .nav-user-dropdown-header .small.text-gold');
+        const toggleBtn = existingWrap.querySelector('#kf-user-dropdown-toggle');
+
+        if (avatar) avatar.textContent = initials;
+        if (nameEl) nameEl.textContent = user.name;
+        if (tierEl) tierEl.textContent = `${user.tier || 'Member'} · ${user.points || 0} pts`;
+        if (toggleBtn) toggleBtn.setAttribute('title', `${user.name} (${user.tier || 'Member'})`);
+      }
     } else {
-      container.innerHTML = `
-        <a href="login.html" class="btn-flame btn-sm-custom">
-          <i data-lucide="log-in" style="width: 16px; height: 16px;"></i>
-          <span>Guest Login</span>
-        </a>
-      `;
+      // User is logged out
+      if (existingWrap) {
+        const loginLink = document.createElement('a');
+        loginLink.href = 'login.html';
+        loginLink.className = 'btn-icon-nav d-none d-sm-inline-flex';
+        loginLink.setAttribute('aria-label', 'Account Login');
+        loginLink.setAttribute('title', 'Sign In / Register');
+        loginLink.innerHTML = '<i data-lucide="user" style="width: 18px; height: 18px;"></i>';
+        existingWrap.replaceWith(loginLink);
+      }
+    }
+  });
+
+  // B. Mobile Drawer Synchronization
+  const mobileDrawers = document.querySelectorAll('.mobile-nav-drawer');
+  mobileDrawers.forEach(drawer => {
+    let authSection = drawer.querySelector('.mobile-drawer-auth, .pt-3.border-top');
+    if (authSection) {
+      if (user && user.isLoggedIn) {
+        authSection.innerHTML = `
+          <div class="p-3 bg-secondary-app rounded-3 border border-subtle mb-3">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div class="nav-user-avatar" style="width: 34px; height: 34px; font-size: 0.82rem;">${esc(initials)}</div>
+              <div class="min-w-0">
+                <div class="fw-bold text-primary-app text-truncate small">${esc(user.name)}</div>
+                <div class="text-gold small" style="font-size: 0.72rem;">${esc(user.tier || 'Member')} · ${user.points || 0} pts</div>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-1 pt-2 border-top border-subtle small">
+              <a href="dashboard.html#profile" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="user" style="width: 15px; height: 15px;"></i><span>My Profile</span></a>
+              <a href="dashboard.html#orders" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="flame" style="width: 15px; height: 15px;"></i><span>My Orders</span></a>
+              <a href="dashboard.html#reservations" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="calendar" style="width: 15px; height: 15px;"></i><span>My Reservations</span></a>
+              <a href="dashboard.html" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="layout-dashboard" style="width: 15px; height: 15px;"></i><span>My Dashboard</span></a>
+              <a href="cart.html" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="shopping-cart" style="width: 15px; height: 15px;"></i><span>My Cart</span></a>
+            </div>
+          </div>
+          <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
+          <button type="button" class="btn-flame-outline w-100 text-danger border-danger d-flex align-items-center justify-content-center gap-2" onclick="window.handleLogout()">
+            <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+            <span>Logout</span>
+          </button>
+        `;
+      } else {
+        authSection.innerHTML = `
+          <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
+          <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+        `;
+      }
     }
   });
 
   initIcons();
 }
 
-window.handleLogout = function() {
-  window.KF_STATE.logout();
-  window.kfToast.info('You have safely logged out of your KoreFlame session.', 'Logged Out');
+function setupUserDropdownInteractions(wrap) {
+  if (!wrap || wrap.dataset.kfDropdownBound) return;
+  wrap.dataset.kfDropdownBound = 'true';
+
+  const toggle = wrap.querySelector('#kf-user-dropdown-toggle');
+  const menu = wrap.querySelector('#kf-user-dropdown-menu');
+  if (!toggle || !menu) return;
+
+  function openMenu() {
+    menu.classList.add('show');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
+    menu.classList.remove('show');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.contains('show');
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (!wrap.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('show')) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+}
+
+window.handleLogout = async function() {
+  let confirmed = false;
+  if (window.kfConfirm) {
+    confirmed = await window.kfConfirm({
+      title: 'Sign Out of KoreFlame?',
+      message: 'Are you sure you want to sign out of your KoreFlame account? You will need to sign in again to access your account dashboard.',
+      confirmText: 'Sign Out',
+      cancelText: 'Stay Signed In',
+      type: 'logout'
+    });
+  } else {
+    confirmed = confirm('Are you sure you want to sign out of your KoreFlame account?');
+  }
+
+  if (!confirmed) {
+    return;
+  }
+  if (window.KF_STATE) {
+    window.KF_STATE.logout();
+  }
+  if (window.kfToast) {
+    window.kfToast.info('You have safely signed out of your KoreFlame session.', 'Signed Out');
+  }
+  syncNavAuthState();
   setTimeout(() => {
-    window.location.reload();
-  }, 700);
+    window.location.href = 'index.html';
+  }, 400);
 };
 
 // 7. Cart Drawer Management
+window.openCartDrawer = function() {
+  const drawer = document.getElementById('kf-cart-drawer');
+  const backdrop = document.getElementById('kf-cart-backdrop');
+  if (drawer) drawer.classList.add('active');
+  if (backdrop) backdrop.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (window.KF_STATE && typeof renderCartDrawer === 'function') {
+    renderCartDrawer(window.KF_STATE.getCart());
+  }
+};
+
+window.closeCartDrawer = function() {
+  const drawer = document.getElementById('kf-cart-drawer');
+  const backdrop = document.getElementById('kf-cart-backdrop');
+  if (drawer) drawer.classList.remove('active');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+};
+
 function initCartDrawer() {
   const openBtns = document.querySelectorAll('.cart-open-btn');
-  const drawer = document.getElementById('kf-cart-drawer');
   const backdrop = document.getElementById('kf-cart-backdrop');
   const closeBtn = document.getElementById('kf-cart-close');
 
-  if (!drawer) return;
+  openBtns.forEach(btn => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.openCartDrawer();
+  }));
+  if (closeBtn) closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.closeCartDrawer();
+  });
+  if (backdrop) backdrop.addEventListener('click', () => window.closeCartDrawer());
 
-  function openCart() {
-    drawer.classList.add('active');
-    if (backdrop) backdrop.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    renderCartDrawer(window.KF_STATE.getCart());
-  }
-
-  function closeCart() {
-    drawer.classList.remove('active');
-    if (backdrop) backdrop.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  openBtns.forEach(btn => btn.addEventListener('click', openCart));
-  if (closeBtn) closeBtn.addEventListener('click', closeCart);
-  if (backdrop) backdrop.addEventListener('click', closeCart);
+  // Close on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      window.closeCartDrawer();
+    }
+  });
 
   // Initial render of cart badge count
-  updateCartBadge(window.KF_STATE.getCart());
+  if (window.KF_STATE) {
+    updateCartBadge(window.KF_STATE.getCart());
+  }
 }
 
 function updateCartBadge(cart) {
@@ -256,6 +595,23 @@ window.removeCartItem = function(itemId) {
 
 // Global Add to Cart handler covering menu items, combos, packages, and cuts
 window.handleAddMenuItem = function(itemId) {
+  // 1. Login Required check (Requirement 1)
+  const user = window.KF_STATE ? window.KF_STATE.getUser() : null;
+  if (!user || !user.isLoggedIn) {
+    const currentPath = window.location.pathname.split('/').pop() || 'menu.html';
+    const redirectUrl = currentPath + window.location.search;
+    if (window.kfToast) {
+      window.kfToast.show(
+        'Please sign in to add items to your cart.',
+        'info',
+        'Sign In Required',
+        6500,
+        { text: 'Sign In', href: `login.html?redirect=${encodeURIComponent(redirectUrl)}` }
+      );
+    }
+    return; // Do not add items to the cart before authentication
+  }
+
   let item = null;
   if (window.KF_DATA) {
     if (window.KF_DATA.menuItems) item = window.KF_DATA.menuItems.find(i => i.id === itemId);
@@ -316,6 +672,11 @@ window.handleAddMenuItem = function(itemId) {
 
   // Animate cart button
   triggerCartBounce();
+
+  // Immediately open the Cart Drawer
+  if (typeof window.openCartDrawer === 'function') {
+    window.openCartDrawer();
+  }
 };
 
 function triggerCartBounce() {
@@ -331,29 +692,41 @@ function triggerCartBounce() {
 window.triggerCartBounce = triggerCartBounce;
 
 window.proceedToCheckout = function() {
-  const user = window.KF_STATE.getUser();
-  const cart = window.KF_STATE.getCart();
+  const user = window.KF_STATE ? window.KF_STATE.getUser() : null;
+  const cart = window.KF_STATE ? window.KF_STATE.getCart() : [];
 
-  if (cart.length === 0) {
-    window.kfToast.warning('Your cart is empty. Add cuts or feast platters first!', 'Empty Cart');
+  // 1. If cart is empty, prevent navigation and display clear warning
+  if (!cart || cart.length === 0) {
+    if (window.kfToast) {
+      window.kfToast.warning('Your cart is empty. Add dishes before placing an order.', 'Empty Cart');
+    }
     return;
   }
 
-  if (!user.isLoggedIn) {
-    window.kfToast.info('Demo Mode: You can sign in for rewards or test guest demo checkout directly.', 'Guest Notice');
+  // Close drawer if open
+  if (typeof window.closeCartDrawer === 'function') {
+    window.closeCartDrawer();
+  } else {
+    const drawer = document.getElementById('kf-cart-drawer');
+    const backdrop = document.getElementById('kf-cart-backdrop');
+    if (drawer) drawer.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
   }
 
-  // Demo order placement with honest prototype messaging
-  const orderRef = "ORD-" + Math.floor(100000 + Math.random() * 900000);
-  window.KF_STATE.clearCart();
-  window.kfToast.success(`Table order #${orderRef} simulated! (Demo System: in production this routes to POS / kitchen ticket display).`, 'Demo Order Placed');
-  
-  // Close drawer
-  const drawer = document.getElementById('kf-cart-drawer');
-  const backdrop = document.getElementById('kf-cart-backdrop');
-  if (drawer) drawer.classList.remove('active');
-  if (backdrop) backdrop.classList.remove('active');
-  document.body.style.overflow = '';
+  // 2. If user is logged out, redirect to login page with return URL to order.html
+  if (!user || !user.isLoggedIn) {
+    if (window.kfToast) {
+      window.kfToast.info('Please sign in before sending your order to the grill.', 'Sign In Required');
+    }
+    setTimeout(() => {
+      window.location.href = 'login.html?redirect=order.html';
+    }, 700);
+    return;
+  }
+
+  // 3. Navigate directly to Order page preserving cart state in localStorage
+  window.location.href = 'order.html';
 };
 
 // ==========================================================================

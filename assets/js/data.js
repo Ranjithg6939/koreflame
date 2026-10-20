@@ -205,37 +205,6 @@ const KF_DATA = {
     "description": "Paper-thin prime brisket ribbons that flash-sear on the grill in seconds. Served with toasted sesame oil and roasted sea salt."
   },
   {
-    "id": "beef-garlic-butter",
-    "category": "beef-bbq",
-    "nameEn": "Garlic Butter Beef",
-    "nameKr": "Roasted Garlic & Herb Butter Prime Ribeye",
-    "price": 34,
-    "portion": "220g Cubed Ribeye",
-    "spice": 0,
-    "dietary": [
-      "Rich & Savory"
-    ],
-    "popular": true,
-    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop",
-    "description": "Prime beef cubes basted with cultured honey-garlic butter and fresh herbs directly over high charcoal heat."
-  },
-  {
-    "id": "beef-spicy-korean",
-    "category": "beef-bbq",
-    "nameEn": "Spicy Korean Beef",
-    "nameKr": "Red Chili & Gochujang Seared Beef",
-    "price": 31,
-    "portion": "220g Marinated Strips",
-    "spice": 2,
-    "dietary": [
-      "Spicy Favorite",
-      "Halal Beef"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=800&auto=format&fit=crop",
-    "description": "Tender beef slices infused with fiery sun-dried chili paste, cracked red pepper flakes, scallions, and roasted sesame."
-  },
-  {
     "id": "item-201",
     "category": "pork-bbq",
     "nameEn": "Samgyeopsal (Pork Belly)",
@@ -280,21 +249,6 @@ const KF_DATA = {
     "popular": false,
     "image": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",
     "description": "Pork belly steeped in crushed roasted garlic, shallot oil, and ginger brine before caramelizing on the cast-iron grill."
-  },
-  {
-    "id": "pork-gochujang",
-    "category": "pork-bbq",
-    "nameEn": "Gochujang Pork",
-    "nameKr": "Smoky Sweet Chili Pork Collar",
-    "price": 27,
-    "portion": "200g Pork Collar",
-    "spice": 2,
-    "dietary": [
-      "Smoky Sweet Spice"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=800&auto=format&fit=crop",
-    "description": "Tender pork collar steaks richly lacquered in aged gochujang and blossom honey for an authentic street-grill char."
   },
   {
     "id": "chicken-korean-bulgogi",
@@ -345,21 +299,6 @@ const KF_DATA = {
     "description": "Tossed in aged soy sauce simmered with 20 cloves of roasted garlic, rice syrup, and toasted sesame oil."
   },
   {
-    "id": "chicken-honey-sesame",
-    "category": "chicken-bbq",
-    "nameEn": "Honey Sesame Chicken",
-    "nameKr": "Wild Honey & Toasted Sesame Glaze",
-    "price": 24.5,
-    "portion": "240g Thigh Cuts",
-    "spice": 0,
-    "dietary": [
-      "Sweet Glazed"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?q=80&w=800&auto=format&fit=crop",
-    "description": "Glazed with wild wildflower honey, golden sesame oil, and toasted white sesame seeds for a luscious sweet crunch."
-  },
-  {
     "id": "seafood-garlic-butter-prawns",
     "category": "seafood-bbq",
     "nameEn": "Garlic Butter Prawns",
@@ -405,21 +344,6 @@ const KF_DATA = {
     "popular": false,
     "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop",
     "description": "Fresh Atlantic salmon fillet marinated with ginger soy reduction, crisped skin-down for a buttery finish."
-  },
-  {
-    "id": "seafood-spicy-mix",
-    "category": "seafood-bbq",
-    "nameEn": "Spicy Seafood Mix",
-    "nameKr": "Prawns, Squid & Scallops in Chili Marinade",
-    "price": 35,
-    "portion": "300g Seafood Platter",
-    "spice": 2,
-    "dietary": [
-      "Shellfish Delight"
-    ],
-    "popular": true,
-    "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=800&auto=format&fit=crop",
-    "description": "Combination of tiger prawns, baby octopus, squid rings, and sea scallops tossed in zesty Korean chili oil."
   },
   {
     "id": "veg-grilled-king-oyster",
@@ -470,38 +394,6 @@ const KF_DATA = {
     "description": "Thick slabs of organic firm tofu marinated in sweet ginger-soy glaze and grilled until crisp on all sides."
   },
   {
-    "id": "veg-zucchini-bell-peppers",
-    "category": "vegetarian-bbq",
-    "nameEn": "Grilled Zucchini and Bell Peppers",
-    "nameKr": "Market Fresh Summer Vegetables with Sesame",
-    "price": 14,
-    "portion": "Platter",
-    "spice": 0,
-    "dietary": [
-      "100% Vegan",
-      "Gluten-Free"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1592417817098-8f3d6910985b?q=80&w=800&auto=format&fit=crop",
-    "description": "Fresh green zucchini, sweet bell peppers, red onions, and scallions grilled with cold-pressed sesame oil."
-  },
-  {
-    "id": "veg-gochujang-cauliflower",
-    "category": "vegetarian-bbq",
-    "nameEn": "Gochujang Cauliflower",
-    "nameKr": "Spicy Glazed Roasted Cauliflower Florets",
-    "price": 15,
-    "portion": "Bowl",
-    "spice": 2,
-    "dietary": [
-      "100% Vegan",
-      "Spicy"
-    ],
-    "popular": true,
-    "image": "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?q=80&w=800&auto=format&fit=crop",
-    "description": "Char-roasted cauliflower florets tossed in a sticky, sweet, and pungent gochujang chili glaze with toasted seeds."
-  },
-  {
     "id": "item-401",
     "category": "side-dishes",
     "nameEn": "Kimchi",
@@ -550,53 +442,6 @@ const KF_DATA = {
     "description": "Cracked Persian cucumbers tossed with toasted sesame oil, rice vinegar, garlic, and coarse red chili flakes."
   },
   {
-    "id": "side-steamed-rice",
-    "category": "side-dishes",
-    "nameEn": "Steamed Rice",
-    "nameKr": "Fluffy Short-Grain Pearl Rice",
-    "price": 3.5,
-    "portion": "Bowl",
-    "spice": 0,
-    "dietary": [
-      "100% Vegan",
-      "Gluten-Free"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?q=80&w=800&auto=format&fit=crop",
-    "description": "Steamed premium Korean short-grain sticky rice. Fluffy, glossy, and subtly sweet."
-  },
-  {
-    "id": "side-lettuce-wraps-ssam",
-    "category": "side-dishes",
-    "nameEn": "Lettuce Wraps (Ssam)",
-    "nameKr": "Farm Fresh Red Leaf & Perilla Leaf Basket",
-    "price": 6,
-    "portion": "Plentiful Basket",
-    "spice": 0,
-    "dietary": [
-      "100% Vegan",
-      "Fresh Greens"
-    ],
-    "popular": true,
-    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop",
-    "description": "Crisp red leaf lettuce, aromatic Korean perilla leaves, and garlic cloves for the ultimate BBQ table wrap."
-  },
-  {
-    "id": "side-ssamjang-gochujang-sauces",
-    "category": "side-dishes",
-    "nameEn": "Ssamjang and Gochujang Sauces",
-    "nameKr": "Fermented Soybean Dip & Red Chili Paste Duo",
-    "price": 4.5,
-    "portion": "Trio Sauce Dish",
-    "spice": 1,
-    "dietary": [
-      "House-Made Artisan Dips"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=800&auto=format&fit=crop",
-    "description": "Pairing of seasoned fermented soybean wrap sauce (ssamjang) and sweet pungent fermented chili paste (gochujang)."
-  },
-  {
     "id": "combo-solo-grill-box",
     "category": "bbq-combos",
     "nameEn": "Solo Grill Box",
@@ -640,36 +485,6 @@ const KF_DATA = {
     "popular": true,
     "image": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop",
     "description": "Prime Galbi (400g), Berkshire Belly (350g), Chicken Bulgogi (250g), Tiger Prawns, Seafood Pancake, Kimchi Stew, and unlimited sides."
-  },
-  {
-    "id": "combo-premium-meat-platter",
-    "category": "bbq-combos",
-    "nameEn": "Premium Meat Platter",
-    "nameKr": "Butcher's Reserve Cuts: Ribeye, Brisket & Short Rib",
-    "price": 110,
-    "portion": "Serves 3 Guests",
-    "spice": 0,
-    "dietary": [
-      "Butcher's Reserve"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop",
-    "description": "Curated board of A5 Wagyu Ribeye ribbons, thin-sliced brisket, and marinated prime bone-in short rib with rare sea salts."
-  },
-  {
-    "id": "combo-ultimate-korean-feast",
-    "category": "bbq-combos",
-    "nameEn": "Ultimate Korean BBQ Feast",
-    "nameKr": "The Complete Seoul Grill Experience",
-    "price": 185,
-    "portion": "Serves 5 - 6 Guests",
-    "spice": 1,
-    "dietary": [
-      "Chef's Grand Tasting"
-    ],
-    "popular": true,
-    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop",
-    "description": "Everything KoreFlame has to offer: 5 prime meat cuts, jumbo garlic prawns, pancake, stews, volcano egg, and strawberry ades."
   },
   {
     "id": "rice-bibimbap",
@@ -719,36 +534,6 @@ const KF_DATA = {
     "description": "Chewy sweet potato glass noodles wok-tossed with shiitake mushrooms, bell peppers, spinach, sweet soy, and sesame."
   },
   {
-    "id": "noodle-korean-ramen",
-    "category": "rice-noodles",
-    "nameEn": "Korean Ramen",
-    "nameKr": "Spicy Broth Ramen with Egg & Scallions",
-    "price": 14.5,
-    "portion": "Claypot Bowl",
-    "spice": 2,
-    "dietary": [
-      "Hot & Comforting"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop",
-    "description": "Springy noodles in spicy aromatic beef-mushroom broth with poached farm egg, scallions, and toasted nori."
-  },
-  {
-    "id": "noodle-cold-buckwheat",
-    "category": "rice-noodles",
-    "nameEn": "Cold Buckwheat Noodles (Naengmyeon)",
-    "nameKr": "Icy Beef Radish Broth Buckwheat Noodles",
-    "price": 16.5,
-    "portion": "Chilled Stainless Bowl",
-    "spice": 0,
-    "dietary": [
-      "Refreshing BBQ Cleanser"
-    ],
-    "popular": true,
-    "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=800&auto=format&fit=crop",
-    "description": "Silky buckwheat noodles served in an icy chilled beef-radish broth with sliced Asian pear, cucumber, and pickled daikon."
-  },
-  {
     "id": "dessert-bingsu",
     "category": "desserts",
     "nameEn": "Bingsu (Korean Shaved Ice)",
@@ -792,21 +577,6 @@ const KF_DATA = {
     "popular": false,
     "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800&auto=format&fit=crop",
     "description": "Chewy sweet rice dough spheres enveloping premium artisan matcha, ripe mango, and strawberry ice creams."
-  },
-  {
-    "id": "dessert-matcha-cheesecake",
-    "category": "desserts",
-    "nameEn": "Matcha Cheesecake",
-    "nameKr": "Ceremonial Grade Uji Matcha Basque Cheesecake",
-    "price": 11.5,
-    "portion": "Generous Slice",
-    "spice": 0,
-    "dietary": [
-      "Vegetarian"
-    ],
-    "popular": true,
-    "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=800&auto=format&fit=crop",
-    "description": "Creamy Basque-style burnt cheesecake infused with premium ceremonial green tea and light honey cream."
   },
   {
     "id": "drink-strawberry-ade",
@@ -853,37 +623,6 @@ const KF_DATA = {
     "popular": true,
     "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800&auto=format&fit=crop",
     "description": "Velvety whipped coffee toffee foam poured gracefully over chilled whole milk and ice cubes."
-  },
-  {
-    "id": "drink-korean-milk",
-    "category": "drinks",
-    "nameEn": "Korean Milk Drinks",
-    "nameKr": "Sweet Banana & Melon Chilled Milk Duo",
-    "price": 6,
-    "portion": "Chilled Bottle",
-    "spice": 0,
-    "dietary": [
-      "Seoul Classic"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=800&auto=format&fit=crop",
-    "description": "Iconic Korean sweet banana and honeydew melon flavored creamy milks served ice-cold."
-  },
-  {
-    "id": "drink-soft-drinks-mocktails",
-    "category": "drinks",
-    "nameEn": "Soft Drinks and Mocktails",
-    "nameKr": "Artisan Plum Fizz & Korean Sodas",
-    "price": 5.5,
-    "portion": "Chilled Glass",
-    "spice": 0,
-    "dietary": [
-      "Refreshing",
-      "Non-Alcoholic"
-    ],
-    "popular": false,
-    "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800&auto=format&fit=crop",
-    "description": "Choice of green plum sparkling cooler, Korean grape juice with real pulp, or classic soft drinks."
   }
 ],
 
@@ -959,22 +698,17 @@ const KF_DATA = {
       title: "The Art of the Perfect Ssam: How Koreans Wrap and Savor Grilled Meat",
       category: "Korean Dining Culture",
       author: "Chef Min-Jun Kang",
+      authorInitials: "MK",
+      authorBadge: "Executive Grill Master",
+      authorBio: "With over 20 years perfecting Binchotan charcoal roasting in Seoul and New York, Chef Min-Jun champions authentic Korean heritage dining.",
       date: "October 14, 2026",
       readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
       excerpt: "Eating Korean BBQ is an interactive ritual. Learn the golden layering technique: lettuce, perilla, sizzling meat, grilled garlic, and artisanal ssamjang.",
       content: `
-        <p>In Korea, barbecue is far more than a meal—it is a communal performance where everyone participates. At the center of this social communion lies the <em>ssam</em>, literally meaning 'wrap'.</p>
-        <h4>The Golden Order of the Wrap</h4>
-        <p>A proper wrap requires structural balance and intentional flavor pairing:</p>
-        <ol>
-          <li><strong>The Foundation:</strong> Lay down a tender red leaf lettuce leaf as your outer vessel.</li>
-          <li><strong>The Herbal Note:</strong> Place an aromatic perilla leaf face-up in the center for its peppery, minty bite.</li>
-          <li><strong>The Protein:</strong> Dip your hot, freshly grilled cut (whether fatty pork belly or juicy galbi) lightly in roasted sesame oil.</li>
-          <li><strong>The Punch:</strong> Add a dab of savory dipping paste and a toasted slice of whole garlic.</li>
-          <li><strong>The Crunch:</strong> Top with a pinch of dressed scallion salad or pickled radish.</li>
-        </ol>
-        <p>Most importantly: the wrap must be eaten in a single, unhesitant bite. Biting through spills juices and unravels the carefully calibrated balance of textures.</p>
+        <p class="lead text-primary-app font-weight-normal mb-4">In Korea, barbecue is never a passive meal. It is a shared performance where everyone at the table contributes to the rhythm of the grill. At the heart of this ancient social dining communion lies the <em>ssam</em>—literally translated as "wrap".</p>
+        <h3 class="text-primary-app mt-4 mb-3">The Architectural Anatomy of a Ssam</h3>
+        <p>To an uninitiated guest, wrapping barbecue might look like a casual sandwich wrap. But in authentic Korean gastronomy, every layer has a functional role: managing fat, contrasting textures, balancing temperature, and delivering digestive probiotics.</p>
       `
     },
     {
@@ -983,13 +717,17 @@ const KF_DATA = {
       title: "Why Binchotan Charcoal Makes Korean BBQ Taste So Immensely Better",
       category: "Grill Techniques",
       author: "Master Griller Jin-Woo",
+      authorInitials: "JW",
+      authorBadge: "Master of Charcoal & Fire",
+      authorBio: "Trained under renowned Korean binchotan kiln masters in Gangwon Province, Jin-Woo specializes in heat thermodynamics, smokeless extraction, and flame caramelization.",
       date: "September 28, 2026",
       readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200&auto=format&fit=crop",
       excerpt: "Explore how ultra-pure oak binchotan emits pure far-infrared heat without acrid smoke, sealing juices into marbled beef instantly.",
       content: `
-        <p>The difference between mediocre barbecue and a transcendental dining experience begins beneath the grates. Standard briquettes burn irregularly and release chemical binder fumes that ruin pristine cuts.</p>
-        <p>At KoreFlame, every table features genuine white oak Binchotan charcoal fired at over 1,000°C. This creates steady infrared energy that penetrates meat deeply without charring the sweet natural sugars.</p>
+        <p class="lead text-primary-app font-weight-normal mb-4">The difference between an ordinary barbecue dinner and a transcendental sensory feast begins deep beneath the table grates. At KoreFlame, that difference is fueled by authentic Japanese and Korean white oak <em>Binchotan</em> charcoal.</p>
+        <h3 class="text-primary-app mt-4 mb-3">Far-Infrared Radiation vs. Standard Briquettes</h3>
+        <p>Common commercial briquettes burn at roughly 450°C to 500°C and release chemical binders, sulfur fumes, and erratic flame flares that deposit bitter black soot onto premium meats. White Binchotan, kiln-fired from dense Ubame oak at over 1,000°C, produces virtually zero acrid smoke and emits powerful far-infrared radiant heat waves.</p>
       `
     },
     {
@@ -997,13 +735,18 @@ const KF_DATA = {
       slug: "guide-to-probiotic-banchan",
       title: "Beyond Kimchi: The Fascinating World of Korean Banchan and Gut Health",
       category: "Side Dishes & Health",
-      author: "Nutritionist So-Yeon Park",
+      author: "So-Yeon Park",
+      authorInitials: "SP",
+      authorBadge: "Fermentation Specialist",
+      authorBio: "So-Yeon holds a master's in Food Science from Seoul National University and oversees KoreFlame's artisan onggi fermentation room and seasonal banchan cellar.",
       date: "September 12, 2026",
       readTime: "4 min read",
-      image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop",
-      excerpt: "Discover the lacto-fermented history of side dishes that balance high-protein grilling with natural digestive enzymes.",
+      image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1200&auto=format&fit=crop",
+      excerpt: "Discover the lacto-fermented history of side dishes that balance high-protein grilling with natural digestive enzymes and alkaline roots.",
       content: `
-        <p>Korean banchan is not a garnish; it is nutritional architecture designed across centuries to harmonize rich grilled proteins with active probiotic cultures and alkaline roots.</p>
+        <p class="lead text-primary-app font-weight-normal mb-4">In Korean culinary philosophy, side dishes—<em>banchan</em>—are neither garnishes nor appetizers. They represent hundreds of years of ancestral food science engineered to balance rich charcoal-grilled proteins with active probiotic cultures, dietary fiber, and natural digestive enzymes.</p>
+        <h3 class="text-primary-app mt-4 mb-3">The Probiotic Synergy with Grilled Meats</h3>
+        <p>Eating heavily marbled cuts like Galbi or Berkshire Pork Belly can tax digestion if consumed in isolation. Korean dining culture solves this organically: every table is served an array of naturally lacto-fermented vegetables populated with billions of beneficial <em>Lactobacillus</em> bacteria.</p>
       `
     }
   ],

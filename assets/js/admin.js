@@ -63,35 +63,46 @@ function renderAdminReservations() {
 
   const reservations = window.KF_STATE.getReservations();
 
+  const esc = window.escapeHtml || (s => s);
+
   tbody.innerHTML = reservations.map(r => {
     let badgeClass = 'status-pending';
     if (r.status === 'Confirmed') badgeClass = 'status-confirmed';
     if (r.status === 'Cancelled') badgeClass = 'status-cancelled';
     if (r.status === 'Seated' || r.status === 'Completed') badgeClass = 'status-completed';
 
+    const safeId = esc(r.id);
+    const safeGuest = esc(r.guestName);
+    const safeContact = esc(r.phone || r.email);
+    const safeParty = esc(r.partySize);
+    const safeDate = esc(r.date);
+    const safeTime = esc(r.time);
+    const safeTable = esc(r.tableType);
+    const safeStatus = esc(r.status);
+
     return `
       <tr>
-        <td><strong class="font-monospace text-gold">${r.id}</strong></td>
+        <td><strong class="font-monospace text-gold">${safeId}</strong></td>
         <td>
-          <div class="font-weight-bold">${r.guestName}</div>
-          <div class="text-muted small">${r.phone || r.email}</div>
+          <div class="font-weight-bold">${safeGuest}</div>
+          <div class="text-muted small">${safeContact}</div>
         </td>
-        <td>${r.partySize} Guests</td>
+        <td>${safeParty} Guests</td>
         <td>
-          <div>${r.date}</div>
-          <div class="text-muted small">${r.time}</div>
+          <div>${safeDate}</div>
+          <div class="text-muted small">${safeTime}</div>
         </td>
-        <td>${r.tableType}</td>
-        <td><span class="status-badge ${badgeClass}">${r.status}</span></td>
+        <td>${safeTable}</td>
+        <td><span class="status-badge ${badgeClass}">${safeStatus}</span></td>
         <td class="text-end">
           <div class="btn-group btn-group-sm">
-            <button type="button" class="btn btn-outline-success" onclick="updateAdminResStatus('${r.id}', 'Confirmed')" title="Confirm">
+            <button type="button" class="btn btn-outline-success" onclick="updateAdminResStatus('${safeId}', 'Confirmed')" title="Confirm">
               <i data-lucide="check" style="width: 14px; height: 14px;"></i>
             </button>
-            <button type="button" class="btn btn-outline-primary" onclick="updateAdminResStatus('${r.id}', 'Seated')" title="Seat Party">
+            <button type="button" class="btn btn-outline-primary" onclick="updateAdminResStatus('${safeId}', 'Seated')" title="Seat Party">
               <i data-lucide="user-check" style="width: 14px; height: 14px;"></i>
             </button>
-            <button type="button" class="btn btn-outline-danger" onclick="updateAdminResStatus('${r.id}', 'Cancelled')" title="Cancel">
+            <button type="button" class="btn btn-outline-danger" onclick="updateAdminResStatus('${safeId}', 'Cancelled')" title="Cancel">
               <i data-lucide="x" style="width: 14px; height: 14px;"></i>
             </button>
           </div>

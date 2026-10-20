@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -14,12 +14,14 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=golden7">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=golden7">
 </head>
 <body class="d-flex align-items-center justify-content-center min-vh-100 bg-primary-app text-center p-3">
 
-  <div class="kf-card p-4 p-sm-5 max-w-lg mx-auto" style="max-width: 600px;">
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <main id="main-content" class="kf-card p-4 p-sm-5 max-w-lg mx-auto" style="max-width: 600px;">
     <!-- Brand badge -->
     <a href="index.html" class="nav-brand-logo mb-4 d-inline-flex text-decoration-none" aria-label="KoreFlame Korean BBQ">
       <div class="kf-brand-logo-wrap">
@@ -64,13 +66,14 @@
         <i data-lucide="utensils" style="width: 18px; height: 18px;"></i>
         <span>Explore Menu</span>
       </a>
-      <a href="reservations.html" class="btn-flame-outline">
+      <a href="pricing.html#reservations" class="btn-flame-outline">
         <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
         <span>Book a Table</span>
       </a>
     </div>
-  </div>
+  </main>
 
+  <script src="assets/js/state.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     if (window.lucide) window.lucide.createIcons();

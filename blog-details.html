@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -15,10 +15,11 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=golden7">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=golden7">
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- Header -->
   <header class="kf-header d-flex align-items-center">
@@ -58,20 +59,18 @@
               </a>
               <div class="dropdown-menu-custom">
                 <a href="index.html" class="dropdown-link-custom">
-                  <span>Home 1 — The Grill Experience</span>
+                  <span>The Grill Experience</span>
                   <span class="badge-tag badge-prime">Explore</span>
                 </a>
                 <a href="index-2.html" class="dropdown-link-custom">
-                  <span>Home 2 — Celebration Experience</span>
+                  <span>Celebration Experience</span>
                   <span class="badge-tag badge-spice">Explore</span>
                 </a>
               </div>
             </li>
-            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
-            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
-            <li><a href="reservations.html" class="nav-link-custom">Reservations</a></li>
             <li><a href="about.html" class="nav-link-custom">About</a></li>
-            <li><a href="pricing.html" class="nav-link-custom">Packages</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
             <li><a href="blog.html" class="nav-link-custom active">Blog</a></li>
             <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
             <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
@@ -97,7 +96,7 @@
           </button>
 
           <!-- Reserve Table Icon Button -->
-          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+          <a href="pricing.html#reservations" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
             <span class="nav-reserve-dot"></span>
             <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
           </a>
@@ -142,13 +141,11 @@
     </div>
 
     <ul class="d-flex flex-column gap-2 p-0 mb-4">
-      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
-      <li><a href="index-2.html" class="nav-link-custom">Home 2 — Celebration Experience</a></li>
-      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
-      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
-      <li><a href="reservations.html" class="nav-link-custom">Book a Table</a></li>
+      <li><a href="index.html" class="nav-link-custom">The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom">Celebration Experience</a></li>
       <li><a href="about.html" class="nav-link-custom">About KoreFlame</a></li>
-      <li><a href="pricing.html" class="nav-link-custom">Feast Packages</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
       <li><a href="blog.html" class="nav-link-custom text-flame fw-bold">K-BBQ Culture Blog</a></li>
       <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
       <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
@@ -156,7 +153,7 @@
     </ul>
 
     <div class="pt-3 border-top border-subtle">
-      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
       <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
     </div>
   </aside>
@@ -181,43 +178,93 @@
         <i data-lucide="send" style="width: 18px; height: 18px;"></i>
         <span>Send Order to Grill</span>
       </button>
+      <a href="cart.html" class="btn-flame-outline w-100 mt-2 text-center d-flex align-items-center justify-content-center gap-2">
+        <i data-lucide="shopping-cart" style="width: 16px; height: 16px;"></i>
+        <span>View Full Cart</span>
+      </a>
     </div>
   </aside>
 
-  <!-- Article Header Banner -->
-  <article class="py-5 bg-secondary-app border-bottom border-subtle">
-    <div class="container py-3">
-      <div class="d-flex align-items-center gap-2 small text-muted mb-2">
-        <a href="blog.html" class="text-muted">Blog Journal</a>
-        <span>/</span>
-        <span class="text-gold">Korean Dining Culture</span>
+  <!-- Main Landmark -->
+  <main id="main-content">
+
+  <!-- Article Header Banner (Centered Alignment matching site standard) -->
+  <section class="py-5 bg-secondary-app border-bottom border-subtle">
+    <div class="container py-2 py-md-3 text-center">
+      <!-- Breadcrumb Navigation -->
+      <div class="d-flex align-items-center justify-content-center gap-2 small text-muted mb-3 flex-wrap">
+        <a href="index.html" class="text-muted text-decoration-none d-inline-flex align-items-center gap-1 hover-flame transition-fast">
+          <i data-lucide="home" style="width: 14px; height: 14px;"></i>
+          <span>Home</span>
+        </a>
+        <i data-lucide="chevron-right" style="width: 12px; height: 12px;" class="text-muted opacity-50"></i>
+        <a href="blog.html" class="text-muted text-decoration-none d-inline-flex align-items-center gap-1.5 hover-flame transition-fast">
+          <i data-lucide="book-open" style="width: 14px; height: 14px;"></i>
+          <span>Blog Journal</span>
+        </a>
+        <i data-lucide="chevron-right" style="width: 12px; height: 12px;" class="text-muted opacity-50"></i>
+        <span class="text-flame fw-semibold" id="blog-breadcrumb-category">Korean Dining Culture</span>
       </div>
-      <h1 class="display-4 fw-extrabold mb-3">The Art of the Perfect Ssam: How Koreans Wrap and Savor Grilled Meat</h1>
-      <div class="d-flex flex-wrap align-items-center gap-3 text-muted small">
-        <span class="d-flex align-items-center gap-1"><i data-lucide="user" style="width: 14px; height: 14px;"></i> Chef Min-Jun Kang</span>
-        <span>•</span>
-        <span class="d-flex align-items-center gap-1"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> October 14, 2026</span>
-        <span>•</span>
-        <span class="d-flex align-items-center gap-1"><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 5 min read</span>
+
+      <!-- Article Title -->
+      <h1 class="display-4 fw-extrabold mb-3 mx-auto" id="blog-article-title" style="letter-spacing: -0.02em; font-size: clamp(1.85rem, 3.4vw, 2.65rem); line-height: 1.25; max-width: 900px;">The Art of the Perfect Ssam: How Koreans Wrap and Savor Grilled Meat</h1>
+
+      <!-- Metadata Pill Bar -->
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 text-muted small mx-auto" style="max-width: 680px;">
+        <span class="d-inline-flex align-items-center gap-1.5" id="blog-article-author">
+          <i data-lucide="user" style="width: 14px; height: 14px;" class="text-flame"></i>
+          <span>Chef Min-Jun Kang</span>
+        </span>
+        <span class="text-muted opacity-50">•</span>
+        <span class="d-inline-flex align-items-center gap-1.5" id="blog-article-date">
+          <i data-lucide="calendar" style="width: 14px; height: 14px;" class="text-gold"></i>
+          <span>October 14, 2026</span>
+        </span>
+        <span class="text-muted opacity-50">•</span>
+        <span class="d-inline-flex align-items-center gap-1.5" id="blog-article-readtime">
+          <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-flame"></i>
+          <span>5 min read</span>
+        </span>
+      </div>
+
+      <!-- Article Switcher Pills -->
+      <div class="mt-4 pt-3 border-top border-subtle mx-auto" style="max-width: 880px;">
+        <span class="small text-muted d-block mb-2 text-uppercase fw-bold text-center" style="letter-spacing: 0.08em; font-size: 0.72rem;">Browse Articles:</span>
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-2" id="blog-article-switcher">
+          <a href="blog-details.html?id=post-1" class="btn-service-tab active" data-post="post-1">
+            <i data-lucide="utensils" style="width: 14px; height: 14px;"></i>
+            <span>The Art of Ssam</span>
+          </a>
+          <a href="blog-details.html?id=post-2" class="btn-service-tab" data-post="post-2">
+            <i data-lucide="flame" style="width: 14px; height: 14px;"></i>
+            <span>Binchotan Charcoal</span>
+          </a>
+          <a href="blog-details.html?id=post-3" class="btn-service-tab" data-post="post-3">
+            <i data-lucide="heart" style="width: 14px; height: 14px;"></i>
+            <span>Probiotic Banchan</span>
+          </a>
+        </div>
       </div>
     </div>
-  </article>
+  </section>
 
   <!-- Article Body & Sidebar -->
   <section class="py-5">
     <div class="container">
-      <div class="row g-5">
+      <div class="row g-4 g-lg-5 justify-content-center">
         
         <!-- Left: Full Article Content -->
         <div class="col-lg-8">
-          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" alt="Korean BBQ Ssam Wrapping" class="rounded shadow-lg w-100 mb-4" style="max-height: 440px; object-fit: cover;">
+          <div class="position-relative overflow-hidden rounded-4 shadow-lg mb-4" style="height: clamp(240px, 38vw, 420px);">
+            <img id="blog-article-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" alt="Korean BBQ Ssam Wrapping" class="w-100 h-100" style="object-fit: cover; transition: opacity 0.35s ease;">
+          </div>
 
-          <div class="article-content text-secondary" style="font-size: 1.05rem; line-height: 1.8;">
-            <p class="lead text-white font-weight-normal mb-4">
+          <div class="article-content text-secondary" id="blog-article-body" style="font-size: 1.05rem; line-height: 1.8;">
+            <p class="lead text-primary-app font-weight-normal mb-4">
               In Korea, barbecue is never a passive meal. It is a shared performance where everyone at the table contributes to the rhythm of the grill. At the heart of this ancient social dining communion lies the <em>ssam</em>—literally translated as "wrap".
             </p>
 
-            <h3 class="text-white mt-4 mb-3">The Architectural Anatomy of a Ssam</h3>
+            <h3 class="text-primary-app mt-4 mb-3">The Architectural Anatomy of a Ssam</h3>
             <p>
               To an uninitiated guest, wrapping barbecue might look like a casual sandwich wrap. But in authentic Korean gastronomy, every layer has a functional role: managing fat, contrasting textures, balancing temperature, and delivering digestive probiotics.
             </p>
@@ -233,7 +280,7 @@
               </ol>
             </div>
 
-            <h3 class="text-white mt-4 mb-3">The Cardinal Rule: One Single Bite</h3>
+            <h3 class="text-primary-app mt-4 mb-3">The Cardinal Rule: One Single Bite</h3>
             <p>
               Perhaps the most essential etiquette rule of Korean barbecue: <strong>the wrap must enter the mouth in one single bite</strong>.
             </p>
@@ -245,7 +292,7 @@
               <div class="d-flex gap-3 align-items-center">
                 <i data-lucide="heart" class="text-flame" style="width: 32px; height: 32px; flex-shrink: 0;"></i>
                 <div>
-                  <strong class="text-white d-block mb-1">Cultural Etiquette Tip:</strong>
+                  <strong class="text-primary-app d-block mb-1">Cultural Etiquette Tip:</strong>
                   <span class="small text-muted">In Korean tradition, wrapping a generous portion and feeding it directly to a loved one, friend, or elder is a profound gesture of affection and respect known as heartfelt hospitality.</span>
                 </div>
               </div>
@@ -257,13 +304,16 @@
             <h4 class="mb-4">Leave a Dining Story or Question</h4>
             <form id="blog-comment-form" onsubmit="event.preventDefault(); window.kfToast.success('Thank you! Your comment has been posted to the KoreFlame community.', 'Comment Received'); this.reset();" class="row g-3">
               <div class="col-md-6">
-                <input type="text" class="form-control-custom" placeholder="Your Name" required>
+                <label class="form-label-custom" for="comment-name">Your Name *</label>
+                <input type="text" id="comment-name" class="form-control-custom" placeholder="Your Name" required>
               </div>
               <div class="col-md-6">
-                <input type="email" class="form-control-custom" placeholder="Your Email Address" required>
+                <label class="form-label-custom" for="comment-email">Your Email Address *</label>
+                <input type="email" id="comment-email" class="form-control-custom" placeholder="Your Email Address" required>
               </div>
               <div class="col-12">
-                <textarea class="form-control-custom" rows="3" placeholder="Share your favorite barbecue wrapping combination..." required></textarea>
+                <label class="form-label-custom" for="comment-text">Your Story or Question *</label>
+                <textarea id="comment-text" class="form-control-custom" rows="3" placeholder="Share your favorite barbecue wrapping combination..." required></textarea>
               </div>
               <div class="col-12">
                 <button type="submit" class="btn-flame btn-sm-custom">Post Comment</button>
@@ -277,27 +327,27 @@
           <div class="sticky-top" style="top: 100px;">
             <!-- Author Card -->
             <div class="kf-card p-4 mb-4 text-center">
-              <div class="sidebar-avatar mx-auto mb-3" style="width: 64px; height: 64px; font-size: 1.5rem;">MK</div>
-              <h5 class="mb-1">Chef Min-Jun Kang</h5>
-              <span class="badge-tag badge-prime mb-3">Executive Grill Master</span>
-              <p class="text-secondary small mb-0">With over 20 years perfecting Binchotan charcoal roasting in Seoul and New York, Chef Min-Jun champions authentic Korean heritage dining.</p>
+              <div class="sidebar-avatar mx-auto mb-3" id="blog-author-avatar" style="width: 64px; height: 64px; font-size: 1.5rem;">MK</div>
+              <h5 class="mb-1" id="blog-author-name">Chef Min-Jun Kang</h5>
+              <span class="badge-tag badge-prime mb-3" id="blog-author-badge">Executive Grill Master</span>
+              <p class="text-secondary small mb-0" id="blog-author-bio">With over 20 years perfecting Binchotan charcoal roasting in Seoul and New York, Chef Min-Jun champions authentic Korean heritage dining.</p>
             </div>
 
             <!-- Related Articles -->
             <div class="kf-card p-4 mb-4">
               <h5 class="text-gold mb-3">Related Guides</h5>
-              <div class="d-flex flex-column gap-3">
+              <div class="d-flex flex-column gap-3" id="blog-related-posts">
                 <a href="blog-details.html?id=post-2" class="d-flex gap-3 text-decoration-none">
-                  <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=200&auto=format&fit=crop" style="width: 65px; height: 65px; border-radius: 6px; object-fit: cover;">
+                  <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=200&auto=format&fit=crop" alt="Binchotan Charcoal Grilling" style="width: 65px; height: 65px; border-radius: 6px; object-fit: cover;">
                   <div>
-                    <h6 class="text-white small mb-1">Why Binchotan Charcoal Makes K-BBQ Taste Better</h6>
+                    <h6 class="text-primary-app small mb-1">Why Binchotan Charcoal Makes K-BBQ Taste Better</h6>
                     <span class="text-muted small">6 min read</span>
                   </div>
                 </a>
                 <a href="blog-details.html?id=post-3" class="d-flex gap-3 text-decoration-none">
-                  <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=200&auto=format&fit=crop" style="width: 65px; height: 65px; border-radius: 6px; object-fit: cover;">
+                  <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=200&auto=format&fit=crop" alt="Korean Banchan" style="width: 65px; height: 65px; border-radius: 6px; object-fit: cover;">
                   <div>
-                    <h6 class="text-white small mb-1">Beyond Kimchi: The World of Korean Banchan</h6>
+                    <h6 class="text-primary-app small mb-1">Beyond Kimchi: The World of Korean Banchan</h6>
                     <span class="text-muted small">4 min read</span>
                   </div>
                 </a>
@@ -309,7 +359,7 @@
               <i data-lucide="flame" class="text-flame mb-2" style="width: 36px; height: 36px;"></i>
               <h5 class="mb-2">Experience It Tonight</h5>
               <p class="text-secondary small mb-3">Taste the crisp ssam leaves and Prime Galbi firsthand around our tables.</p>
-              <a href="reservations.html" class="btn-flame w-100 btn-sm-custom">Reserve Table</a>
+              <a href="pricing.html#reservations" class="btn-flame w-100 btn-sm-custom">Reserve Table</a>
             </div>
           </div>
         </div>
@@ -317,46 +367,102 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="kf-footer">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <a href="index.html" class="nav-brand-logo mb-3">
-          <div class="nav-brand-icon">
-            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+      <div class="row g-4 align-items-start">
+        <!-- Brand Col -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="footer-brand-header">
+            <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+              <div class="kf-brand-logo-wrap">
+                <div class="kf-logo-aura"></div>
+                <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+              </div>
+              <div class="nav-brand-text">
+                <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+                <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+              </div>
+            </a>
           </div>
-          <div class="nav-brand-text">
-            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
-            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          <p class="text-secondary small mb-3 pe-lg-3" style="line-height: 1.5; max-width: 320px;">
+            Authentic Seoul street-grill experience with table charcoal, prime cuts, and vibrant hospitality.
+          </p>
+          <div class="d-flex align-items-center gap-2 pt-1">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Instagram" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Facebook" title="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="X (Twitter)" title="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Pinterest" title="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+              </svg>
+            </a>
           </div>
-        </a>
-          <p class="text-secondary small">Authentic Korean BBQ restaurant with table Binchotan grills and vibrant dining culture.</p>
         </div>
+
+        <!-- Quick Links -->
         <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">Culture</h5>
+          <h5 class="footer-widget-title">Experience</h5>
           <ul class="footer-link-list p-0">
-            <li><a href="blog.html">All Articles</a></li>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="index.html">The Grill Experience</a></li>
+            <li><a href="index-2.html">Celebration Dining</a></li>
+            <li><a href="menu.html">Full Menu</a></li>
+            <li><a href="pricing.html">Dining Packages</a></li>
+            <li><a href="pricing.html#reservations">Book Table</a></li>
           </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">Navigation</h5>
-          <ul class="footer-link-list p-0">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="reservations.html">Reservations</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+
+        <!-- Hours & Contact -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Hours & Contact</h5>
+          <div class="d-flex flex-column gap-2 small">
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Mon – Thu: <strong class="footer-highlight-text">5:00 PM – 10:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Fri – Sun: <strong class="footer-highlight-text">4:30 PM – 11:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2 border-top border-subtle">
+              <i data-lucide="phone" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="tel:5553827492" class="footer-link-highlight fw-semibold">(555) 382-7492</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="mail" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="mailto:concierge@koreflame.com" class="footer-link-highlight fw-semibold">concierge@koreflame.com</a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="footer-widget-title">Table Reservations</h5>
-          <p class="text-muted small">Call +1 (555) 382-7492 to reserve a table tonight.</p>
+
+        <!-- Demo Architecture Notice -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Template Notice</h5>
+          <p class="text-muted small mb-0" style="line-height: 1.5;">
+            Premium HTML5 / Vanilla JS restaurant template featuring live mock authentication, cart, and table reservations.
+          </p>
         </div>
       </div>
-      <div class="footer-bottom-bar">
-        <div>&copy; 2026 KoreFlame. All rights reserved.</div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar justify-content-center text-center">
+        <div>&copy; 2026 KoreFlame Korean BBQ Restaurant. All rights reserved.</div>
       </div>
     </div>
   </footer>
@@ -365,7 +471,113 @@
   <script src="assets/js/data.js"></script>
   <script src="assets/js/state.js"></script>
   <script src="assets/js/toast.js"></script>
+  <script src="assets/js/validator.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/blog-details.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const v = window.KF_VALIDATOR;
+      if (!v) return;
+
+      const nameEl = document.getElementById('comment-name');
+      const emailEl = document.getElementById('comment-email');
+      const textEl = document.getElementById('comment-text');
+
+      const nameErr = document.getElementById('comment-name-error');
+      const emailErr = document.getElementById('comment-email-error');
+      const textErr = document.getElementById('comment-text-error');
+
+      v.setupFieldFilter(nameEl, 'name');
+
+      if (nameEl) {
+        nameEl.addEventListener('input', () => v.clearFieldError(nameEl, nameErr));
+        nameEl.addEventListener('blur', () => {
+          if (nameEl.value.trim()) {
+            const res = v.validateName(nameEl.value, true, 'Your Name');
+            if (!res.valid) v.setFieldError(nameEl, nameErr, res.message);
+            else v.clearFieldError(nameEl, nameErr);
+          }
+        });
+      }
+
+      if (emailEl) {
+        emailEl.addEventListener('input', () => v.clearFieldError(emailEl, emailErr));
+        emailEl.addEventListener('blur', () => {
+          if (emailEl.value.trim()) {
+            const res = v.validateEmail(emailEl.value, true);
+            if (!res.valid) v.setFieldError(emailEl, emailErr, res.message);
+            else v.clearFieldError(emailEl, emailErr);
+          }
+        });
+      }
+
+      if (textEl) {
+        textEl.addEventListener('input', () => v.clearFieldError(textEl, textErr));
+        textEl.addEventListener('blur', () => {
+          if (textEl.value.trim()) {
+            const res = v.validateText(textEl.value, 5, 1000, true, 'Your comment');
+            if (!res.valid) v.setFieldError(textEl, textErr, res.message);
+            else v.clearFieldError(textEl, textErr);
+          }
+        });
+      }
+    });
+
+    function handleCommentSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const v = window.KF_VALIDATOR;
+
+      const nameEl = document.getElementById('comment-name');
+      const emailEl = document.getElementById('comment-email');
+      const textEl = document.getElementById('comment-text');
+
+      const nameErr = document.getElementById('comment-name-error');
+      const emailErr = document.getElementById('comment-email-error');
+      const textErr = document.getElementById('comment-text-error');
+
+      if (v) v.clearFormErrors(form);
+
+      let isValid = true;
+      let firstInvalid = null;
+
+      if (v) {
+        const nameRes = v.validateName(nameEl ? nameEl.value : '', true, 'Your Name');
+        if (!nameRes.valid) {
+          v.setFieldError(nameEl, nameErr, nameRes.message);
+          isValid = false;
+          if (!firstInvalid) firstInvalid = nameEl;
+        }
+
+        const emailRes = v.validateEmail(emailEl ? emailEl.value : '', true);
+        if (!emailRes.valid) {
+          v.setFieldError(emailEl, emailErr, emailRes.message);
+          isValid = false;
+          if (!firstInvalid) firstInvalid = emailEl;
+        }
+
+        const textRes = v.validateText(textEl ? textEl.value : '', 5, 1000, true, 'Your comment');
+        if (!textRes.valid) {
+          v.setFieldError(textEl, textErr, textRes.message);
+          isValid = false;
+          if (!firstInvalid) firstInvalid = textEl;
+        }
+      }
+
+      if (!isValid) {
+        if (firstInvalid) firstInvalid.focus();
+        if (window.kfToast) window.kfToast.error('Please complete all required fields.', 'Validation Error');
+        return;
+      }
+
+      const name = nameEl.value.trim();
+      if (window.kfToast) {
+        window.kfToast.success(`Thank you, ${name}! Your comment has been posted to the KoreFlame community.`, 'Comment Received');
+      }
+      form.reset();
+      if (v) v.clearFormErrors(form);
+    }
+  </script>
 </body>
 </html>
 

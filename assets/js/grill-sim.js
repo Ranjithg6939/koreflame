@@ -118,7 +118,7 @@ function initGrillSimulator() {
                 <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
                 <span>Add to Cart ($${cut.price.toFixed(2)})</span>
               </button>
-              <a href="reservations.html" class="btn-flame-outline btn-sm-custom">
+              <a href="pricing.html#reservations" class="btn-flame-outline btn-sm-custom">
                 <i data-lucide="calendar" style="width: 15px; height: 15px;"></i>
                 <span>Reserve Table</span>
               </a>
@@ -224,6 +224,9 @@ function initGrillSimulator() {
         }, 1);
         if (window.triggerCartBounce) window.triggerCartBounce();
         window.kfToast.success(`Added ${cut.nameEn} to your table cart.`, 'Grill Cart Updated');
+        if (typeof window.openCartDrawer === 'function') {
+          window.openCartDrawer();
+        }
       });
     }
   }

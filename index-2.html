@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -22,10 +22,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=golden7">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=golden7">
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- ======================================================================
        Global Header / Navigation
@@ -67,20 +68,18 @@
               </a>
               <div class="dropdown-menu-custom">
                 <a href="index.html" class="dropdown-link-custom">
-                  <span>Home 1 — The Grill Experience</span>
+                  <span>The Grill Experience</span>
                   <span class="badge-tag badge-prime">Explore</span>
                 </a>
                 <a href="index-2.html" class="dropdown-link-custom active">
-                  <span>Home 2 — Celebration Experience</span>
+                  <span>Celebration Experience</span>
                   <span class="badge-tag badge-spice">Current</span>
                 </a>
               </div>
             </li>
-            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
-            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
-            <li><a href="reservations.html" class="nav-link-custom">Reservations</a></li>
             <li><a href="about.html" class="nav-link-custom">About</a></li>
-            <li><a href="pricing.html" class="nav-link-custom">Packages</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
             <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
             <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
             <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
@@ -106,7 +105,7 @@
           </button>
 
           <!-- Reserve Table Icon Button -->
-          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+          <a href="pricing.html#reservations" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
             <span class="nav-reserve-dot"></span>
             <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
           </a>
@@ -151,13 +150,11 @@
     </div>
 
     <ul class="d-flex flex-column gap-2 p-0 mb-4">
-      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
-      <li><a href="index-2.html" class="nav-link-custom text-flame fw-bold">Home 2 — Celebration Experience</a></li>
-      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
-      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
-      <li><a href="reservations.html" class="nav-link-custom">Book a Table</a></li>
+      <li><a href="index.html" class="nav-link-custom">The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom text-flame fw-bold">Celebration Experience</a></li>
       <li><a href="about.html" class="nav-link-custom">About KoreFlame</a></li>
-      <li><a href="pricing.html" class="nav-link-custom">Feast Packages</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
       <li><a href="blog.html" class="nav-link-custom">K-BBQ Culture Blog</a></li>
       <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
       <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
@@ -165,7 +162,7 @@
     </ul>
 
     <div class="pt-3 border-top border-subtle">
-      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
       <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
     </div>
   </aside>
@@ -190,62 +187,74 @@
         <i data-lucide="send" style="width: 18px; height: 18px;"></i>
         <span>Send Order to Grill</span>
       </button>
+      <a href="cart.html" class="btn-flame-outline w-100 mt-2 text-center d-flex align-items-center justify-content-center gap-2">
+        <i data-lucide="shopping-cart" style="width: 16px; height: 16px;"></i>
+        <span>View Full Cart</span>
+      </a>
     </div>
   </aside>
+
+  <!-- Main Landmark -->
+  <main id="main-content">
 
   <!-- ======================================================================
        Home 2 Split Hero: Celebration & Group Dining
        ====================================================================== -->
   <section class="py-5 ember-glow" style="background: linear-gradient(180deg, rgba(234, 191, 114, 0.05) 0%, var(--bg-primary) 100%);">
     <div class="container py-lg-5">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <div class="section-label">
-            <i data-lucide="party-popper" style="width: 14px; height: 14px;"></i>
-            <span>Group Banquets & Milestone Feasts</span>
-          </div>
-          <h1 class="display-3 fw-extrabold mb-4">
-            Celebrate Around the <span class="text-gold-gradient">Sizzling Flame</span>
-          </h1>
-          <p class="lead text-secondary mb-4">
-            From milestone birthdays and wedding rehearsal dinners to high-spirited corporate banquets—KoreFlame turns gatherings into unforgettable communal spectacles with soundproof VIP suites, dedicated grillmasters, and custom soju pairings.
-          </p>
+      <div class="row align-items-stretch g-4 g-lg-5">
+        <div class="col-lg-6 d-flex flex-column justify-content-between">
+          <div>
+            <div class="section-label mb-2">
+              <i data-lucide="party-popper" style="width: 14px; height: 14px;"></i>
+              <span>Group Banquets & Milestone Feasts</span>
+            </div>
+            <h1 class="fw-extrabold mb-2" style="font-size: clamp(1.95rem, 2.8vw, 2.65rem); line-height: 1.15; letter-spacing: -0.02em;">
+              Celebrate Around the <span class="text-gold-gradient">Sizzling Flame</span>
+            </h1>
+            <p class="text-secondary mb-3" style="font-size: 0.95rem; line-height: 1.5;">
+              From milestone birthdays and wedding rehearsal dinners to high-spirited corporate banquets—KoreFlame turns gatherings into unforgettable feasts with soundproof VIP suites, dedicated grillmasters, and custom soju pairings. Enjoy curated communal dining where every cut is grilled to perfection, complemented by unlimited handcrafted banchan and celebratory toasts.
+            </p>
 
-          <div class="d-flex flex-wrap gap-3 mb-4">
-            <a href="reservations.html" class="btn-flame btn-lg-custom">
-              <i data-lucide="users" style="width: 20px; height: 20px;"></i>
-              <span>Reserve Group Table (2 - 30 Guests)</span>
-            </a>
-            <a href="pricing.html" class="btn-gold btn-lg-custom">
-              <i data-lucide="gift" style="width: 20px; height: 20px;"></i>
-              <span>Celebration Packages</span>
-            </a>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <a href="pricing.html#reservations" class="btn-flame" style="padding: 0.65rem 1.35rem; font-size: 0.9rem;">
+                <i data-lucide="users" style="width: 18px; height: 18px;"></i>
+                <span>Reserve Group Table (2 - 30 Guests)</span>
+              </a>
+              <a href="pricing.html" class="btn-flame-outline" style="padding: 0.65rem 1.25rem; font-size: 0.9rem;">
+                <i data-lucide="gift" style="width: 18px; height: 18px;"></i>
+                <span>Celebration Packages</span>
+              </a>
+            </div>
           </div>
 
-          <div class="d-flex align-items-center gap-3 p-3 bg-surface-app border border-subtle rounded">
-            <i data-lucide="cake" class="text-flame" style="width: 32px; height: 32px; flex-shrink: 0;"></i>
-            <div class="small">
-              <strong class="text-gold d-block">Complimentary Birthday Dessert & Sparklers</strong>
-              <span class="text-muted">Mention your celebration when booking; our team prepares customized Korean desserts and festive tables.</span>
+          <div class="d-flex align-items-center gap-3 p-2 px-3 bg-surface-app border border-subtle rounded-3">
+            <i data-lucide="cake" class="text-flame flex-shrink-0" style="width: 26px; height: 26px;"></i>
+            <div>
+              <strong class="text-gold d-block" style="font-size: 0.9rem;">Complimentary Birthday Dessert & Sparklers</strong>
+              <span class="text-muted" style="font-size: 0.85rem; line-height: 1.4; display: block;">Mention your celebration when booking; our team prepares customized Korean desserts and festive tables.</span>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Korean BBQ Celebration" class="rounded shadow-lg w-100" style="min-height: 280px; max-height: 480px; height: clamp(280px, 45vw, 480px); object-fit: cover;">
+        <div class="col-lg-6 d-flex flex-column">
+          <div class="position-relative h-100 flex-grow-1 overflow-hidden rounded-4 shadow-lg" style="min-height: 380px;">
+            <video autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" class="w-100 h-100" style="object-fit: cover; display: block; min-height: 380px;">
+              <source src="assets/videos/Korean_BBQ_food_commercial_1080p_20261019101027.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
             
-            <div class="position-absolute top-0 end-0 m-2 m-sm-3 p-2 p-sm-3 bg-surface-app backdrop-blur-glass border border-subtle rounded text-center">
-              <span class="fs-4 fs-sm-3 fw-bold text-flame d-block">100%</span>
+            <div class="position-absolute top-0 end-0 m-3 p-2 px-3 bg-surface-app backdrop-blur-glass border border-subtle rounded-3 text-center shadow-sm" style="z-index: 2;">
+              <span class="fs-4 fw-bold text-flame d-block" style="line-height: 1;">100%</span>
               <span class="small text-muted" style="font-size: 0.72rem;">Smokeless Downdraft</span>
             </div>
 
-            <div class="position-absolute bottom-0 start-0 m-2 m-sm-3 p-2 p-sm-3 bg-surface-app backdrop-blur-glass border border-subtle rounded" style="max-width: calc(100% - 1.5rem);">
+            <div class="position-absolute bottom-0 start-0 m-3 p-2 px-3 bg-surface-app backdrop-blur-glass border border-subtle rounded-3 shadow-sm" style="max-width: calc(100% - 1.5rem); z-index: 2;">
               <div class="d-flex align-items-center gap-2 text-gold">
                 <i data-lucide="shield-check" style="width: 18px; height: 18px; flex-shrink: 0;"></i>
-                <strong class="small">Dedicated Grill Concierge</strong>
+                <strong class="small" style="font-size: 0.85rem;">Dedicated Grill Concierge</strong>
               </div>
-              <span class="small text-muted d-none d-sm-block">We grill, carve, and serve so you enjoy the party</span>
+              <span class="small text-muted d-none d-sm-block" style="font-size: 0.78rem;">We grill, carve, and serve so you enjoy the party</span>
             </div>
           </div>
         </div>
@@ -258,40 +267,43 @@
        ====================================================================== -->
   <section class="py-5 bg-secondary-app">
     <div class="container py-4">
-      <div class="section-header text-center">
-        <div class="section-label">Tailored For Gatherings</div>
-        <h2>Why Celebrations Shine at KoreFlame</h2>
-        <p class="text-secondary">Designed specifically for lively laughter, clinking soju glasses, and effortless communal grilling.</p>
+      <div class="section-header text-center kf-reveal">
+        <div class="section-label mb-2">
+          <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+          <span>Tailored For Gatherings</span>
+        </div>
+        <h2 class="mb-2">Why Celebrations Shine at KoreFlame</h2>
+        <p class="text-secondary mb-0" style="max-width: 600px; margin: 0 auto; line-height: 1.5;">Designed specifically for lively laughter, clinking soju glasses, and effortless communal grilling.</p>
       </div>
 
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="kf-card h-100 text-center p-4">
-            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-flame mb-3">
-              <i data-lucide="music" style="width: 32px; height: 32px;"></i>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-4 kf-reveal delay-1">
+          <div class="kf-card h-100 p-4 text-center d-flex flex-column align-items-center justify-content-start">
+            <div class="kf-feature-icon text-flame">
+              <i data-lucide="music" style="width: 28px; height: 28px;"></i>
             </div>
-            <h4>VIP Soundproof Rooms</h4>
-            <p class="text-secondary small">Sliding acoustic timber doors, customized Bluetooth soundbars, and dimmable ember lighting for private birthday speeches.</p>
+            <h4 class="mb-2" style="font-size: 1.22rem; font-weight: 700; letter-spacing: -0.01em;">VIP Soundproof Rooms</h4>
+            <p class="text-secondary small mb-0" style="line-height: 1.6; max-width: 310px;">Sliding acoustic timber doors, customized Bluetooth soundbars, and dimmable ember lighting for private birthday speeches.</p>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="kf-card h-100 text-center p-4">
-            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-gold mb-3">
-              <i data-lucide="flame" style="width: 32px; height: 32px;"></i>
+        <div class="col-md-4 kf-reveal delay-2">
+          <div class="kf-card h-100 p-4 text-center d-flex flex-column align-items-center justify-content-start">
+            <div class="kf-feature-icon text-gold">
+              <i data-lucide="flame" style="width: 28px; height: 28px;"></i>
             </div>
-            <h4>Personal Grillmaster Service</h4>
-            <p class="text-secondary small">Relax with your guests while our culinary grill captains shear short ribs, toast garlic, and guide optimal meat-wrapping rituals.</p>
+            <h4 class="mb-2" style="font-size: 1.22rem; font-weight: 700; letter-spacing: -0.01em;">Personal Grillmaster Service</h4>
+            <p class="text-secondary small mb-0" style="line-height: 1.6; max-width: 310px;">Relax with your guests while our culinary grill captains shear short ribs, toast garlic, and guide optimal meat-wrapping rituals.</p>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="kf-card h-100 text-center p-4">
-            <div class="d-inline-flex p-3 rounded-circle bg-primary-app text-sizzle mb-3">
-              <i data-lucide="wine" style="width: 32px; height: 32px;"></i>
+        <div class="col-md-4 kf-reveal delay-3">
+          <div class="kf-card h-100 p-4 text-center d-flex flex-column align-items-center justify-content-start">
+            <div class="kf-feature-icon text-sizzle">
+              <i data-lucide="wine" style="width: 28px; height: 28px;"></i>
             </div>
-            <h4>Artisan Soju & Beer Towers</h4>
-            <p class="text-secondary small">Chilled premium Chamisul, fruit-infused soju carafes, and craft Korean lager towers that keep celebrations flowing effortlessly.</p>
+            <h4 class="mb-2" style="font-size: 1.22rem; font-weight: 700; letter-spacing: -0.01em;">Artisan Soju & Beer Towers</h4>
+            <p class="text-secondary small mb-0" style="line-height: 1.6; max-width: 310px;">Chilled premium Chamisul, fruit-infused soju carafes, and craft Korean lager towers that keep celebrations flowing effortlessly.</p>
           </div>
         </div>
       </div>
@@ -303,70 +315,192 @@
        ====================================================================== -->
   <section class="py-5">
     <div class="container py-4">
-      <div class="section-header text-center">
-        <div class="section-label">All-Inclusive Dining</div>
-        <h2>Pre-Set Celebration Feasts</h2>
-        <p class="text-secondary">Eliminate ordering guesswork with our curated group tiers. One price covers meats, stews, unlimited banchan, and beverages.</p>
+      <div class="section-header text-center kf-reveal">
+        <div class="section-label mb-2">
+          <i data-lucide="flame" style="width: 14px; height: 14px;"></i>
+          <span>All-Inclusive Dining</span>
+        </div>
+        <h2 class="mb-2">Pre-Set Celebration Feasts</h2>
+        <p class="text-secondary mb-0" style="max-width: 620px; margin: 0 auto; line-height: 1.5;">Eliminate ordering guesswork with our curated group tiers. One price covers meats, stews, unlimited banchan, and beverages.</p>
       </div>
 
-      <div class="row g-4">
-        <div class="col-lg-4">
+      <div class="row g-4 align-items-stretch">
+        <!-- Card 1: Seoul Street Set -->
+        <div class="col-lg-4 kf-reveal delay-1">
           <div class="kf-card h-100 p-4 d-flex flex-column">
             <div class="mb-3">
-              <span class="badge-tag badge-prime mb-2">Street Gathering</span>
-              <h3>Seoul Street Set</h3>
-              <div class="fs-2 fw-bold text-flame">$45 <span class="fs-6 text-muted font-weight-normal">/ guest</span></div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="badge-tag badge-prime">
+                  <i data-lucide="users" style="width: 12px; height: 12px;"></i>
+                  <span>Street Gathering</span>
+                </span>
+                <span class="badge-tag badge-prime">Essential Tier</span>
+              </div>
+              <h3 class="h4 fw-bold mb-1">Seoul Street Set</h3>
+              <p class="text-secondary small mb-3">Hearty classics for informal friends and family get-togethers.</p>
+              <div class="d-flex align-items-baseline gap-1">
+                <span class="text-flame" style="font-size: 2.25rem; font-weight: 800; line-height: 1;">$45</span>
+                <span class="text-muted small">/ guest</span>
+              </div>
             </div>
-            <ul class="text-secondary small mb-4 p-0">
-              <li class="mb-2">✓ 2 Signature Cuts (Pork Belly & Bulgogi)</li>
-              <li class="mb-2">✓ Unlimited 5-Dish Banchan Refills</li>
-              <li class="mb-2">✓ Choice of Kimchi or Soybean Stew</li>
-              <li class="mb-2">✓ Steamed Rice & Ssam Baskets</li>
-              <li class="mb-2 text-muted">✗ Wagyu or Prime Galbi cuts</li>
+
+            <hr class="border-subtle my-3 opacity-25">
+
+            <ul class="list-unstyled mb-4 d-flex flex-column gap-2 text-secondary small flex-grow-1">
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">2 Signature Cuts (Pork Belly & Bulgogi)</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Unlimited 5-Dish Banchan Refills</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Choice of Kimchi or Soybean Stew</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Steamed Rice & Ssam Baskets</span>
+              </li>
+              <li class="d-flex align-items-center gap-2 text-muted">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(156, 163, 175, 0.12); color: var(--text-muted);">
+                  <i data-lucide="x" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-decoration-line-through text-muted">Wagyu or Prime Galbi cuts</span>
+              </li>
             </ul>
-            <div class="mt-auto">
-              <a href="reservations.html" class="btn-flame-outline w-100">Select Street Set</a>
+
+            <div class="mt-auto pt-2">
+              <a href="pricing.html#reservations" class="btn-flame-outline w-100 justify-content-center">Select Street Set</a>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4">
-          <div class="kf-card h-100 p-4 d-flex flex-column border-primary position-relative" style="box-shadow: 0 0 30px rgba(249, 115, 22, 0.2);">
-            <div class="position-absolute top-0 end-0 m-3 badge-tag badge-popular">Celebration Favorite</div>
+        <!-- Card 2: Butcher's Feast (Featured) -->
+        <div class="col-lg-4 kf-reveal delay-2">
+          <div class="kf-card h-100 p-4 d-flex flex-column border-primary position-relative" style="box-shadow: 0 0 32px rgba(230, 57, 36, 0.22); border-width: 1.5px;">
             <div class="mb-3">
-              <span class="badge-tag badge-spice mb-2">Most Popular</span>
-              <h3>Butcher's Feast</h3>
-              <div class="fs-2 fw-bold text-flame">$68 <span class="fs-6 text-muted font-weight-normal">/ guest</span></div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="badge-tag badge-spice">
+                  <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+                  <span>Most Popular</span>
+                </span>
+                <span class="badge-tag badge-popular">Celebration Favorite</span>
+              </div>
+              <h3 class="h4 fw-bold mb-1">Butcher's Feast</h3>
+              <p class="text-secondary small mb-3">Our signature celebration tier with prime cuts and banchan galore.</p>
+              <div class="d-flex align-items-baseline gap-1">
+                <span class="text-flame" style="font-size: 2.25rem; font-weight: 800; line-height: 1;">$68</span>
+                <span class="text-muted small">/ guest</span>
+              </div>
             </div>
-            <ul class="text-secondary small mb-4 p-0">
-              <li class="mb-2">✓ USDA Prime Marinated Galbi</li>
-              <li class="mb-2">✓ Thick Berkshire Belly & Beef Brisket</li>
-              <li class="mb-2">✓ Volcano Steamed Egg (Gyeran-jjim)</li>
-              <li class="mb-2">✓ Full 8-Dish Artisan Banchan Refills</li>
-              <li class="mb-2">✓ 1 Glass of House Draft or Yuzu Ade</li>
+
+            <hr class="border-subtle my-3 opacity-25">
+
+            <ul class="list-unstyled mb-4 d-flex flex-column gap-2 text-secondary small flex-grow-1">
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">USDA Prime Marinated Galbi</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Thick Berkshire Belly & Beef Brisket</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Volcano Steamed Egg (Gyeran-jjim)</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Full 8-Dish Artisan Banchan Refills</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">1 Glass of House Draft or Yuzu Ade</span>
+              </li>
             </ul>
-            <div class="mt-auto">
-              <a href="reservations.html" class="btn-flame w-100">Select Butcher's Set</a>
+
+            <div class="mt-auto pt-2">
+              <a href="pricing.html#reservations" class="btn-flame w-100 justify-content-center shadow-sm">Select Butcher's Set</a>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <!-- Card 3: Imperial Sura Dining -->
+        <div class="col-lg-4 kf-reveal delay-3">
           <div class="kf-card h-100 p-4 d-flex flex-column">
             <div class="mb-3">
-              <span class="badge-tag badge-prime mb-2">Imperial Banquet</span>
-              <h3>Imperial Sura Dining</h3>
-              <div class="fs-2 fw-bold text-gold">$115 <span class="fs-6 text-muted font-weight-normal">/ guest</span></div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="badge-tag badge-prime">
+                  <i data-lucide="crown" style="width: 12px; height: 12px;"></i>
+                  <span>Imperial Banquet</span>
+                </span>
+                <span class="badge-tag badge-prime">VIP Suite</span>
+              </div>
+              <h3 class="h4 fw-bold mb-1">Imperial Sura Dining</h3>
+              <p class="text-secondary small mb-3">Ultra-luxury Wagyu dining with dedicated table grillmaster.</p>
+              <div class="d-flex align-items-baseline gap-1">
+                <span class="text-flame" style="font-size: 2.25rem; font-weight: 800; line-height: 1;">$115</span>
+                <span class="text-muted small">/ guest</span>
+              </div>
             </div>
-            <ul class="text-secondary small mb-4 p-0">
-              <li class="mb-2">✓ A5 Miyazaki Wagyu BMS 9+ Ribeye</li>
-              <li class="mb-2">✓ Korean Wagyu Tartare (Yukhoe) Starter</li>
-              <li class="mb-2">✓ Private Soundproof Room Exclusivity</li>
-              <li class="mb-2">✓ Table-side Dedicated Grillmaster</li>
-              <li class="mb-2">✓ 1 Bottle Soju or Wine per pair</li>
+
+            <hr class="border-subtle my-3 opacity-25">
+
+            <ul class="list-unstyled mb-4 d-flex flex-column gap-2 text-secondary small flex-grow-1">
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">A5 Miyazaki Wagyu BMS 9+ Ribeye</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Korean Wagyu Tartare (Yukhoe) Starter</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Private Soundproof Room Exclusivity</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">Table-side Dedicated Grillmaster</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 20px; height: 20px; background: rgba(230, 57, 36, 0.12); color: var(--color-primary);">
+                  <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                </span>
+                <span class="text-primary-app">1 Bottle Soju or Wine per pair</span>
+              </li>
             </ul>
-            <div class="mt-auto">
-              <a href="reservations.html" class="btn-gold w-100">Select Imperial Set</a>
+
+            <div class="mt-auto pt-2">
+              <a href="pricing.html#reservations" class="btn-flame-outline w-100 justify-content-center">Select Imperial Set</a>
             </div>
           </div>
         </div>
@@ -377,36 +511,108 @@
   <!-- ======================================================================
        Celebration Reviews
        ====================================================================== -->
-  <section class="py-5 bg-secondary-app">
+  <section class="py-5 bg-secondary-app position-relative" style="z-index: 2;">
     <div class="container py-4">
-      <div class="section-header text-center">
-        <div class="section-label">Party Testimonials</div>
-        <h2>Celebrations Held at KoreFlame</h2>
-        <p class="text-secondary">Read how groups celebrated their biggest milestones around our grills.</p>
+      <div class="section-header text-center kf-reveal">
+        <div class="section-label mb-2">
+          <i data-lucide="message-square-quote" style="width: 14px; height: 14px;"></i>
+          <span>Party Testimonials</span>
+        </div>
+        <h2 class="mb-2">Celebrations Held at KoreFlame</h2>
+        <p class="text-secondary mb-0" style="max-width: 620px; margin: 0 auto; line-height: 1.5;">Read how groups celebrated their biggest milestones around our grills.</p>
       </div>
 
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="kf-card h-100 p-4">
-            <div class="badge-tag badge-prime mb-3">50th Birthday Party (14 Guests)</div>
-            <p class="text-secondary small mb-3">"We reserved the Gangnam VIP Suite for my father's 50th birthday. The staff brought out customized sparkler meat platters and timed every round of Galbi flawlessly. Unbeatable atmosphere!"</p>
-            <strong class="small text-gold">— Elena Chang</strong>
+      <div class="row g-4 align-items-stretch">
+        <!-- Review 1 -->
+        <div class="col-md-6 col-lg-4 kf-reveal delay-1">
+          <div class="kf-card h-100 p-4 d-flex flex-column position-relative">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="badge-tag badge-prime">
+                <i data-lucide="cake" style="width: 12px; height: 12px;"></i>
+                <span>50th Birthday (14 Guests)</span>
+              </span>
+              <div class="kf-stars-wrap text-warning" aria-label="5 star rating">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+              </div>
+            </div>
+
+            <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.65; font-size: 0.92rem;">
+              "We reserved the Gangnam VIP Suite for my father's 50th birthday. The staff brought out customized sparkler meat platters and timed every round of Galbi flawlessly. Unbeatable atmosphere!"
+            </p>
+
+            <div class="mt-auto pt-3 border-top border-subtle d-flex align-items-center gap-3">
+              <div class="kf-testimonial-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop&crop=face" alt="Elena Chang"></div>
+              <div>
+                <strong class="d-block text-primary-app" style="font-size: 0.92rem; line-height: 1.2;">Elena Chang</strong>
+                <span class="text-muted small" style="font-size: 0.78rem;">Gangnam VIP Suite Host</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="kf-card h-100 p-4">
-            <div class="badge-tag badge-spice mb-3">Tech Team Rehearsal (22 Guests)</div>
-            <p class="text-secondary small mb-3">"Corporate dining can often feel stiff; KoreFlame made our entire team relax immediately. Grilling side-by-side sparked wonderful conversations, and the downdraft tables kept everyone fresh."</p>
-            <strong class="small text-gold">— Robert Vance, Tech Lead</strong>
+        <!-- Review 2 -->
+        <div class="col-md-6 col-lg-4 kf-reveal delay-2">
+          <div class="kf-card h-100 p-4 d-flex flex-column position-relative">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="badge-tag badge-spice">
+                <i data-lucide="briefcase" style="width: 12px; height: 12px;"></i>
+                <span>Tech Team Dinner (22 Guests)</span>
+              </span>
+              <div class="kf-stars-wrap text-warning" aria-label="5 star rating">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+              </div>
+            </div>
+
+            <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.65; font-size: 0.92rem;">
+              "Corporate dining can often feel stiff; KoreFlame made our entire team relax immediately. Grilling side-by-side sparked wonderful conversations, and the downdraft tables kept everyone fresh."
+            </p>
+
+            <div class="mt-auto pt-3 border-top border-subtle d-flex align-items-center gap-3">
+              <div class="kf-testimonial-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop&crop=face" alt="Robert Vance"></div>
+              <div>
+                <strong class="d-block text-primary-app" style="font-size: 0.92rem; line-height: 1.2;">Robert Vance</strong>
+                <span class="text-muted small" style="font-size: 0.78rem;">Tech Lead, Engineering Banquet</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="kf-card h-100 p-4">
-            <div class="badge-tag badge-popular mb-3">Bachelorette Feast (10 Guests)</div>
-            <p class="text-secondary small mb-3">"The Sparkling Yuzu cocktail towers and Butcher's Platter were out of this world. The playlist was upbeat, the meat was top notch, and booking was completely hassle-free."</p>
-            <strong class="small text-gold">— Jessica M.</strong>
+        <!-- Review 3 -->
+        <div class="col-md-6 col-lg-4 kf-reveal delay-3">
+          <div class="kf-card h-100 p-4 d-flex flex-column position-relative">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="badge-tag badge-popular">
+                <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+                <span>Bachelorette Party (10 Guests)</span>
+              </span>
+              <div class="kf-stars-wrap text-warning" aria-label="5 star rating">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: #F59E0B; color: #F59E0B;"></i>
+              </div>
+            </div>
+
+            <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.65; font-size: 0.92rem;">
+              "The Sparkling Yuzu cocktail towers and Butcher's Platter were out of this world. The playlist was upbeat, the meat was top notch, and booking was completely hassle-free."
+            </p>
+
+            <div class="mt-auto pt-3 border-top border-subtle d-flex align-items-center gap-3">
+              <div class="kf-testimonial-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop&crop=face" alt="Jessica M."></div>
+              <div>
+                <strong class="d-block text-primary-app" style="font-size: 0.92rem; line-height: 1.2;">Jessica M.</strong>
+                <span class="text-muted small" style="font-size: 0.78rem;">Bachelorette Party Organizer</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -416,16 +622,19 @@
   <!-- ======================================================================
        Prominent Booking CTA
        ====================================================================== -->
-  <section class="py-5 text-center ember-glow">
+  <section class="py-5 text-center ember-glow position-relative" style="z-index: 1;">
     <div class="container py-4">
-      <div class="kf-card p-5 max-w-lg mx-auto" style="max-width: 720px; margin-inline: auto;">
-        <span class="section-label">Reserve Your Gathering</span>
+      <div class="kf-card p-5 max-w-lg mx-auto kf-reveal" style="max-width: 720px; margin-inline: auto;">
+        <div class="section-label mb-2">
+          <i data-lucide="calendar" style="width: 14px; height: 14px;"></i>
+          <span>Reserve Your Gathering</span>
+        </div>
         <h2 class="mb-3">Ready to Light the Celebration Flame?</h2>
         <p class="text-secondary mb-4">
           Parties of up to 10 can book directly online in under 60 seconds. For large banquets of 11 to 60 diners, our events director will confirm custom dining rooms and menus.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="reservations.html" class="btn-flame btn-lg-custom">
+          <a href="pricing.html#reservations" class="btn-flame btn-lg-custom">
             <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
             <span>Book Group Table Now</span>
           </a>
@@ -438,54 +647,102 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="kf-footer">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <a href="index.html" class="nav-brand-logo mb-3">
-          <div class="nav-brand-icon">
-            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+      <div class="row g-4 align-items-start">
+        <!-- Brand Col -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="footer-brand-header">
+            <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+              <div class="kf-brand-logo-wrap">
+                <div class="kf-logo-aura"></div>
+                <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+              </div>
+              <div class="nav-brand-text">
+                <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+                <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+              </div>
+            </a>
           </div>
-          <div class="nav-brand-text">
-            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
-            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          <p class="text-secondary small mb-3 pe-lg-3" style="line-height: 1.5; max-width: 320px;">
+            Authentic Seoul street-grill experience with table charcoal, prime cuts, and vibrant hospitality.
+          </p>
+          <div class="d-flex align-items-center gap-2 pt-1">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Instagram" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Facebook" title="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="X (Twitter)" title="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Pinterest" title="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+              </svg>
+            </a>
           </div>
-        </a>
-          <p class="text-secondary small">Modern Seoul street-grill aesthetic with premium restaurant styling. Celebrate life's best moments around the sizzle.</p>
         </div>
+
+        <!-- Quick Links -->
         <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">Navigation</h5>
+          <h5 class="footer-widget-title">Experience</h5>
           <ul class="footer-link-list p-0">
             <li><a href="index.html">The Grill Experience</a></li>
             <li><a href="index-2.html">Celebration Dining</a></li>
             <li><a href="menu.html">Full Menu</a></li>
-            <li><a href="pricing.html">Packages</a></li>
-            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="pricing.html">Dining Packages</a></li>
+            <li><a href="pricing.html#reservations">Book Table</a></li>
           </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">Guest Portal</h5>
-          <ul class="footer-link-list p-0">
-            <li><a href="dashboard.html">Guest Dashboard</a></li>
-            <li><a href="login.html">Sign In</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">K-BBQ Guide</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
+
+        <!-- Hours & Contact -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Hours & Contact</h5>
+          <div class="d-flex flex-column gap-2 small">
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Mon – Thu: <strong class="footer-highlight-text">5:00 PM – 10:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Fri – Sun: <strong class="footer-highlight-text">4:30 PM – 11:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2 border-top border-subtle">
+              <i data-lucide="phone" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="tel:5553827492" class="footer-link-highlight fw-semibold">(555) 382-7492</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="mail" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="mailto:concierge@koreflame.com" class="footer-link-highlight fw-semibold">concierge@koreflame.com</a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="footer-widget-title">Banquet Concierge</h5>
-          <p class="text-muted small">For groups over 10 or private dining buyouts, call our host at +1 (555) 382-7492 or email banquets@koreflame.com.</p>
+
+        <!-- Demo Architecture Notice -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Template Notice</h5>
+          <p class="text-muted small mb-0" style="line-height: 1.5;">
+            Premium HTML5 / Vanilla JS restaurant template featuring live mock authentication, cart, and table reservations.
+          </p>
         </div>
       </div>
-      <div class="footer-bottom-bar">
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar justify-content-center text-center">
         <div>&copy; 2026 KoreFlame Korean BBQ Restaurant. All rights reserved.</div>
-        <div class="d-flex gap-3">
-          <a href="about.html" class="text-muted">About Us</a>
-          <a href="contact.html" class="text-muted">Contact</a>
-          <a href="404.html" class="text-muted">404 Demo</a>
-        </div>
       </div>
     </div>
   </footer>

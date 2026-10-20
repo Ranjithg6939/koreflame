@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -15,10 +15,11 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=golden7">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=golden7">
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- Header -->
   <header class="kf-header d-flex align-items-center">
@@ -58,20 +59,18 @@
               </a>
               <div class="dropdown-menu-custom">
                 <a href="index.html" class="dropdown-link-custom">
-                  <span>Home 1 — The Grill Experience</span>
+                  <span>The Grill Experience</span>
                   <span class="badge-tag badge-prime">Explore</span>
                 </a>
                 <a href="index-2.html" class="dropdown-link-custom">
-                  <span>Home 2 — Celebration Experience</span>
+                  <span>Celebration Experience</span>
                   <span class="badge-tag badge-spice">Explore</span>
                 </a>
               </div>
             </li>
-            <li><a href="services.html" class="nav-link-custom">Experience</a></li>
-            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
-            <li><a href="reservations.html" class="nav-link-custom">Reservations</a></li>
             <li><a href="about.html" class="nav-link-custom">About</a></li>
-            <li><a href="pricing.html" class="nav-link-custom">Packages</a></li>
+            <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
+            <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
             <li><a href="blog.html" class="nav-link-custom active">Blog</a></li>
             <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
             <li><a href="dashboard.html" class="nav-link-custom">Dashboard</a></li>
@@ -97,7 +96,7 @@
           </button>
 
           <!-- Reserve Table Icon Button -->
-          <a href="reservations.html" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
+          <a href="pricing.html#reservations" class="btn-icon-nav btn-nav-reserve d-none d-sm-inline-flex" aria-label="Reserve Table" title="Reserve Table">
             <span class="nav-reserve-dot"></span>
             <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
           </a>
@@ -142,13 +141,11 @@
     </div>
 
     <ul class="d-flex flex-column gap-2 p-0 mb-4">
-      <li><a href="index.html" class="nav-link-custom">Home 1 — The Grill Experience</a></li>
-      <li><a href="index-2.html" class="nav-link-custom">Home 2 — Celebration Experience</a></li>
-      <li><a href="services.html" class="nav-link-custom">Dining Experiences</a></li>
-      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
-      <li><a href="reservations.html" class="nav-link-custom">Book a Table</a></li>
+      <li><a href="index.html" class="nav-link-custom">The Grill Experience</a></li>
+      <li><a href="index-2.html" class="nav-link-custom">Celebration Experience</a></li>
       <li><a href="about.html" class="nav-link-custom">About KoreFlame</a></li>
-      <li><a href="pricing.html" class="nav-link-custom">Feast Packages</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+      <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
       <li><a href="blog.html" class="nav-link-custom text-flame fw-bold">K-BBQ Culture Blog</a></li>
       <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
       <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
@@ -156,7 +153,7 @@
     </ul>
 
     <div class="pt-3 border-top border-subtle">
-      <a href="reservations.html" class="btn-flame w-100 mb-2">Book Table Now</a>
+      <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
       <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
     </div>
   </aside>
@@ -181,17 +178,34 @@
         <i data-lucide="send" style="width: 18px; height: 18px;"></i>
         <span>Send Order to Grill</span>
       </button>
+      <a href="cart.html" class="btn-flame-outline w-100 mt-2 text-center d-flex align-items-center justify-content-center gap-2">
+        <i data-lucide="shopping-cart" style="width: 16px; height: 16px;"></i>
+        <span>View Full Cart</span>
+      </a>
     </div>
   </aside>
+
+  <!-- Main Landmark -->
+  <main id="main-content">
 
   <!-- Banner -->
   <section class="py-5 bg-secondary-app border-bottom border-subtle">
     <div class="container py-3 text-center">
-      <div class="section-label">Culinary Stories & Rituals</div>
-      <h1 class="display-4 fw-extrabold mb-3">The <span class="text-gold-gradient">KoreFlame Journal</span></h1>
-      <p class="lead text-secondary mx-auto" style="max-width: 620px;">
-        Explore the deep heritage of Korean barbecue: fermentation secrets, binchotan grilling science, and table wrapping etiquette.
+      <div class="section-label">Culinary Stories, Rituals & Dining Hospitality</div>
+      <h1 class="display-4 fw-extrabold mb-3">Journal & <span class="text-gold-gradient">Dining Experiences</span></h1>
+      <p class="lead text-secondary mx-auto mb-4" style="max-width: 660px;">
+        Explore authentic Korean BBQ heritage, binchotan grilling science, and our exclusive curated dining suites and celebration packages.
       </p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <a href="#kf-blog-list-container" class="btn-flame-outline btn-sm-custom">
+          <i data-lucide="book-open" style="width: 16px; height: 16px;"></i>
+          <span>Culinary Journal Articles</span>
+        </a>
+        <a href="#dining-experiences" class="btn-flame btn-sm-custom">
+          <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+          <span>Explore Dining Experiences</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -203,19 +217,19 @@
         <!-- Post 1 -->
         <div class="col-lg-4 col-md-6">
           <article class="kf-card h-100 p-0 overflow-hidden d-flex flex-column">
-            <div style="height: 220px;">
-              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="The Art of the Perfect Ssam" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
+            <a href="blog-details.html?id=post-1" style="height: 220px; display: block; overflow: hidden;" aria-label="Read Article: The Art of the Perfect Ssam">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="The Art of the Perfect Ssam" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </a>
             <div class="p-4 d-flex flex-column flex-grow-1">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <span class="badge-tag badge-prime">Korean Dining Culture</span>
                 <span class="small text-muted">5 min read</span>
               </div>
-              <h4 class="mb-2">The Art of the Perfect Ssam: How Koreans Wrap and Savor Meat</h4>
+              <h4 class="mb-2"><a href="blog-details.html?id=post-1" class="text-primary-app text-decoration-none">The Art of the Perfect Ssam: How Koreans Wrap and Savor Meat</a></h4>
               <p class="text-secondary small mb-3 flex-grow-1">
                 Eating Korean BBQ is an interactive ritual. Learn the golden layering technique: lettuce, perilla, sizzling meat, grilled garlic, and artisanal ssamjang.
               </p>
-              <div class="d-flex justify-content-between align-items-center pt-3 border-top border-subtle mt-auto">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-subtle mt-auto">
                 <span class="small text-muted">By Chef Min-Jun Kang</span>
                 <a href="blog-details.html?id=post-1" class="text-flame font-weight-bold">Read Article →</a>
               </div>
@@ -226,19 +240,19 @@
         <!-- Post 2 -->
         <div class="col-lg-4 col-md-6">
           <article class="kf-card h-100 p-0 overflow-hidden d-flex flex-column">
-            <div style="height: 220px;">
-              <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop" alt="Binchotan Charcoal Difference" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
+            <a href="blog-details.html?id=post-2" style="height: 220px; display: block; overflow: hidden;" aria-label="Read Article: Why Binchotan Charcoal Makes Korean BBQ Taste So Immensely Better">
+              <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop" alt="Binchotan Charcoal Difference" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </a>
             <div class="p-4 d-flex flex-column flex-grow-1">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <span class="badge-tag badge-spice">Grill Techniques</span>
                 <span class="small text-muted">6 min read</span>
               </div>
-              <h4 class="mb-2">Why Binchotan Charcoal Makes Korean BBQ Taste So Immensely Better</h4>
+              <h4 class="mb-2"><a href="blog-details.html?id=post-2" class="text-primary-app text-decoration-none">Why Binchotan Charcoal Makes Korean BBQ Taste So Immensely Better</a></h4>
               <p class="text-secondary small mb-3 flex-grow-1">
                 Explore how ultra-pure oak binchotan emits pure far-infrared heat without acrid smoke, sealing juices into marbled beef instantly.
               </p>
-              <div class="d-flex justify-content-between align-items-center pt-3 border-top border-subtle mt-auto">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-subtle mt-auto">
                 <span class="small text-muted">By Master Griller Jin-Woo</span>
                 <a href="blog-details.html?id=post-2" class="text-flame font-weight-bold">Read Article →</a>
               </div>
@@ -249,19 +263,19 @@
         <!-- Post 3 -->
         <div class="col-lg-4 col-md-6">
           <article class="kf-card h-100 p-0 overflow-hidden d-flex flex-column">
-            <div style="height: 220px;">
-              <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop" alt="Guide to Probiotic Banchan" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
+            <a href="blog-details.html?id=post-3" style="height: 220px; display: block; overflow: hidden;" aria-label="Read Article: Beyond Kimchi: The Fascinating World of Korean Banchan">
+              <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop" alt="Guide to Probiotic Banchan" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </a>
             <div class="p-4 d-flex flex-column flex-grow-1">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <span class="badge-tag badge-popular">Side Dishes & Health</span>
                 <span class="small text-muted">4 min read</span>
               </div>
-              <h4 class="mb-2">Beyond Kimchi: The Fascinating World of Korean Banchan and Gut Health</h4>
+              <h4 class="mb-2"><a href="blog-details.html?id=post-3" class="text-primary-app text-decoration-none">Beyond Kimchi: The Fascinating World of Korean Banchan and Gut Health</a></h4>
               <p class="text-secondary small mb-3 flex-grow-1">
                 Discover the lacto-fermented history of side dishes that balance high-protein grilling with natural digestive enzymes and alkaline roots.
               </p>
-              <div class="d-flex justify-content-between align-items-center pt-3 border-top border-subtle mt-auto">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-subtle mt-auto">
                 <span class="small text-muted">By So-Yeon Park</span>
                 <a href="blog-details.html?id=post-3" class="text-flame font-weight-bold">Read Article →</a>
               </div>
@@ -273,45 +287,208 @@
     </div>
   </section>
 
+  <!-- Dining Experiences Section (Moved from Experience page) -->
+  <section class="py-5 bg-secondary-app border-top border-subtle" id="dining-experiences">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <div class="section-label mx-auto">Korean BBQ Hospitality</div>
+        <h2 class="display-5 fw-extrabold mb-3">Our <span class="text-gold-gradient">Dining Experiences</span></h2>
+        <p class="lead text-secondary mx-auto" style="max-width: 640px;">
+          Whether an intimate couple's grill date, private VIP anniversary, or a lively company buyout—we tailor every detail for an unforgettable celebration.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Experience 1: VIP Private Dining -->
+        <div class="col-lg-6">
+          <div class="kf-card h-100 p-0 overflow-hidden d-flex flex-column">
+            <div style="height: 240px;">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="VIP Private Dining" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <span class="badge-tag badge-spice mb-2 align-self-start">
+                <i data-lucide="crown" style="width: 12px; height: 12px;"></i>
+                <span>Exclusivity</span>
+              </span>
+              <h4>VIP Private Dining Suites</h4>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                Soundproof sliding acoustic chambers for 6 to 18 guests. Complete with dedicated sommelier, subterranean smokeless downdraft tables, and bespoke sound systems.
+              </p>
+              <div class="mt-auto d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-subtle">
+                <a href="service-details.html?id=vip" class="text-flame font-weight-bold">View Service Details & Pricing →</a>
+                <a href="pricing.html#reservations" class="btn-flame btn-sm-custom">Reserve Suite</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2: Corporate & Group Banquets -->
+        <div class="col-lg-6">
+          <div class="kf-card h-100 p-0 overflow-hidden d-flex flex-column">
+            <div style="height: 240px;">
+              <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop" alt="Corporate Banquets" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <span class="badge-tag badge-prime mb-2 align-self-start">
+                <i data-lucide="users" style="width: 12px; height: 12px;"></i>
+                <span>Banquets</span>
+              </span>
+              <h4>Corporate & Team Rehearsal Banquets</h4>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                Seamless multi-grill alcoves designed for team building and milestones. All-inclusive per-guest pricing includes endless prime cuts, banchan, and beer/soju carafes.
+              </p>
+              <div class="mt-auto d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-subtle">
+                <a href="service-details.html?id=corporate" class="text-flame font-weight-bold">View Service Details & Pricing →</a>
+                <a href="contact.html" class="btn-flame btn-sm-custom">Inquire Buyout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 3: Birthday & Milestone Celebrations -->
+        <div class="col-lg-6">
+          <div class="kf-card h-100 p-0 overflow-hidden d-flex flex-column">
+            <div style="height: 240px;">
+              <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop" alt="Celebrations" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <span class="badge-tag badge-popular mb-2 align-self-start">
+                <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+                <span>Festive</span>
+              </span>
+              <h4>Birthday & Milestone Celebrations</h4>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                Elevate your birthday with complimentary Korean fireworks sparklers, celebratory dessert platters, custom printed souvenir menus, and table photography.
+              </p>
+              <div class="mt-auto d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-subtle">
+                <a href="service-details.html?id=birthday" class="text-flame font-weight-bold">View Service Details & Pricing →</a>
+                <a href="pricing.html#reservations" class="btn-flame btn-sm-custom">Book Celebration</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 4: Dedicated Table Grillmaster Experience -->
+        <div class="col-lg-6">
+          <div class="kf-card h-100 p-0 overflow-hidden d-flex flex-column">
+            <div style="height: 240px;">
+              <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=800&auto=format&fit=crop" alt="Master Grillmaster" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <span class="badge-tag badge-prime mb-2 align-self-start">
+                <i data-lucide="flame" style="width: 12px; height: 12px;"></i>
+                <span>Masterclass</span>
+              </span>
+              <h4>Dedicated Table Grillmaster Experience</h4>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                Sit back and let our culinary captains handle the tongs. Learn the lore of Korean table grilling, the secrets of Binchotan heat control, and the art of the perfect ssam.
+              </p>
+              <div class="mt-auto d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-subtle">
+                <a href="service-details.html?id=grillmaster" class="text-flame font-weight-bold">View Service Details & Pricing →</a>
+                <a href="pricing.html#reservations" class="btn-flame btn-sm-custom">Reserve Table</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
   <!-- Footer -->
   <footer class="kf-footer">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <a href="index.html" class="nav-brand-logo mb-3">
-          <div class="nav-brand-icon">
-            <i data-lucide="flame" style="width: 22px; height: 22px;"></i>
+      <div class="row g-4 align-items-start">
+        <!-- Brand Col -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="footer-brand-header">
+            <a href="index.html" class="nav-brand-logo" aria-label="KoreFlame Korean BBQ">
+              <div class="kf-brand-logo-wrap">
+                <div class="kf-logo-aura"></div>
+                <img src="assets/images/logo.png" alt="KoreFlame Korean BBQ" class="brand-logo-img">
+              </div>
+              <div class="nav-brand-text">
+                <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
+                <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+              </div>
+            </a>
           </div>
-          <div class="nav-brand-text">
-            <span class="nav-brand-title">Kore<span class="brand-accent">Flame</span></span>
-            <span class="nav-brand-sub">PREMIUM SEOUL BBQ</span>
+          <p class="text-secondary small mb-3 pe-lg-3" style="line-height: 1.5; max-width: 320px;">
+            Authentic Seoul street-grill experience with table charcoal, prime cuts, and vibrant hospitality.
+          </p>
+          <div class="d-flex align-items-center gap-2 pt-1">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Instagram" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Facebook" title="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="X (Twitter)" title="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="btn-icon-nav" aria-label="Pinterest" title="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+              </svg>
+            </a>
           </div>
-        </a>
-          <p class="text-secondary small">Authentic Korean BBQ restaurant with table Binchotan grills and vibrant dining culture.</p>
         </div>
+
+        <!-- Quick Links -->
         <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">Culture</h5>
+          <h5 class="footer-widget-title">Experience</h5>
           <ul class="footer-link-list p-0">
-            <li><a href="blog.html">All Articles</a></li>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="index.html">The Grill Experience</a></li>
+            <li><a href="index-2.html">Celebration Dining</a></li>
+            <li><a href="menu.html">Full Menu</a></li>
+            <li><a href="pricing.html">Dining Packages</a></li>
+            <li><a href="pricing.html#reservations">Book Table</a></li>
           </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="footer-widget-title">Quick Links</h5>
-          <ul class="footer-link-list p-0">
-            <li><a href="reservations.html">Book Table</a></li>
-            <li><a href="dashboard.html">Guest Dashboard</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
+
+        <!-- Hours & Contact -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Hours & Contact</h5>
+          <div class="d-flex flex-column gap-2 small">
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Mon – Thu: <strong class="footer-highlight-text">5:00 PM – 10:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i data-lucide="clock" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <span>Fri – Sun: <strong class="footer-highlight-text">4:30 PM – 11:30 PM</strong></span>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2 border-top border-subtle">
+              <i data-lucide="phone" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="tel:5553827492" class="footer-link-highlight fw-semibold">(555) 382-7492</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="mail" style="width: 14px; height: 14px;" class="text-gold flex-shrink-0"></i>
+              <a href="mailto:concierge@koreflame.com" class="footer-link-highlight fw-semibold">concierge@koreflame.com</a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="footer-widget-title">Stay Connected</h5>
-          <p class="text-muted small">Subscribe to our newsletter for exclusive tasting invites and secret off-menu cut releases.</p>
+
+        <!-- Demo Architecture Notice -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h5 class="footer-widget-title">Template Notice</h5>
+          <p class="text-muted small mb-0" style="line-height: 1.5;">
+            Premium HTML5 / Vanilla JS restaurant template featuring live mock authentication, cart, and table reservations.
+          </p>
         </div>
       </div>
-      <div class="footer-bottom-bar">
-        <div>&copy; 2026 KoreFlame. All rights reserved.</div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar justify-content-center text-center">
+        <div>&copy; 2026 KoreFlame Korean BBQ Restaurant. All rights reserved.</div>
       </div>
     </div>
   </footer>
