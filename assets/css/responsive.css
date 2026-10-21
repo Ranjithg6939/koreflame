@@ -48,10 +48,9 @@ iframe {
 }
 
 /* --------------------------------------------------------------------------
-   1. Desktop Navigation Retained (>= 992px including 1024px, 1280px, 1440px, 1920px)
-   At widths from 1024px to 768px, retain the desktop navbar if all items fit comfortably
+   1. Desktop Navigation Retained (>= 768px: 768px to 1024px, 1280px, 1440px+)
    -------------------------------------------------------------------------- */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .desktop-nav {
     display: block !important;
   }
@@ -61,11 +60,95 @@ iframe {
   .mobile-nav-toggle {
     display: none !important;
   }
+  .nav-actions .cart-open-btn,
+  .nav-actions .btn-nav-reserve {
+    display: inline-flex !important;
+  }
 }
 
-/* Compact Desktop / Large Tablet (992px to 1120px, including 1024px)
-   Tightened padding and sizing so all 9 links fit with zero collisions */
-@media (min-width: 992px) and (max-width: 1120px) {
+/* Tablet & Compact Desktop Navbar (768px to 1024px)
+   Tightened padding and sizing so all 7 links and actions fit with zero collisions */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --header-height: 74px;
+  }
+
+  .kf-header > .container,
+  .kf-header > .container-fluid {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .nav-brand-logo {
+    gap: 0.4rem !important;
+  }
+
+  .kf-brand-logo-wrap,
+  .nav-brand-icon {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .nav-brand-title {
+    font-size: 1.15rem !important;
+  }
+
+  .nav-brand-sub {
+    display: none !important;
+  }
+
+  .nav-menu-list {
+    gap: 0.12rem !important;
+  }
+
+  .nav-link-custom {
+    font-size: 0.74rem !important;
+    padding: 0.25rem 0.32rem !important;
+    gap: 0.15rem !important;
+  }
+
+  .nav-actions {
+    gap: 0.25rem !important;
+  }
+
+  .btn-icon-nav {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .btn-icon-nav i {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .btn-flame,
+  .btn-flame-outline {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .meat-cut-selector {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .meat-selector-btn {
+    padding: 0.4rem 0.3rem;
+    min-height: 50px;
+  }
+
+  .meat-selector-btn .cut-name-en {
+    font-size: 0.72rem;
+  }
+
+  .meat-selector-btn .cut-name-kr {
+    font-size: 0.65rem;
+  }
+}
+
+/* Compact Desktop (1025px to 1120px) */
+@media (min-width: 1025px) and (max-width: 1120px) {
   .kf-header > .container,
   .kf-header > .container-fluid {
     padding-left: 0.75rem;
@@ -120,24 +203,6 @@ iframe {
     padding: 0.5rem 1rem;
     font-size: 0.84rem;
   }
-
-  .meat-cut-selector {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.5rem;
-  }
-
-  .meat-selector-btn {
-    padding: 0.4rem 0.3rem;
-    min-height: 50px;
-  }
-
-  .meat-selector-btn .cut-name-en {
-    font-size: 0.72rem;
-  }
-
-  .meat-selector-btn .cut-name-kr {
-    font-size: 0.65rem;
-  }
 }
 
 /* Medium Desktop (1121px to 1320px, including 1280px) */
@@ -172,21 +237,11 @@ iframe {
 }
 
 /* --------------------------------------------------------------------------
-   2. Clean Switch to Mobile Navigation below 992px (< 992px)
-   Supports 900px, 820px (iPad Air portrait), 768px (iPad Mini)
+   2. Tablet General Styles (< 992px)
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
   :root {
     --header-height: 74px;
-  }
-
-  .desktop-nav,
-  .nav-menu-list {
-    display: none !important;
-  }
-
-  .mobile-nav-toggle {
-    display: inline-flex !important;
   }
 
   .kf-header {
@@ -206,6 +261,29 @@ iframe {
     width: min(400px, 92vw);
     height: 100vh;
     height: 100dvh;
+  }
+
+  /* Mobile Drawer Cart & Action Buttons */
+  .mobile-drawer-cart-btn {
+    border-radius: var(--radius-full) !important;
+    font-weight: 700;
+  }
+
+  .mobile-drawer-cart-btn .cart-counter-badge {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    font-size: 0.72rem;
+    font-weight: 800;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(230, 57, 36, 0.45);
   }
 
   /* Dashboard sidebar transitions to mobile offcanvas */
@@ -252,12 +330,28 @@ iframe {
 }
 
 /* --------------------------------------------------------------------------
-   3. Tablet & Mobile Phones (< 768px)
-   Covers 768px, 600px, 480px, 375px, 320px
+   3. Mobile Phones (< 768px: 767px down to 320px)
+   Switches cleanly to Mobile Navigation (Hamburger Drawer)
    -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   :root {
     --header-height: 70px;
+  }
+
+  /* Mobile Navigation Switch (< 768px) */
+  .desktop-nav,
+  .nav-menu-list {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex !important;
+  }
+
+  /* Move Cart and Reserve Table buttons into Hamburger Menu on mobile (< 768px) */
+  .nav-actions .cart-open-btn,
+  .nav-actions .btn-nav-reserve {
+    display: none !important;
   }
 
   /* Dynamic hero min-height on mobile: allow natural content expansion without empty gaps */
@@ -281,6 +375,27 @@ iframe {
   .meat-cut-selector {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.65rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    overflow: visible;
+  }
+
+  .meat-selector-btn {
+    padding: 0.72rem 0.85rem;
+    min-height: 58px;
+    gap: 0.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .meat-selector-btn .cut-name-en {
+    font-size: 0.88rem;
+    line-height: 1.25;
+  }
+
+  .meat-selector-btn .cut-name-kr {
+    font-size: 0.75rem;
   }
 
   .meat-selector-btn:last-child:nth-child(odd) {
@@ -402,6 +517,113 @@ iframe {
 }
 
 /* --------------------------------------------------------------------------
+   3b. Mobile Phones (<= 576px)
+   Card action button stacking & alignment fix for mobile screens
+   -------------------------------------------------------------------------- */
+@media (max-width: 576px) {
+  .kf-card .mt-auto.d-flex.gap-2,
+  .grill-sim-actions {
+    flex-direction: column !important;
+    gap: 0.55rem !important;
+    width: 100% !important;
+  }
+
+  .kf-card .mt-auto.d-flex.gap-2 > a.btn-flame,
+  .kf-card .mt-auto.d-flex.gap-2 > a.btn-flame-outline,
+  .kf-card .mt-auto.d-flex.gap-2 > button.btn-flame,
+  .kf-card .mt-auto.d-flex.gap-2 > button.btn-flame-outline,
+  .grill-sim-actions > button,
+  .grill-sim-actions > a {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    white-space: normal !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Large CTA button: clean mobile padding, perfect pill curve & single-line alignment */
+  .btn-lg-custom {
+    padding: 0.68rem 1.35rem !important;
+    font-size: 0.92rem !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+  }
+
+  /* Meat simulator cut selector: 1 column on mobile with generous breathing room & balanced padding */
+  .meat-cut-selector {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.75rem !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    overflow: visible !important;
+  }
+
+  .meat-selector-btn {
+    padding: 0.82rem 1.25rem !important;
+    min-height: 60px !important;
+    gap: 0.32rem !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .meat-selector-btn .cut-name-en {
+    font-size: 0.94rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+  }
+
+  .meat-selector-btn .cut-name-kr {
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+  }
+
+  .meat-selector-btn.active {
+    padding-top: 0.92rem !important;
+    padding-bottom: 0.82rem !important;
+  }
+
+  /* Section label & badge alignment polish on mobile */
+  .section-label {
+    font-size: 0.74rem !important;
+    letter-spacing: 0.06em !important;
+    padding: 0.32rem 0.75rem !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+  }
+
+  .kf-card.p-4,
+  .p-4.kf-card {
+    padding: 1.15rem !important;
+  }
+
+  .badge-tag {
+    font-size: 0.72rem !important;
+    padding: 0.22rem 0.55rem !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+  }
+
+  .kf-stars-wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
    4. Small Mobile Devices (<= 480px, including 375px and 320px)
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
@@ -460,21 +682,20 @@ iframe {
     justify-content: center;
   }
 
-  /* Meat simulator cut buttons */
-  .meat-cut-selector {
-    grid-template-columns: 1fr;
-  }
 
   .party-size-selector {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Responsive Toast container */
+  /* Responsive Toast container - Non-intrusive Top Placement */
   .toast-container-custom {
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    max-width: none;
+    top: calc(var(--header-height) + 10px);
+    bottom: auto;
+    left: 12px;
+    right: 12px;
+    max-width: 380px;
+    margin-left: auto;
+    width: auto;
   }
 
   /* Countdown timer boxes on coming soon page */

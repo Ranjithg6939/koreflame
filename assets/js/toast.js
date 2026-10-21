@@ -25,10 +25,10 @@ class KoreFlameToast {
    * @param {string} message - Message text
    * @param {string} type - 'success' | 'error' | 'warning' | 'info' | 'loading'
    * @param {string} title - Optional title
-   * @param {number} duration - Auto dismiss in ms (default 4500)
+   * @param {number} duration - Auto dismiss in ms (default 3200)
    * @param {object|null} action - Optional action button { text: string, href?: string, onClick?: function }
    */
-  show(message, type = 'info', title = null, duration = 4500, action = null) {
+  show(message, type = 'info', title = null, duration = 3200, action = null) {
     if (!this.container) this.initContainer();
 
     // Prevent duplicate spam
@@ -112,12 +112,12 @@ class KoreFlameToast {
   dismiss(toastElement) {
     if (!toastElement || !toastElement.parentElement) return;
     toastElement.style.opacity = '0';
-    toastElement.style.transform = 'translateY(15px) scale(0.95)';
+    toastElement.style.transform = 'translateY(-15px) scale(0.95)';
     setTimeout(() => {
       if (toastElement.parentElement) {
         toastElement.parentElement.removeChild(toastElement);
       }
-    }, 300);
+    }, 280);
   }
 
   success(msg, title) { return this.show(msg, 'success', title); }

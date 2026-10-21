@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -15,8 +15,8 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css?v=golden7">
-  <link rel="stylesheet" href="assets/css/responsive.css?v=golden7">
+  <link rel="stylesheet" href="assets/css/style.css?v=m3clean">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=break768">
 </head>
 <body>
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
@@ -140,21 +140,56 @@
       </button>
     </div>
 
-    <ul class="d-flex flex-column gap-2 p-0 mb-4">
-      <li><a href="index.html" class="nav-link-custom">The Grill Experience</a></li>
-      <li><a href="index-2.html" class="nav-link-custom">Celebration Experience</a></li>
-      <li><a href="about.html" class="nav-link-custom">About KoreFlame</a></li>
-      <li><a href="menu.html" class="nav-link-custom">Our Full Menu</a></li>
+            <ul class="d-flex flex-column gap-2 p-0 mb-4">
+      <li class="mobile-nav-item mobile-nav-dropdown">
+        <div class="mobile-nav-link-group d-flex align-items-center justify-content-between">
+          <a href="index.html" class="nav-link-custom">
+            <span>Home</span>
+          </a>
+          <button type="button" class="mobile-dropdown-toggle-btn" aria-label="Toggle Home Experiences" aria-expanded="true">
+            <i data-lucide="chevron-down" class="mobile-dropdown-chevron" style="width: 14px; height: 14px;"></i>
+          </button>
+        </div>
+        <div class="mobile-subnav ps-3 pt-1 d-flex flex-column gap-1">
+          <a href="index.html" class="nav-sublink-custom">
+            <span>The Grill Experience</span>
+            <span class="badge-tag badge-prime" style="font-size: 0.65rem; padding: 2px 6px;">Home 1</span>
+          </a>
+          <a href="index-2.html" class="nav-sublink-custom">
+            <span>Celebration Experience</span>
+            <span class="badge-tag badge-spice" style="font-size: 0.65rem; padding: 2px 6px;">Home 2</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="about.html" class="nav-link-custom">About</a></li>
+      <li><a href="menu.html" class="nav-link-custom">Menu</a></li>
       <li><a href="pricing.html" class="nav-link-custom">Package</a></li>
-      <li><a href="blog.html" class="nav-link-custom text-flame fw-bold">K-BBQ Culture Blog</a></li>
-      <li><a href="contact.html" class="nav-link-custom">Location & Contact</a></li>
-      <li><a href="dashboard.html" class="nav-link-custom text-gold">Guest Dashboard</a></li>
-      <li><a href="admin/index.html" class="nav-link-custom text-muted">Admin Portal (Demo)</a></li>
+      <li><a href="blog.html" class="nav-link-custom text-flame fw-bold">Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      <li><a href="dashboard.html" class="nav-link-custom text-gold">Dashboard</a></li>
     </ul>
 
     <div class="pt-3 border-top border-subtle">
-      <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
-      <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+      <!-- 1. Reserve Table Button -->
+      <a href="pricing.html#reservations" class="btn-flame w-100 d-flex align-items-center justify-content-center gap-2 mb-2" style="min-height: 44px;">
+        <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+        <span>Reserve Table</span>
+      </a>
+
+      <!-- 2. Table Cart Button (with live counter) -->
+      <button type="button" class="btn-flame-outline w-100 cart-open-btn mobile-drawer-cart-btn d-flex align-items-center justify-content-between px-3 mb-2" style="min-height: 44px; position: relative;">
+        <span class="d-inline-flex align-items-center gap-2">
+          <i data-lucide="shopping-bag" style="width: 18px; height: 18px;"></i>
+          <span>Table Cart</span>
+        </span>
+        <span class="cart-counter-badge" style="display: none;">0</span>
+      </button>
+      <div class="mobile-drawer-auth">
+        <a href="login.html" class="btn-flame-outline w-100 d-flex align-items-center justify-content-center gap-2">
+          <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+          <span>Sign In / Register</span>
+        </a>
+      </div>
     </div>
   </aside>
 
@@ -191,7 +226,7 @@
   <!-- Banner -->
   <section class="py-5 bg-secondary-app border-bottom border-subtle">
     <div class="container py-3 text-center">
-      <div class="section-label">Culinary Stories, Rituals & Dining Hospitality</div>
+      <div class="section-label">Culinary Stories &amp; Dining Rituals</div>
       <h1 class="display-4 fw-extrabold mb-3">Journal & <span class="text-gold-gradient">Dining Experiences</span></h1>
       <p class="lead text-secondary mx-auto mb-4" style="max-width: 660px;">
         Explore authentic Korean BBQ heritage, binchotan grilling science, and our exclusive curated dining suites and celebration packages.
@@ -221,9 +256,9 @@
               <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="The Art of the Perfect Ssam" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
             </a>
             <div class="p-4 d-flex flex-column flex-grow-1">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge-tag badge-prime">Korean Dining Culture</span>
-                <span class="small text-muted">5 min read</span>
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2 blog-card-meta">
+                <span class="badge-tag badge-prime text-nowrap">Korean Dining Culture</span>
+                <span class="small text-muted text-nowrap">5 min read</span>
               </div>
               <h4 class="mb-2"><a href="blog-details.html?id=post-1" class="text-primary-app text-decoration-none">The Art of the Perfect Ssam: How Koreans Wrap and Savor Meat</a></h4>
               <p class="text-secondary small mb-3 flex-grow-1">
@@ -244,9 +279,9 @@
               <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop" alt="Binchotan Charcoal Difference" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
             </a>
             <div class="p-4 d-flex flex-column flex-grow-1">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge-tag badge-spice">Grill Techniques</span>
-                <span class="small text-muted">6 min read</span>
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2 blog-card-meta">
+                <span class="badge-tag badge-spice text-nowrap">Grill Techniques</span>
+                <span class="small text-muted text-nowrap">6 min read</span>
               </div>
               <h4 class="mb-2"><a href="blog-details.html?id=post-2" class="text-primary-app text-decoration-none">Why Binchotan Charcoal Makes Korean BBQ Taste So Immensely Better</a></h4>
               <p class="text-secondary small mb-3 flex-grow-1">
@@ -267,9 +302,9 @@
               <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop" alt="Guide to Probiotic Banchan" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
             </a>
             <div class="p-4 d-flex flex-column flex-grow-1">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge-tag badge-popular">Side Dishes & Health</span>
-                <span class="small text-muted">4 min read</span>
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2 blog-card-meta">
+                <span class="badge-tag badge-popular text-nowrap">Side Dishes & Health</span>
+                <span class="small text-muted text-nowrap">4 min read</span>
               </div>
               <h4 class="mb-2"><a href="blog-details.html?id=post-3" class="text-primary-app text-decoration-none">Beyond Kimchi: The Fascinating World of Korean Banchan and Gut Health</a></h4>
               <p class="text-secondary small mb-3 flex-grow-1">
@@ -496,8 +531,8 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/state.js"></script>
-  <script src="assets/js/toast.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/toast.js?v=toptoast"></script>
+  <script src="assets/js/main.js?v=nav2"></script>
 </body>
 </html>
 

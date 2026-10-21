@@ -105,7 +105,8 @@ const KF_STATE = {
         tier: "Gold Grillmaster",
         points: 1240,
         role: "guest",
-        joinedDate: "January 2026"
+        joinedDate: "January 2026",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
       },
       {
         name: "Executive Chef Kang",
@@ -114,7 +115,8 @@ const KF_STATE = {
         tier: "Executive Staff",
         points: 9999,
         role: "admin",
-        joinedDate: "Founding 2024"
+        joinedDate: "Founding 2024",
+        avatar: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400&auto=format&fit=crop"
       }
     ];
   },
@@ -217,7 +219,8 @@ const KF_STATE = {
       tier: "Gold Grillmaster",
       points: 1240,
       role: "guest",
-      joinedDate: "January 2026"
+      joinedDate: "January 2026",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
     };
     this.saveUserAccount(demo);
     this.setUser(demo);
@@ -233,7 +236,8 @@ const KF_STATE = {
       tier: "Executive Staff",
       points: 9999,
       role: "admin",
-      joinedDate: "Founding 2024"
+      joinedDate: "Founding 2024",
+      avatar: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400&auto=format&fit=crop"
     };
     this.saveUserAccount(admin);
     this.setUser(admin);

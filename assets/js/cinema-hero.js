@@ -110,13 +110,20 @@
       }
     }
 
+    function getHeaderOffset() {
+      const header = document.querySelector('.kf-header');
+      return header ? header.offsetHeight : (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 84);
+    }
+
     function onScroll() {
       const rect = container.getBoundingClientRect();
-      const scrollDistance = container.offsetHeight - window.innerHeight;
+      const headerH = getHeaderOffset();
+      const scrollDistance = container.offsetHeight - (window.innerHeight - headerH);
       if (scrollDistance <= 0) return;
 
       // Calculate progress (0.0 to 1.0) through the scroll container
-      const currentScroll = Math.max(0, Math.min(scrollDistance, -rect.top));
+      // Pinned right under header: scrubbing begins when container top reaches header bottom
+      const currentScroll = Math.max(0, Math.min(scrollDistance, headerH - rect.top));
       const progress = currentScroll / scrollDistance;
 
       // Update top progress bar
@@ -164,9 +171,11 @@
     stepPills.forEach((pill, idx) => {
       pill.addEventListener('click', (e) => {
         e.preventDefault();
-        const scrollDistance = container.offsetHeight - window.innerHeight;
+        const headerH = getHeaderOffset();
+        const scrollDistance = container.offsetHeight - (window.innerHeight - headerH);
         // Jump smoothly to the start of this chapter's interval
-        const targetOffset = container.offsetTop + (idx / totalChapters) * scrollDistance + 15;
+        const baseOffset = Math.max(0, container.offsetTop - headerH);
+        const targetOffset = baseOffset + (idx / totalChapters) * scrollDistance + 10;
         window.scrollTo({
           top: targetOffset,
           behavior: 'smooth'
@@ -177,21 +186,23 @@
     // Keyboard navigation (ArrowDown/ArrowUp moves frame by frame)
     window.addEventListener('keydown', (e) => {
       const rect = container.getBoundingClientRect();
-      const inView = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
+      const headerH = getHeaderOffset();
+      const inView = rect.top <= headerH + 50 && rect.bottom >= window.innerHeight - 50;
       if (!inView) return;
 
-      const scrollDistance = container.offsetHeight - window.innerHeight;
+      const scrollDistance = container.offsetHeight - (window.innerHeight - headerH);
+      const baseOffset = Math.max(0, container.offsetTop - headerH);
 
       if (e.key === 'ArrowDown' || e.key === 'PageDown') {
         if (currentFrameIndex < totalFrames - 1) {
           e.preventDefault();
-          const targetOffset = container.offsetTop + ((currentFrameIndex + 1) / totalFrames) * scrollDistance + 5;
+          const targetOffset = baseOffset + ((currentFrameIndex + 1) / totalFrames) * scrollDistance + 5;
           window.scrollTo({ top: targetOffset, behavior: 'smooth' });
         }
       } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
         if (currentFrameIndex > 0) {
           e.preventDefault();
-          const targetOffset = container.offsetTop + ((currentFrameIndex - 1) / totalFrames) * scrollDistance + 5;
+          const targetOffset = baseOffset + ((currentFrameIndex - 1) / totalFrames) * scrollDistance + 5;
           window.scrollTo({ top: targetOffset, behavior: 'smooth' });
         }
       }

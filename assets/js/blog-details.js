@@ -12,6 +12,7 @@ const BLOG_ARTICLES_DATA = {
     title: "The Art of the Perfect Ssam: How Koreans Wrap and Savor Grilled Meat",
     author: "Chef Min-Jun Kang",
     authorInitials: "MK",
+    authorImage: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400&auto=format&fit=crop",
     authorBadge: "Executive Grill Master",
     authorBio: "With over 20 years perfecting Binchotan charcoal roasting in Seoul and New York, Chef Min-Jun champions authentic Korean heritage dining.",
     date: "October 14, 2026",
@@ -66,6 +67,7 @@ const BLOG_ARTICLES_DATA = {
     title: "Why Binchotan Charcoal Makes Korean BBQ Taste So Immensely Better",
     author: "Master Griller Jin-Woo",
     authorInitials: "JW",
+    authorImage: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=400&auto=format&fit=crop",
     authorBadge: "Master of Charcoal & Fire",
     authorBio: "Trained under renowned Korean binchotan kiln masters in Gangwon Province, Jin-Woo specializes in heat thermodynamics, smokeless extraction, and flame caramelization.",
     date: "September 28, 2026",
@@ -134,6 +136,7 @@ const BLOG_ARTICLES_DATA = {
     title: "Beyond Kimchi: The Fascinating World of Korean Banchan and Gut Health",
     author: "So-Yeon Park",
     authorInitials: "SP",
+    authorImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
     authorBadge: "Fermentation Specialist",
     authorBio: "So-Yeon holds a master's in Food Science from Seoul National University and oversees KoreFlame's artisan onggi fermentation room and seasonal banchan cellar.",
     date: "September 12, 2026",
@@ -234,7 +237,13 @@ function renderBlogDetails() {
 
   // Update Sidebar Author Card
   const authorAvatar = document.getElementById('blog-author-avatar');
-  if (authorAvatar) authorAvatar.textContent = post.authorInitials;
+  if (authorAvatar) {
+    if (post.authorImage) {
+      authorAvatar.innerHTML = `<img src="${post.authorImage}" alt="${post.author}" class="avatar-img" onerror="this.remove(); this.parentElement.textContent='${post.authorInitials || 'KF'}';">`;
+    } else {
+      authorAvatar.textContent = post.authorInitials || 'KF';
+    }
+  }
 
   const authorName = document.getElementById('blog-author-name');
   if (authorName) authorName.textContent = post.author;

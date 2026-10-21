@@ -65,21 +65,21 @@ function renderOrdersPreview() {
 
   const latest = orders.slice(0, 3);
   container.innerHTML = `
-    <div class="d-flex flex-column gap-2">
+    <div class="d-flex flex-column gap-2.5">
       ${latest.map(ord => `
-        <div class="p-3 bg-secondary-app rounded-3 border border-subtle d-flex flex-wrap justify-content-between align-items-center gap-3">
-          <div class="d-flex align-items-center gap-3">
-            <div class="dash-stat-icon icon-orange" style="width: 44px; height: 44px; flex-shrink: 0;">
-              <i data-lucide="flame" style="width: 20px; height: 20px;"></i>
+        <div class="p-3 bg-secondary-app rounded-3 border border-subtle d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2.5 dash-order-item-card">
+          <div class="d-flex align-items-start gap-2.5 min-w-0">
+            <div class="dash-stat-icon icon-orange mt-0.5" style="width: 40px; height: 40px; flex-shrink: 0;">
+              <i data-lucide="flame" style="width: 18px; height: 18px;"></i>
             </div>
-            <div>
-              <h6 class="text-flame mb-1 fw-bold">${esc(ord.id)} · ${esc(ord.tableNumber || 'Table Grill')}</h6>
-              <p class="mb-0 text-secondary small">${(ord.items || []).map(i => `${i.qty}x ${esc(i.nameEn)}`).join(', ')}</p>
+            <div class="min-w-0 flex-grow-1">
+              <h6 class="text-flame mb-1 fw-bold text-break" style="font-size: 0.92rem;">${esc(ord.id)} · ${esc(ord.tableNumber || 'Table Grill')}</h6>
+              <p class="mb-0 text-secondary small text-truncate" style="font-size: 0.82rem;">${(ord.items || []).map(i => `${i.qty}x ${esc(i.nameEn)}`).join(', ')}</p>
             </div>
           </div>
-          <div class="text-end">
-            <span class="status-badge ${ord.status === 'Completed' ? 'status-completed' : 'status-confirmed'} mb-1 d-inline-block">${esc(ord.status || 'Sent to Grill')}</span>
-            <div class="fw-bold text-gold small">$${Number(ord.total || 0).toFixed(2)}</div>
+          <div class="d-flex flex-row flex-sm-column justify-content-between align-items-center align-items-sm-end pt-2 pt-sm-0 border-top border-sm-0 border-subtle gap-1.5 flex-shrink-0">
+            <span class="status-badge ${ord.status === 'Completed' ? 'status-completed' : 'status-confirmed'} text-nowrap">${esc(ord.status || 'Sent to Grill')}</span>
+            <div class="fw-bold text-gold" style="font-size: 0.95rem;">$${Number(ord.total || 0).toFixed(2)}</div>
           </div>
         </div>
       `).join('')}
@@ -213,14 +213,24 @@ function renderDashboardOverview() {
   if (sidebarNameEl) sidebarNameEl.textContent = rawName;
   if (profileDisplayNameEl) profileDisplayNameEl.textContent = rawName;
 
-  // Avatars initials
+  // Avatars (image or initials fallback)
   const sidebarAvatar = document.getElementById('sidebar-avatar');
   const topbarAvatar = document.getElementById('topbar-avatar');
   const profileAvatar = document.getElementById('profile-avatar-preview');
+  const userAvatarUrl = user && user.avatar ? user.avatar : null;
 
-  if (sidebarAvatar) sidebarAvatar.textContent = initials;
-  if (topbarAvatar) topbarAvatar.textContent = initials;
-  if (profileAvatar) profileAvatar.textContent = initials;
+  const setAvatarElement = (el) => {
+    if (!el) return;
+    if (userAvatarUrl) {
+      el.innerHTML = `<img src="${userAvatarUrl}" alt="${rawName}" class="avatar-img" onerror="this.remove(); this.parentElement.textContent='${initials}';">`;
+    } else {
+      el.textContent = initials;
+    }
+  };
+
+  setAvatarElement(sidebarAvatar);
+  setAvatarElement(topbarAvatar);
+  setAvatarElement(profileAvatar);
 
   // User Tier labels
   const dashTierEl = document.getElementById('dash-user-tier');
@@ -608,6 +618,39 @@ function renderProfileTab() {
       }
       if (window.kfToast) window.kfToast.success('Your profile details and contact preferences have been saved.', 'Profile Updated');
       renderDashboardOverview();
+    });
+  }
+
+  // Profile Picture Upload Handler
+  const photoUploadInput = document.getElementById('profile-picture-upload');
+  if (photoUploadInput) {
+    photoUploadInput.addEventListener('change', function(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        if (window.kfToast) window.kfToast.error('Please select an image file (JPEG, PNG, WebP).', 'Invalid Image');
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        if (window.kfToast) window.kfToast.error('Profile photo must be under 5MB.', 'File Too Large');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const dataUrl = evt.target.result;
+        const currentUser = window.KF_STATE ? window.KF_STATE.getUser() : {};
+        const updatedUser = {
+          ...currentUser,
+          avatar: dataUrl
+        };
+        if (window.KF_STATE) {
+          window.KF_STATE.saveUserAccount(updatedUser);
+          window.KF_STATE.setUser(updatedUser);
+        }
+        if (window.kfToast) window.kfToast.success('Profile picture updated successfully!', 'Photo Updated');
+        renderDashboardOverview();
+      };
+      reader.readAsDataURL(file);
     });
   }
 }

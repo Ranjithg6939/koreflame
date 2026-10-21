@@ -217,6 +217,7 @@ function initMobileNavigation() {
     drawer.classList.add('active');
     backdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
+    initIcons();
   }
 
   function closeDrawer() {
@@ -228,6 +229,81 @@ function initMobileNavigation() {
   toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   backdrop.addEventListener('click', closeDrawer);
+
+  // Close drawer and smooth-scroll on link clicks
+  const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const drawerLinks = drawer.querySelectorAll('a');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      // If user clicked the chevron icon or dropdown toggle button inside/beside the link, toggle submenu instead
+      if (e.target.closest('.mobile-dropdown-toggle-btn') || e.target.closest('.mobile-dropdown-chevron') || e.target.closest('[data-lucide="chevron-down"]')) {
+        return;
+      }
+
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('javascript:')) return;
+
+      const linkPage = (href.split('/').pop().split('#')[0] || 'index.html').toLowerCase();
+      const isCurrentPage = (linkPage === currentPage) || (linkPage === '' && (currentPage === 'index.html' || currentPage === ''));
+
+      closeDrawer();
+
+      if (isCurrentPage && !href.includes('#')) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Mobile Subnav Dropdown Accordion Toggle
+  function toggleMobileSubnav(subnav, toggleBtn) {
+    if (!subnav) return;
+    const isCurrentlyHidden = subnav.classList.contains('collapsed') || window.getComputedStyle(subnav).display === 'none';
+
+    if (isCurrentlyHidden) {
+      subnav.style.display = 'flex';
+      subnav.classList.remove('collapsed');
+      if (toggleBtn) {
+        toggleBtn.classList.remove('collapsed');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    } else {
+      subnav.style.display = 'none';
+      subnav.classList.add('collapsed');
+      if (toggleBtn) {
+        toggleBtn.classList.add('collapsed');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+    initIcons();
+  }
+
+  const dropdownToggles = drawer.querySelectorAll('.mobile-dropdown-toggle-btn');
+  dropdownToggles.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentDropdown = btn.closest('.mobile-nav-dropdown') || btn.closest('.mobile-nav-item');
+      if (!parentDropdown) return;
+      const subnav = parentDropdown.querySelector('.mobile-subnav');
+      toggleMobileSubnav(subnav, btn);
+    });
+  });
+
+  // Also support clicking directly on any chevron icon within mobile-nav-item
+  const navDropdowns = drawer.querySelectorAll('.mobile-nav-item, .mobile-nav-dropdown');
+  navDropdowns.forEach(dropdown => {
+    const chevronIcon = dropdown.querySelector('.mobile-dropdown-chevron, [data-lucide="chevron-down"]');
+    if (chevronIcon) {
+      chevronIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const subnav = dropdown.querySelector('.mobile-subnav');
+        const btn = dropdown.querySelector('.mobile-dropdown-toggle-btn');
+        toggleMobileSubnav(subnav, btn);
+      });
+    }
+  });
 }
 
 // 5. Theme & RTL Toggles
@@ -279,6 +355,9 @@ function syncNavAuthState() {
   const user = window.KF_STATE ? window.KF_STATE.getUser() : { isLoggedIn: false };
   const esc = window.escapeHtml || (s => s);
   const initials = getInitials(user ? user.name : '');
+  const avatarMarkup = (user && user.avatar)
+    ? `<img src="${esc(user.avatar)}" alt="${esc(user.name)}" class="avatar-img" onerror="this.remove(); this.parentElement.textContent='${esc(initials)}';">`
+    : esc(initials);
 
   // A. Desktop Navbar Synchronization (.nav-actions)
   const navActionsList = document.querySelectorAll('.nav-actions');
@@ -294,7 +373,7 @@ function syncNavAuthState() {
         wrap.id = 'kf-nav-user-wrap';
         wrap.innerHTML = `
           <button type="button" class="btn-icon-nav nav-user-toggle d-flex align-items-center justify-content-center" id="kf-user-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="User Account Menu" title="${esc(user.name)} (${esc(user.tier || 'Member')})">
-            <span class="nav-user-avatar">${esc(initials)}</span>
+            <span class="nav-user-avatar">${avatarMarkup}</span>
           </button>
           <div class="nav-user-dropdown-menu shadow-lg" id="kf-user-dropdown-menu" role="menu" aria-labelledby="kf-user-dropdown-toggle">
             <div class="nav-user-dropdown-header">
@@ -348,7 +427,7 @@ function syncNavAuthState() {
         const tierEl = existingWrap.querySelector('.nav-user-display-tier, .nav-user-dropdown-header .small.text-gold');
         const toggleBtn = existingWrap.querySelector('#kf-user-dropdown-toggle');
 
-        if (avatar) avatar.textContent = initials;
+        if (avatar) avatar.innerHTML = avatarMarkup;
         if (nameEl) nameEl.textContent = user.name;
         if (tierEl) tierEl.textContent = `${user.tier || 'Member'} · ${user.points || 0} pts`;
         if (toggleBtn) toggleBtn.setAttribute('title', `${user.name} (${user.tier || 'Member'})`);
@@ -370,13 +449,13 @@ function syncNavAuthState() {
   // B. Mobile Drawer Synchronization
   const mobileDrawers = document.querySelectorAll('.mobile-nav-drawer');
   mobileDrawers.forEach(drawer => {
-    let authSection = drawer.querySelector('.mobile-drawer-auth, .pt-3.border-top');
+    let authSection = drawer.querySelector('.mobile-drawer-auth');
     if (authSection) {
       if (user && user.isLoggedIn) {
         authSection.innerHTML = `
-          <div class="p-3 bg-secondary-app rounded-3 border border-subtle mb-3">
+          <div class="p-3 bg-secondary-app rounded-3 border border-subtle mb-2">
             <div class="d-flex align-items-center gap-2 mb-2">
-              <div class="nav-user-avatar" style="width: 34px; height: 34px; font-size: 0.82rem;">${esc(initials)}</div>
+              <div class="nav-user-avatar" style="width: 34px; height: 34px; font-size: 0.82rem;">${avatarMarkup}</div>
               <div class="min-w-0">
                 <div class="fw-bold text-primary-app text-truncate small">${esc(user.name)}</div>
                 <div class="text-gold small" style="font-size: 0.72rem;">${esc(user.tier || 'Member')} · ${user.points || 0} pts</div>
@@ -390,7 +469,6 @@ function syncNavAuthState() {
               <a href="cart.html" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="shopping-cart" style="width: 15px; height: 15px;"></i><span>My Cart</span></a>
             </div>
           </div>
-          <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
           <button type="button" class="btn-flame-outline w-100 text-danger border-danger d-flex align-items-center justify-content-center gap-2" onclick="window.handleLogout()">
             <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
             <span>Logout</span>
@@ -398,9 +476,45 @@ function syncNavAuthState() {
         `;
       } else {
         authSection.innerHTML = `
-          <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
-          <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+          <a href="login.html" class="btn-flame-outline w-100 d-flex align-items-center justify-content-center gap-2">
+            <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+            <span>Sign In / Register</span>
+          </a>
         `;
+      }
+    } else {
+      let legacyAuth = drawer.querySelector('.pt-3.border-top');
+      if (legacyAuth) {
+        if (user && user.isLoggedIn) {
+          legacyAuth.innerHTML = `
+            <div class="p-3 bg-secondary-app rounded-3 border border-subtle mb-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="nav-user-avatar" style="width: 34px; height: 34px; font-size: 0.82rem;">${avatarMarkup}</div>
+                <div class="min-w-0">
+                  <div class="fw-bold text-primary-app text-truncate small">${esc(user.name)}</div>
+                  <div class="text-gold small" style="font-size: 0.72rem;">${esc(user.tier || 'Member')} · ${user.points || 0} pts</div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-1 pt-2 border-top border-subtle small">
+                <a href="dashboard.html#profile" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="user" style="width: 15px; height: 15px;"></i><span>My Profile</span></a>
+                <a href="dashboard.html#orders" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="flame" style="width: 15px; height: 15px;"></i><span>My Orders</span></a>
+                <a href="dashboard.html#reservations" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="calendar" style="width: 15px; height: 15px;"></i><span>My Reservations</span></a>
+                <a href="dashboard.html" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="layout-dashboard" style="width: 15px; height: 15px;"></i><span>My Dashboard</span></a>
+                <a href="cart.html" class="nav-link-custom py-1 d-flex align-items-center gap-2"><i data-lucide="shopping-cart" style="width: 15px; height: 15px;"></i><span>My Cart</span></a>
+              </div>
+            </div>
+            <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
+            <button type="button" class="btn-flame-outline w-100 text-danger border-danger d-flex align-items-center justify-content-center gap-2" onclick="window.handleLogout()">
+              <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+              <span>Logout</span>
+            </button>
+          `;
+        } else {
+          legacyAuth.innerHTML = `
+            <a href="pricing.html#reservations" class="btn-flame w-100 mb-2">Book Table Now</a>
+            <a href="login.html" class="btn-flame-outline w-100">Sign In / Register</a>
+          `;
+        }
       }
     }
   });
@@ -485,6 +599,13 @@ window.openCartDrawer = function() {
   if (drawer) drawer.classList.add('active');
   if (backdrop) backdrop.classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  // Automatically close mobile nav drawer if open
+  const navDrawer = document.querySelector('.mobile-nav-drawer');
+  const navBackdrop = document.querySelector('.mobile-nav-backdrop');
+  if (navDrawer) navDrawer.classList.remove('active');
+  if (navBackdrop) navBackdrop.classList.remove('active');
+
   if (window.KF_STATE && typeof renderCartDrawer === 'function') {
     renderCartDrawer(window.KF_STATE.getCart());
   }

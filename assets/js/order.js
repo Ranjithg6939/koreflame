@@ -115,13 +115,13 @@
 
     container.innerHTML = `
       <!-- Back to Cart Option (Requirement 9) -->
-      <div class="mb-4 d-flex justify-content-between align-items-center">
-        <a href="cart.html" class="btn-flame-outline d-inline-flex align-items-center gap-2">
-          <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+      <div class="mb-4 d-flex align-items-center justify-content-between gap-2 order-top-actions">
+        <a href="cart.html" class="btn-flame-outline btn-sm d-inline-flex align-items-center gap-1.5 text-nowrap" style="padding: 0.38rem 0.9rem; font-size: 0.82rem; border-radius: var(--radius-full); line-height: 1.2;">
+          <i data-lucide="arrow-left" style="width: 15px; height: 15px;"></i>
           <span>Back to Cart</span>
         </a>
-        <div class="d-flex align-items-center gap-2 text-gold small">
-          <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+        <div class="d-inline-flex align-items-center gap-1.5 text-gold small text-nowrap" style="font-size: 0.8rem; font-weight: 600;">
+          <i data-lucide="shield-check" style="width: 15px; height: 15px; flex-shrink: 0;"></i>
           <span>256-Bit SSL Secured</span>
         </div>
       </div>

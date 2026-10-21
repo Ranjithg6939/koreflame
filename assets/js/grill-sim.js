@@ -113,7 +113,7 @@ function initGrillSimulator() {
             </div>
 
             <!-- Action buttons -->
-            <div class="d-flex flex-wrap gap-2 pt-2 border-top border-subtle mt-auto">
+            <div class="d-flex flex-wrap gap-2 pt-2 border-top border-subtle mt-auto grill-sim-actions">
               <button type="button" class="btn-flame btn-sm-custom" id="btn-add-sim-cut">
                 <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
                 <span>Add to Cart ($${cut.price.toFixed(2)})</span>
@@ -130,11 +130,13 @@ function initGrillSimulator() {
         <div class="col-lg-5">
           <div class="grill-display-card p-3 p-lg-4 h-100 d-flex flex-column justify-content-between">
             <div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge-tag badge-prime" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;">
-                  <i data-lucide="flame" style="width: 13px; height: 13px;"></i> Live Sizzle Simulation
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <span class="badge-tag badge-prime" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">
+                  <i data-lucide="flame" style="width: 13px; height: 13px;"></i>
+                  <span class="d-none d-sm-inline">Live Sizzle Simulation</span>
+                  <span class="d-sm-none">Live Simulation</span>
                 </span>
-                <span class="badge-tag badge-spice" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;">Binchotan Heat</span>
+                <span class="badge-tag badge-spice" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">Binchotan Heat</span>
               </div>
               <div class="grill-rack-visual rounded mb-2 position-relative overflow-hidden" style="height: 190px;">
                 <div class="grill-mesh-grid"></div>
