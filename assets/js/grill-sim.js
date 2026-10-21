@@ -138,11 +138,9 @@ function initGrillSimulator() {
                 </span>
                 <span class="badge-tag badge-spice" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">Binchotan Heat</span>
               </div>
-              <div class="grill-rack-visual rounded mb-2 position-relative overflow-hidden" style="height: 190px;">
-                <div class="grill-mesh-grid"></div>
-                <div class="grill-charcoal-glow"></div>
-                <img src="${cut.image}" alt="${cut.nameEn}" class="active-cut-img kf-sizzle-float" id="sim-active-image">
-                <div class="cooking-timer-badge" style="font-size: 0.72rem; padding: 0.22rem 0.5rem;">
+              <div class="grill-rack-visual rounded-3 mb-2 position-relative overflow-hidden" style="height: 200px;">
+                <img src="${cut.image}" alt="${cut.nameEn}" class="active-cut-img" id="sim-active-image">
+                <div class="cooking-timer-badge" style="font-size: 0.72rem; padding: 0.22rem 0.55rem;">
                   <i data-lucide="clock" style="width: 13px; height: 13px;"></i>
                   <span>Est. ${cut.estTotalMinutes} mins</span>
                 </div>

@@ -17,7 +17,7 @@ const BLOG_ARTICLES_DATA = {
     authorBio: "With over 20 years perfecting Binchotan charcoal roasting in Seoul and New York, Chef Min-Jun champions authentic Korean heritage dining.",
     date: "October 14, 2026",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
+    image: "assets/images/art-of-the-perfect-ssam.jpg",
     imageAlt: "The Art of the Perfect Ssam - Korean BBQ Meat Wrapping",
     content: `
       <p class="lead text-primary-app font-weight-normal mb-4">
@@ -72,7 +72,7 @@ const BLOG_ARTICLES_DATA = {
     authorBio: "Trained under renowned Korean binchotan kiln masters in Gangwon Province, Jin-Woo specializes in heat thermodynamics, smokeless extraction, and flame caramelization.",
     date: "September 28, 2026",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200&auto=format&fit=crop",
+    image: "assets/images/binchotan-charcoal-difference.jpg",
     imageAlt: "White Binchotan Charcoal Table Grill at KoreFlame",
     content: `
       <p class="lead text-primary-app font-weight-normal mb-4">
@@ -141,7 +141,7 @@ const BLOG_ARTICLES_DATA = {
     authorBio: "So-Yeon holds a master's in Food Science from Seoul National University and oversees KoreFlame's artisan onggi fermentation room and seasonal banchan cellar.",
     date: "September 12, 2026",
     readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1200&auto=format&fit=crop",
+    image: "assets/images/guide-to-probiotic-banchan.jpg",
     imageAlt: "Authentic Korean Banchan Varieties and Fermented Side Dishes",
     content: `
       <p class="lead text-primary-app font-weight-normal mb-4">

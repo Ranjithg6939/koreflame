@@ -3093,19 +3093,37 @@ button.nav-link-custom {
   100% { transform: scale(1.15); opacity: 0.95; }
 }
 
-.active-cut-img {
-  max-height: 155px;
-  max-width: 85%;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-  position: relative;
+.grill-rack-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
   z-index: 2;
-  transition: transform var(--transition-fast);
 }
 
-.active-cut-img:hover {
-  transform: scale(1.03);
+.grill-mesh-grid,
+.grill-charcoal-glow {
+  display: none !important;
+}
+
+.active-cut-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: none;
+  z-index: 1;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grill-rack-visual:hover .active-cut-img {
+  transform: scale(1.04);
 }
 
 .cooking-timer-badge {

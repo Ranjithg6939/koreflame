@@ -106,7 +106,7 @@ const KF_DATA = {
       titleKr: "Chef's Special Butcher Selection",
       serves: "Serves 2 - 3 Guests",
       price: 98.00,
-      image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",
+      image: "assets/images/menu/The Butcher's Platter - Copy - Copy.jpg",
       tag: "Best Seller",
       badgeClass: "badge-popular",
       cuts: ["Prime Galbi (Short Rib)", "Berkshire Pork Belly", "Beef Brisket", "Marinated Bulgogi"],
@@ -119,7 +119,7 @@ const KF_DATA = {
       titleKr: "Berkshire Heritage Pork Platter",
       serves: "Serves 2 Guests",
       price: 76.00,
-      image: "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=800&auto=format&fit=crop",
+      image: "assets/images/menu/Pork Lover's Heritage Set - Copy - Copy.jpg",
       tag: "Heritage Breed",
       badgeClass: "badge-prime",
       cuts: ["Thick Berkshire Belly", "Marinated Pork Collar", "Crisp Pork Jowl", "Spicy Pork Slices"],
@@ -132,7 +132,7 @@ const KF_DATA = {
       titleKr: "Ultra Luxury Wagyu Tasting Flight",
       serves: "Serves 2 - 4 Guests",
       price: 165.00,
-      image: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop",
+      image: "assets/images/menu/Grand Wagyu Tasting Flight - Copy - Copy.jpg",
       tag: "Ultra Luxury",
       badgeClass: "badge-prime",
       cuts: ["A5 Miyazaki Wagyu Ribeye", "Australian Wagyu BMS 8+ Zabuton", "Prime Wagyu Short Rib", "Chilled Wagyu Tartare"],
@@ -185,7 +185,7 @@ const KF_DATA = {
       "Best Seller"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/LA Galbi (Korean Short Ribs) - Copy - Copy.jpg",
     "description": "Triple bone-in flanken-cut short ribs glazed with wild honey, ginger, and garlic, sizzling to a sweet caramel crust."
   },
   {
@@ -201,7 +201,7 @@ const KF_DATA = {
       "Gluten-Free Pure Cut"
     ],
     "popular": false,
-    "image": "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Beef Brisket - Copy - Copy.jpg",
     "description": "Paper-thin prime brisket ribbons that flash-sear on the grill in seconds. Served with toasted sesame oil and roasted sea salt."
   },
   {
@@ -217,7 +217,7 @@ const KF_DATA = {
       "Signature"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Samgyeopsal (Pork Belly) - Copy - Copy.jpg",
     "description": "Heirloom Berkshire pork belly cut to optimal 12mm thickness for crisp crackling edges and succulent melt-in-mouth texture."
   },
   {
@@ -232,7 +232,7 @@ const KF_DATA = {
       "Extra Spicy"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Spicy Pork Bulgogi.jpg",
     "description": "Thinly sliced tender pork shoulder tossed in fiery fermented red pepper paste, sweet onion ribbons, and sesame."
   },
   {
@@ -263,7 +263,7 @@ const KF_DATA = {
       "Halal Friendly"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Korean Chicken Bulgogi.jpg",
     "description": "Boneless chicken thighs tenderized with apple-pear puree, dark soy, and fragrant sesame. Juicy and golden."
   },
   {
@@ -279,7 +279,7 @@ const KF_DATA = {
       "Cage-Free"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1587385789097-0197a7fbd179?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Spicy Gochujang Chicken.jpg",
     "description": "Dark chicken meat bathed in fermented red chili pepper sauce, fresh ginger, garlic, and scallion essence."
   },
   {
@@ -295,7 +295,7 @@ const KF_DATA = {
       "Kid-Friendly"
     ],
     "popular": false,
-    "image": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Soy Garlic Chicken - Copy.jpg",
     "description": "Tossed in aged soy sauce simmered with 20 cloves of roasted garlic, rice syrup, and toasted sesame oil."
   },
   {
@@ -311,7 +311,7 @@ const KF_DATA = {
       "Chef Choice"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Garlic Butter Prawns - Copy - Copy.jpg",
     "description": "Jumbo tiger prawns butterflied and brushed with sizzling roasted garlic herb butter over the charcoal grate."
   },
   {
@@ -326,7 +326,7 @@ const KF_DATA = {
       "Charcoal Grilled"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Grilled Squid - Copy.jpg",
     "description": "Tender whole squid scored and charred over high coals, glazed with sweet-savory chili tare and scallions."
   },
   {
@@ -342,7 +342,7 @@ const KF_DATA = {
       "Gluten-Free Option"
     ],
     "popular": false,
-    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Salmon BBQ - Copy.jpg",
     "description": "Fresh Atlantic salmon fillet marinated with ginger soy reduction, crisped skin-down for a buttery finish."
   },
   {
@@ -358,7 +358,7 @@ const KF_DATA = {
       "Gluten-Free"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Grilled King Oyster Mushrooms - Copy.jpg",
     "description": "Meaty King Oyster mushroom steaks scored and brushed with sesame oil and coarse sea salt, searing juicy and golden."
   },
   {
@@ -374,7 +374,7 @@ const KF_DATA = {
       "Crowd Favorite"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1551754655-cd27e38d2076?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Garlic Butter Corn - Copy.jpg",
     "description": "Sweet corn kernels tossed with roasted garlic butter, sweet cream, and melted mozzarella cheese on the grill."
   },
   {
@@ -390,7 +390,7 @@ const KF_DATA = {
       "High Protein"
     ],
     "popular": false,
-    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Korean BBQ Tofu - Copy.jpg",
     "description": "Thick slabs of organic firm tofu marinated in sweet ginger-soy glaze and grilled until crisp on all sides."
   },
   {
@@ -406,7 +406,7 @@ const KF_DATA = {
       "Refillable Option"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Kimchi - Copy - Copy.jpg",
     "description": "House-fermented napa cabbage matured with sun-dried red chili, ginger, garlic, and pear. Naturally probiotic."
   },
   {
@@ -422,7 +422,7 @@ const KF_DATA = {
       "Gluten-Free"
     ],
     "popular": false,
-    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Pickled Radish - Copy.jpg",
     "description": "Thin paper-like discs of crunchy daikon radish pickled in sweet apple cider vinegar. Perfect meat wrap."
   },
   {
@@ -438,7 +438,7 @@ const KF_DATA = {
       "Refreshing"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Korean Cucumber Salad - Copy.jpg",
     "description": "Cracked Persian cucumbers tossed with toasted sesame oil, rice vinegar, garlic, and coarse red chili flakes."
   },
   {
@@ -453,7 +453,7 @@ const KF_DATA = {
       "Complete Meal"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Solo Grill Box - Copy.jpg",
     "description": "Prime beef bulgogi, 3 artisan banchan sides, steamed rice, fresh lettuce wraps, and hot soybean broth."
   },
   {
@@ -468,7 +468,7 @@ const KF_DATA = {
       "Most Popular Set"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Couple's BBQ Set - Copy.jpg",
     "description": "USDA Prime Marinated Galbi, Thick-cut Berkshire Pork Belly, Steamed Egg Soufflé, refillable banchan, and two rices."
   },
   {
@@ -514,7 +514,7 @@ const KF_DATA = {
       "Comfort Classic"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Kimchi Fried Rice - Copy - Copy.jpg",
     "description": "Wok-charred pearl rice with aged 3-year kimchi, smoked pork ribbons, toasted seaweed flakes, and runny egg."
   },
   {
@@ -530,7 +530,7 @@ const KF_DATA = {
       "Vegetarian Option"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Japchae Glass Noodles - Copy - Copy.jpg",
     "description": "Chewy sweet potato glass noodles wok-tossed with shiitake mushrooms, bell peppers, spinach, sweet soy, and sesame."
   },
   {
@@ -545,7 +545,7 @@ const KF_DATA = {
       "Sweet Indulgence"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Bingsu (Korean Shaved Ice) - Copy - Copy.jpg",
     "description": "Micro-shaved frozen milk snow topped with sweet red bean paste, chewy injeolmi rice cakes, roasted soybean powder, and condensed milk."
   },
   {
@@ -560,7 +560,7 @@ const KF_DATA = {
       "Street Food Legend"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Hotteok (Sweet Korean Pancakes) - Copy - Copy.jpg",
     "description": "Golden griddled yeasted dough filled with molten dark brown sugar, roasted peanuts, cinnamon, and walnuts."
   },
   {
@@ -575,7 +575,7 @@ const KF_DATA = {
       "Gluten-Free Sweet"
     ],
     "popular": false,
-    "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Mochi Ice Cream - Copy - Copy.jpg",
     "description": "Chewy sweet rice dough spheres enveloping premium artisan matcha, ripe mango, and strawberry ice creams."
   },
   {
@@ -591,7 +591,7 @@ const KF_DATA = {
       "House Favorite"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Korean Strawberry Ade - Copy - Copy.jpg",
     "description": "Hand-crushed fresh strawberry puree shaken with ice, tart lime, sparkling soda, and fresh mint sprig."
   },
   {
@@ -606,7 +606,7 @@ const KF_DATA = {
       "Vitamin C Rich"
     ],
     "popular": false,
-    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Yuzu Lemon Tea - Copy - Copy.jpg",
     "description": "Fragrant sweet yuzu citron marmalade brewed with wild honey, lemon slices, and mountain tea leaves."
   },
   {
@@ -621,7 +621,7 @@ const KF_DATA = {
       "Creamy & Bold"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Iced Dalgona Coffee - Copy - Copy.jpg",
     "description": "Velvety whipped coffee toffee foam poured gracefully over chilled whole milk and ice cubes."
   }
 ],
@@ -703,7 +703,7 @@ const KF_DATA = {
       authorBio: "With over 20 years perfecting Binchotan charcoal roasting in Seoul and New York, Chef Min-Jun champions authentic Korean heritage dining.",
       date: "October 14, 2026",
       readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
+      image: "assets/images/art-of-the-perfect-ssam.jpg",
       excerpt: "Eating Korean BBQ is an interactive ritual. Learn the golden layering technique: lettuce, perilla, sizzling meat, grilled garlic, and artisanal ssamjang.",
       content: `
         <p class="lead text-primary-app font-weight-normal mb-4">In Korea, barbecue is never a passive meal. It is a shared performance where everyone at the table contributes to the rhythm of the grill. At the heart of this ancient social dining communion lies the <em>ssam</em>—literally translated as "wrap".</p>
@@ -722,7 +722,7 @@ const KF_DATA = {
       authorBio: "Trained under renowned Korean binchotan kiln masters in Gangwon Province, Jin-Woo specializes in heat thermodynamics, smokeless extraction, and flame caramelization.",
       date: "September 28, 2026",
       readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200&auto=format&fit=crop",
+      image: "assets/images/binchotan-charcoal-difference.jpg",
       excerpt: "Explore how ultra-pure oak binchotan emits pure far-infrared heat without acrid smoke, sealing juices into marbled beef instantly.",
       content: `
         <p class="lead text-primary-app font-weight-normal mb-4">The difference between an ordinary barbecue dinner and a transcendental sensory feast begins deep beneath the table grates. At KoreFlame, that difference is fueled by authentic Japanese and Korean white oak <em>Binchotan</em> charcoal.</p>
@@ -741,7 +741,7 @@ const KF_DATA = {
       authorBio: "So-Yeon holds a master's in Food Science from Seoul National University and oversees KoreFlame's artisan onggi fermentation room and seasonal banchan cellar.",
       date: "September 12, 2026",
       readTime: "4 min read",
-      image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1200&auto=format&fit=crop",
+      image: "assets/images/guide-to-probiotic-banchan.jpg",
       excerpt: "Discover the lacto-fermented history of side dishes that balance high-protein grilling with natural digestive enzymes and alkaline roots.",
       content: `
         <p class="lead text-primary-app font-weight-normal mb-4">In Korean culinary philosophy, side dishes—<em>banchan</em>—are neither garnishes nor appetizers. They represent hundreds of years of ancestral food science engineered to balance rich charcoal-grilled proteins with active probiotic cultures, dietary fiber, and natural digestive enzymes.</p>

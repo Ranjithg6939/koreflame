@@ -11,7 +11,7 @@ const SERVICES_DATA = {
     badge: { icon: 'crown', text: 'Exclusivity', class: 'badge-spice' },
     title: 'VIP Private Dining Suites',
     lead: 'Exclusivity, privacy, and Michelin-caliber Korean BBQ hospitality. Designed for intimate anniversaries, high-stakes business dinners, and family milestones.',
-    img: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop',
+    img: 'assets/images/vip-private-dining-suites.jpg',
     imgAlt: 'VIP Private Dining Suite at KoreFlame',
     storyHeading: 'The Ultimate Private Seoul Sizzle Experience',
     storyDesc: [
@@ -80,7 +80,7 @@ const SERVICES_DATA = {
     badge: { icon: 'users', text: 'Corporate Feasting', class: 'badge-prime' },
     title: 'Corporate & Team Rehearsal Banquets',
     lead: 'Seamless multi-grill alcoves designed for team building, closing dinners, and company milestones with all-inclusive per-guest feast tiers and master billing.',
-    img: 'https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200&auto=format&fit=crop',
+    img: 'assets/images/corporate-team-banquets.jpg',
     imgAlt: 'Corporate and Team Banquets at KoreFlame',
     storyHeading: 'Energize Your Team Around the Communal Hearth',
     storyDesc: [
@@ -149,7 +149,7 @@ const SERVICES_DATA = {
     badge: { icon: 'sparkles', text: 'Celebration Special', class: 'badge-popular' },
     title: 'Birthday & Milestone Celebrations',
     lead: 'Turn birthdays, bachelorettes, and anniversaries into dazzling spectacles with tableside fireworks sparklers, custom dessert platters, and festive table decor.',
-    img: 'https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1200&auto=format&fit=crop',
+    img: 'assets/images/birthday-milestone-celebrations.jpg',
     imgAlt: 'Birthday and Milestone Celebrations at KoreFlame',
     storyHeading: 'Sparkler Meat Towers & Unforgettable Korean Hospitality',
     storyDesc: [
@@ -218,7 +218,7 @@ const SERVICES_DATA = {
     badge: { icon: 'flame', text: 'Culinary Masterclass', class: 'badge-prime' },
     title: 'Dedicated Table Grillmaster Experience',
     lead: 'Sit back and let our certified culinary grill captains handle the tongs. Learn the lore of Korean table grilling, the secrets of Binchotan heat control, and the art of the perfect ssam.',
-    img: 'https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=1200&auto=format&fit=crop',
+    img: 'assets/images/dedicated-table-grillmaster.jpg',
     imgAlt: 'Dedicated Grillmaster Experience at KoreFlame',
     storyHeading: 'The Art & Heritage of Tableside Binchotan Grilling',
     storyDesc: [
