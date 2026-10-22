@@ -149,7 +149,7 @@ const SERVICES_DATA = {
     badge: { icon: 'sparkles', text: 'Celebration Special', class: 'badge-popular' },
     title: 'Birthday & Milestone Celebrations',
     lead: 'Turn birthdays, bachelorettes, and anniversaries into dazzling spectacles with tableside fireworks sparklers, custom dessert platters, and festive table decor.',
-    img: 'assets/images/birthday-milestone-celebrations.jpg',
+    img: 'assets/images/birthday-milestone-celebrations.jpg?v=bday2',
     imgAlt: 'Birthday and Milestone Celebrations at KoreFlame',
     storyHeading: 'Sparkler Meat Towers & Unforgettable Korean Hospitality',
     storyDesc: [
