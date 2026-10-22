@@ -1,0 +1,28 @@
+{
+  "name": "koreflame",
+  "version": "1.0.0",
+  "description": "**KoreFlame** is a premium, modern, fully functional Korean BBQ restaurant and guest dining dashboard template built with semantic **HTML5**, **CSS3**, and **vanilla JavaScript** (no React, Next.js, or JSX). It is designed to meet ThemeForest, TemplateMonster, and high-end restaurant client deployment standards.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/auth.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ranjithg6939/koreflame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ranjithg6939/koreflame/issues"
+  },
+  "homepage": "https://github.com/Ranjithg6939/koreflame#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0"
+  }
+}

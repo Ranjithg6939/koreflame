@@ -427,6 +427,7 @@ ul, ol {
   transition: all var(--transition-fast);
   text-decoration: none;
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 [data-theme="light"] .btn-flame {
@@ -467,6 +468,7 @@ ul, ol {
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-flame-outline:hover {
@@ -493,6 +495,7 @@ ul, ol {
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-gold:hover {
@@ -3457,7 +3460,7 @@ button.nav-link-custom {
 }
 
 .menu-card-badges {
-  min-height: 54px;
+  min-height: 28px;
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -3937,6 +3940,140 @@ button.nav-link-custom {
 
 .auth-divider:not(:empty)::after {
   margin-left: 0.85rem;
+}
+
+/* Password Strength Indicator & Requirements Checklist */
+.kf-password-strength {
+  margin-top: 0.6rem;
+}
+
+.kf-strength-bar {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+  display: flex;
+}
+
+[data-theme="light"] .kf-strength-bar {
+  background: #E5E7EB;
+}
+
+.kf-strength-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  border-radius: var(--radius-full);
+}
+
+.kf-strength-fill.strength-weak {
+  width: 33.33%;
+  background-color: #EF4444;
+}
+
+.kf-strength-fill.strength-medium {
+  width: 66.66%;
+  background-color: #F59E0B;
+}
+
+.kf-strength-fill.strength-strong {
+  width: 100%;
+  background-color: #10B981;
+}
+
+.kf-strength-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
+  margin-bottom: 0.4rem;
+}
+
+.kf-strength-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.kf-strength-label.text-weak { color: #EF4444 !important; }
+.kf-strength-label.text-medium { color: #F59E0B !important; }
+.kf-strength-label.text-strong { color: #10B981 !important; }
+
+.kf-requirements-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+}
+
+@media (min-width: 480px) {
+  .kf-requirements-checklist {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.kf-req-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.kf-req-item.met {
+  color: #10B981 !important;
+  font-weight: 600;
+}
+
+.kf-req-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Modal Dialog for Forgot Password */
+.kf-auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1050;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.kf-auth-modal-backdrop.show {
+  display: flex;
+  opacity: 1;
+}
+
+.kf-auth-modal-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  max-width: 460px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kf-auth-modal-backdrop.show .kf-auth-modal-card {
+  transform: translateY(0) scale(1);
 }
 
 /* --------------------------------------------------------------------------
@@ -5217,12 +5354,12 @@ button.nav-link-custom {
 .kf-live-grill-desc {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #000000 !important;
+  color: var(--text-secondary) !important;
   font-weight: 500;
 }
 
 [data-theme="light"] .kf-live-grill-desc {
-  color: #000000 !important;
+  color: var(--text-secondary) !important;
   font-weight: 500;
 }
 
@@ -5712,6 +5849,25 @@ button.nav-link-custom {
   }
 }
 
+/* Page Hero Banner Container (About, Menu, Package, Blog, Contact, etc.) */
+.about-hero-banner,
+.page-hero-banner {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 25%, rgba(255, 118, 40, 0.16) 0%, rgba(230, 57, 36, 0.07) 42%, transparent 75%),
+              linear-gradient(180deg, #0F0D0C 0%, #191513 50%, #120F0E 100%) !important;
+  border-bottom: 1px solid rgba(245, 211, 108, 0.3) !important;
+  box-shadow: inset 0 -10px 28px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .about-hero-banner,
+[data-theme="light"] .page-hero-banner {
+  background: radial-gradient(ellipse at 50% 20%, rgba(255, 118, 40, 0.16) 0%, rgba(230, 57, 36, 0.06) 45%, transparent 72%),
+              linear-gradient(180deg, #FFFDF8 0%, #F5E5D0 52%, #EED7BE 100%) !important;
+  border-bottom: 1px solid rgba(197, 155, 39, 0.38) !important;
+  box-shadow: inset 0 -8px 24px rgba(184, 134, 11, 0.12), 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
 /* About Hero Quick Highlight Badges */
 .about-hero-pills {
   display: flex;
@@ -6194,6 +6350,42 @@ button.nav-link-custom {
   border: 2px solid var(--color-success);
   color: var(--color-success);
   box-shadow: 0 0 25px rgba(52, 211, 153, 0.35);
+}
+
+.kf-confirm-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.kf-confirm-actions .btn-flame,
+.kf-confirm-actions .btn-flame-outline {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.68rem 1.15rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .kf-confirm-actions {
+    flex-direction: column-reverse;
+    gap: 0.65rem;
+  }
+  .kf-confirm-actions .btn-flame,
+  .kf-confirm-actions .btn-flame-outline {
+    width: 100%;
+    flex: none;
+  }
 }
 
 /* --------------------------------------------------------------------------

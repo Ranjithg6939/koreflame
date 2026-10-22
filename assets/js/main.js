@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggles();
   initCartDrawer();
   syncNavAuthState();
+  if (window.KF_STATE && typeof window.KF_STATE.syncServerSession === 'function') {
+    window.KF_STATE.syncServerSession().then(() => syncNavAuthState());
+  }
   initScrollAnimations();
   initEmberBackground();
   initTactileButtons();
@@ -364,22 +367,22 @@ function syncNavAuthState() {
   navActionsList.forEach(navActions => {
     // Check if user wrap or login link already exists
     let existingWrap = navActions.querySelector('.nav-user-dropdown-wrap');
-    let existingLoginLink = navActions.querySelector('a[href="login.html"], a[title="Guest Account"], a[title="Sign In / Register"]');
+    let existingLoginLink = navActions.querySelector('.btn-nav-account, a[href="login.html"], a[title="Guest Account"], a[title="Sign In / Register"]');
 
     if (user && user.isLoggedIn && user.name) {
       if (!existingWrap) {
         const wrap = document.createElement('div');
-        wrap.className = 'nav-user-dropdown-wrap position-relative d-none d-sm-inline-block';
+        wrap.className = 'nav-user-dropdown-wrap position-relative d-inline-block';
         wrap.id = 'kf-nav-user-wrap';
         wrap.innerHTML = `
           <button type="button" class="btn-icon-nav nav-user-toggle d-flex align-items-center justify-content-center" id="kf-user-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="User Account Menu" title="${esc(user.name)} (${esc(user.tier || 'Member')})">
             <span class="nav-user-avatar">${avatarMarkup}</span>
           </button>
           <div class="nav-user-dropdown-menu shadow-lg" id="kf-user-dropdown-menu" role="menu" aria-labelledby="kf-user-dropdown-toggle">
-            <div class="nav-user-dropdown-header">
+            <a href="dashboard.html#profile" class="nav-user-dropdown-header d-block text-decoration-none">
               <div class="fw-bold text-primary-app text-truncate nav-user-display-name" style="font-size: 0.95rem;">${esc(user.name)}</div>
-              <div class="small text-gold text-truncate nav-user-display-tier" style="font-size: 0.78rem;">${esc(user.tier || 'Member')} · ${user.points || 0} pts</div>
-            </div>
+              <div class="small text-gold text-truncate nav-user-display-tier" style="font-size: 0.78rem;">${esc(user.tier || 'Member')} · ${user.points || 0} pts · <span class="text-decoration-underline">View Profile</span></div>
+            </a>
             <div class="nav-user-dropdown-divider"></div>
             <a href="dashboard.html#profile" class="nav-user-dropdown-item" role="menuitem">
               <i data-lucide="user" style="width: 16px; height: 16px;"></i>
@@ -429,7 +432,7 @@ function syncNavAuthState() {
 
         if (avatar) avatar.innerHTML = avatarMarkup;
         if (nameEl) nameEl.textContent = user.name;
-        if (tierEl) tierEl.textContent = `${user.tier || 'Member'} · ${user.points || 0} pts`;
+        if (tierEl) tierEl.textContent = `${user.tier || 'Member'} · ${user.points || 0} pts · View Profile`;
         if (toggleBtn) toggleBtn.setAttribute('title', `${user.name} (${user.tier || 'Member'})`);
       }
     } else {
@@ -437,7 +440,7 @@ function syncNavAuthState() {
       if (existingWrap) {
         const loginLink = document.createElement('a');
         loginLink.href = 'login.html';
-        loginLink.className = 'btn-icon-nav d-none d-sm-inline-flex';
+        loginLink.className = 'btn-icon-nav btn-nav-account d-inline-flex';
         loginLink.setAttribute('aria-label', 'Account Login');
         loginLink.setAttribute('title', 'Sign In / Register');
         loginLink.innerHTML = '<i data-lucide="user" style="width: 18px; height: 18px;"></i>';
@@ -581,7 +584,7 @@ window.handleLogout = async function() {
     return;
   }
   if (window.KF_STATE) {
-    window.KF_STATE.logout();
+    await window.KF_STATE.logout();
   }
   if (window.kfToast) {
     window.kfToast.info('You have safely signed out of your KoreFlame session.', 'Signed Out');

@@ -40,7 +40,7 @@
         </div>
       </a>
       <div class="d-flex align-items-center gap-2">
-        <button type="button" class="btn-icon-nav kf-theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun-medium"></i></button>
+        
         <a href="index.html" class="btn-flame-outline btn-sm-custom">Back to Site</a>
       </div>
     </div>
@@ -99,7 +99,7 @@
         </div>
 
         <!-- Registration Form -->
-        <form id="kf-register-form" novalidate>
+        <form id="kf-register-form" novalidate autocomplete="on">
           <div class="mb-3">
             <label class="form-label-custom" for="reg-name">Full Name *</label>
             <input type="text" id="reg-name" class="form-control-custom" placeholder="e.g. Min-Ji Kim" required>
@@ -119,20 +119,55 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label-custom" for="reg-password">Password (minimum 6 characters) *</label>
+            <label class="form-label-custom" for="reg-password">Password (min. 8 characters) *</label>
             <div class="input-group">
-              <input type="password" id="reg-password" class="form-control-custom border-end-0" placeholder="e.g. ••••••••" required>
+              <input type="password" id="reg-password" name="password" autocomplete="new-password" class="form-control-custom border-end-0" placeholder="e.g. KoreFlame@2026!" required>
               <button class="btn btn-outline-secondary border border-start-0 text-muted password-toggle-btn" type="button" aria-label="Toggle password visibility">
                 <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
               </button>
             </div>
-            <div class="form-feedback-error" id="reg-password-error"></div>
+            <div class="form-feedback-error" id="reg-password-error" role="alert" aria-live="polite"></div>
+
+            <!-- Live Password Strength Meter -->
+            <div class="kf-password-strength mt-2" id="kf-password-strength-wrap" style="display: none;">
+              <div class="kf-strength-bar">
+                <div class="kf-strength-fill" id="kf-strength-fill"></div>
+              </div>
+              <div class="kf-strength-meta">
+                <span class="text-secondary small">Security Strength:</span>
+                <span class="kf-strength-label text-weak" id="kf-strength-label">Weak</span>
+              </div>
+              <div class="visually-hidden" aria-live="polite" id="kf-strength-announcer"></div>
+
+              <ul class="kf-requirements-checklist" id="kf-requirements-checklist" aria-label="Password Requirements">
+                <li class="kf-req-item" id="req-length">
+                  <span class="kf-req-icon"><i data-lucide="circle" style="width: 12px; height: 12px;"></i></span>
+                  <span>At least 8 characters</span>
+                </li>
+                <li class="kf-req-item" id="req-upper">
+                  <span class="kf-req-icon"><i data-lucide="circle" style="width: 12px; height: 12px;"></i></span>
+                  <span>One uppercase letter (A-Z)</span>
+                </li>
+                <li class="kf-req-item" id="req-lower">
+                  <span class="kf-req-icon"><i data-lucide="circle" style="width: 12px; height: 12px;"></i></span>
+                  <span>One lowercase letter (a-z)</span>
+                </li>
+                <li class="kf-req-item" id="req-number">
+                  <span class="kf-req-icon"><i data-lucide="circle" style="width: 12px; height: 12px;"></i></span>
+                  <span>One number (0-9)</span>
+                </li>
+                <li class="kf-req-item" id="req-special">
+                  <span class="kf-req-icon"><i data-lucide="circle" style="width: 12px; height: 12px;"></i></span>
+                  <span>One special symbol (!@#$)</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="mb-4">
             <label class="form-label-custom" for="reg-confirm-password">Confirm Password *</label>
             <div class="input-group">
-              <input type="password" id="reg-confirm-password" class="form-control-custom border-end-0" placeholder="e.g. ••••••••" required>
+              <input type="password" id="reg-confirm-password" class="form-control-custom border-end-0" placeholder="e.g. KoreFlame@2026!" required>
               <button class="btn btn-outline-secondary border border-start-0 text-muted password-toggle-btn" type="button" aria-label="Toggle password visibility">
                 <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
               </button>
@@ -148,7 +183,7 @@
           </div>
           <div class="form-feedback-error" id="agreeTerms-error" style="margin-top: -0.75rem; margin-bottom: 1rem;"></div>
 
-          <button type="submit" class="btn-flame w-100 py-3 mb-3">
+          <button type="submit" class="btn-flame w-100 py-3 mb-3" id="btn-register-submit">
             <span>Create Account & Claim 200 Points</span>
           </button>
         </form>
@@ -166,10 +201,10 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="assets/js/data.js"></script>
-  <script src="assets/js/state.js"></script>
+  <script src="assets/js/state.js?v=auth2026"></script>
   <script src="assets/js/toast.js?v=toptoast"></script>
-  <script src="assets/js/validator.js"></script>
-  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/validator.js?v=auth2026"></script>
+  <script src="assets/js/auth.js?v=auth2026"></script>
   <script>
     if (window.lucide) window.lucide.createIcons();
   </script>

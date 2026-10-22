@@ -96,11 +96,42 @@ document.addEventListener('DOMContentLoaded', () => {
   initGuestDashboard();
 });
 
-function initGuestDashboard() {
-  const user = window.KF_STATE ? window.KF_STATE.getUser() : null;
+async function initGuestDashboard() {
+  let user = window.KF_STATE ? window.KF_STATE.getUser() : null;
 
-  // Login Required for Dashboard (Requirement 2)
-  if (!user || !user.isLoggedIn) {
+  try {
+    const headers = {};
+    if (user && user.token) {
+      headers['Authorization'] = `Bearer ${user.token}`;
+    }
+    const res = await fetch('/api/auth/me', { credentials: 'include', headers });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.authenticated && data.user) {
+        user = {
+          ...user,
+          ...data.user,
+          token: user?.token || data.user.token || data.token || '',
+          isLoggedIn: true
+        };
+        if (window.KF_STATE) window.KF_STATE.setUser(user);
+      }
+    } else if (res.status === 401) {
+      // Server actively rejected session as expired or invalid
+      if (!user?._offlineMode) {
+        user = null;
+        if (window.KF_STATE) window.KF_STATE.setUser({ ...window.KF_STATE.defaultUser });
+      }
+    }
+    // If 404 (endpoint not mounted on dev port) or 500, preserve local session
+  } catch (e) {
+    // Offline / network failure: preserve local session
+    console.warn('[Dashboard] Could not verify with auth server, using local session state.', e);
+    user = window.KF_STATE ? window.KF_STATE.getUser() : null;
+  }
+
+  // Server-verified Authentication Required for Dashboard
+  if (!user || !user.isLoggedIn || !user.name) {
     const returnUrl = window.location.pathname.split('/').pop() + window.location.search + window.location.hash;
     window.location.replace(`login.html?redirect=${encodeURIComponent(returnUrl || 'dashboard.html')}`);
     return;
@@ -392,7 +423,7 @@ function renderLoyaltyTab() {
       const canAfford = points >= rew.points;
       return `
         <div class="col-md-6 col-lg-4">
-          <div class="kf-card h-100 d-flex flex-column justify-content-between p-3.5 shadow-sm">
+          <div class="kf-card h-100 d-flex flex-column justify-content-between p-4 shadow-sm">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <span class="badge-tag ${canAfford ? 'badge-prime' : 'badge-spice'}">${rew.points} Points</span>

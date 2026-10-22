@@ -86,15 +86,24 @@ function initMenuController() {
     container.innerHTML = filtered.map(item => {
       const isFav = favorites.includes(item.id);
       
-      // Spice flame icons
-      let spiceBadges = '';
-      if (item.spice > 0) {
+      // Limit to at most two animation badge words total
+      let badgesHtml = '';
+      const maxBadges = 2;
+      let count = 0;
+
+      if (item.spice > 0 && count < maxBadges) {
         const chilies = '🌶️'.repeat(item.spice);
-        spiceBadges = `<span class="badge-tag badge-spice" title="Spice Level: ${item.spice}/3">${chilies} Mild/Spicy</span>`;
+        badgesHtml += `<span class="badge-tag badge-spice" title="Spice Level: ${item.spice}/3">${chilies} Mild/Spicy</span>`;
+        count++;
       }
 
-      // Dietary tags
-      const dietaryTags = item.dietary.map(d => `<span class="badge-tag badge-prime">${d}</span>`).join('');
+      if (Array.isArray(item.dietary)) {
+        for (const tag of item.dietary) {
+          if (count >= maxBadges) break;
+          badgesHtml += `<span class="badge-tag badge-prime">${tag}</span>`;
+          count++;
+        }
+      }
 
       return `
         <div class="col-xl-4 col-md-6">
@@ -118,8 +127,7 @@ function initMenuController() {
               <p class="menu-card-desc">${item.description}</p>
 
               <div class="menu-card-badges">
-                ${spiceBadges}
-                ${dietaryTags}
+                ${badgesHtml}
               </div>
 
               <div class="menu-card-footer">

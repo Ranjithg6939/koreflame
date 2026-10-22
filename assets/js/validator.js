@@ -16,7 +16,17 @@
   // Phone: Valid international or local format: optional leading +, digits, spaces, dashes, dots, parentheses
   const PHONE_ALLOWED_CHARS = /^[+0-9\s\-().]+$/;
 
+  // Common and easily guessable weak passwords
+  const COMMON_PASSWORDS = new Set([
+    '123456', '12345678', '123456789', 'password', 'qwerty',
+    'admin', 'welcome', 'abcdef', 'abc123', 'koreflame',
+    'password123', 'letmein', 'monkey', 'football', 'iloveyou',
+    'admin123', 'guest123'
+  ]);
+
   const KF_VALIDATOR = {
+    COMMON_PASSWORDS,
+
     // ------------------------------------------------------------------------
     // Validation Rules
     // ------------------------------------------------------------------------
@@ -73,14 +83,89 @@
       return { valid: true, value: trimmed };
     },
 
-    validatePassword(password, minLength = 6, required = true) {
+    calculatePasswordStrength(password) {
+      const val = password || '';
+      const checks = {
+        length: val.length >= 8,
+        uppercase: /[A-Z]/.test(val),
+        lowercase: /[a-z]/.test(val),
+        number: /[0-9]/.test(val),
+        special: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(val),
+        notCommon: !COMMON_PASSWORDS.has(val.toLowerCase().trim())
+      };
+
+      let score = 0;
+      if (checks.length) score++;
+      if (checks.uppercase) score++;
+      if (checks.lowercase) score++;
+      if (checks.number) score++;
+      if (checks.special) score++;
+
+      let state = 'weak';
+      let percent = 33;
+      if (score >= 5 && checks.notCommon) {
+        state = 'strong';
+        percent = 100;
+      } else if (score >= 3 && checks.notCommon) {
+        state = 'medium';
+        percent = 66;
+      } else {
+        state = 'weak';
+        percent = val.length > 0 ? 33 : 0;
+      }
+
+      return {
+        score,
+        state,
+        percent,
+        checks,
+        isValid: score === 5 && checks.notCommon
+      };
+    },
+
+    validatePassword(password, minLength = 8, required = true, isRegistration = false) {
       const val = password || '';
       if (!val) {
         return required ? { valid: false, message: 'Password is required.' } : { valid: true, value: '' };
       }
+
+      // Basic login validation
+      if (!isRegistration) {
+        if (val.length < 6) {
+          return { valid: false, message: 'Password must be at least 6 characters.' };
+        }
+        return { valid: true, value: val };
+      }
+
+      // Rigorous registration validation
       if (val.length < minLength) {
         return { valid: false, message: `Password must contain at least ${minLength} characters.` };
       }
+      if (val.length > 128) {
+        return { valid: false, message: 'Password cannot exceed 128 characters.' };
+      }
+      if (COMMON_PASSWORDS.has(val.toLowerCase().trim())) {
+        return { valid: false, message: 'This password is too common or easily guessed. Please choose a stronger password.' };
+      }
+
+      const hasUpper = /[A-Z]/.test(val);
+      const hasLower = /[a-z]/.test(val);
+      const hasNumber = /[0-9]/.test(val);
+      const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(val);
+
+      const missing = [];
+      if (!hasUpper) missing.push('one uppercase letter (A-Z)');
+      if (!hasLower) missing.push('one lowercase letter (a-z)');
+      if (!hasNumber) missing.push('one number (0-9)');
+      if (!hasSpecial) missing.push('one special symbol (!@#$%^&*)');
+
+      if (missing.length > 0) {
+        return {
+          valid: false,
+          message: `Password must include at least ${missing.join(', ')}.`
+        };
+      }
+
       return { valid: true, value: val };
     },
 
@@ -185,18 +270,25 @@
     setFieldError(inputEl, errorEl, message) {
       if (inputEl) {
         inputEl.classList.add('is-invalid');
+        inputEl.setAttribute('aria-invalid', 'true');
         const group = inputEl.closest('.input-group');
         if (group) group.classList.add('has-error');
+        if (errorEl && errorEl.id) {
+          inputEl.setAttribute('aria-describedby', errorEl.id);
+        }
       }
       if (errorEl) {
         errorEl.textContent = message;
         errorEl.classList.add('d-block');
+        errorEl.setAttribute('role', 'alert');
+        errorEl.setAttribute('aria-live', 'polite');
       }
     },
 
     clearFieldError(inputEl, errorEl) {
       if (inputEl) {
         inputEl.classList.remove('is-invalid');
+        inputEl.removeAttribute('aria-invalid');
         const group = inputEl.closest('.input-group');
         if (group) group.classList.remove('has-error');
       }
@@ -208,7 +300,10 @@
 
     clearFormErrors(form) {
       if (!form) return;
-      form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+      form.querySelectorAll('.is-invalid').forEach(el => {
+        el.classList.remove('is-invalid');
+        el.removeAttribute('aria-invalid');
+      });
       form.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
       form.querySelectorAll('.form-feedback-error').forEach(el => {
         el.textContent = '';

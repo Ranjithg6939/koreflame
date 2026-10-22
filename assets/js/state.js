@@ -89,6 +89,40 @@ const KF_STATE = {
     }
   },
 
+  async syncServerSession() {
+    try {
+      const current = this.getUser();
+      const headers = {};
+      if (current && current.token) {
+        headers['Authorization'] = `Bearer ${current.token}`;
+      }
+      const res = await fetch('/api/auth/me', { credentials: 'include', headers });
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.authenticated && data.user) {
+          const userObj = {
+            ...current,
+            ...data.user,
+            token: current?.token || data.user.token || data.token || '',
+            isLoggedIn: true
+          };
+          this.setUser(userObj);
+          return userObj;
+        }
+      } else if (res.status === 401) {
+        // Genuinely expired session on server
+        if (current && current.isLoggedIn && !current._offlineMode) {
+          console.info('[Auth] Server confirmed session expired or invalid.');
+          this.setUser({ ...this.defaultUser });
+        }
+      }
+      // If 404 (endpoint not mounted on dev port) or network failure, preserve existing state
+    } catch (e) {
+      console.warn('[Auth Sync] Network check failed, preserving local session state.');
+    }
+    return this.getUser();
+  },
+
   // Registered Accounts Directory (Prevents Name Mismatches & Cross-Contamination)
   getRegisteredUsers() {
     try {
@@ -102,6 +136,7 @@ const KF_STATE = {
         name: "Min-Ji Kim",
         email: "guest@koreflame.com",
         phone: "+1 (555) 382-7492",
+        password: "Guest@KoreFlame2026!",
         tier: "Gold Grillmaster",
         points: 1240,
         role: "guest",
@@ -112,6 +147,7 @@ const KF_STATE = {
         name: "Executive Chef Kang",
         email: "admin@koreflame.com",
         phone: "+1 (555) 890-1122",
+        password: "Admin@KoreFlame2026!",
         tier: "Executive Staff",
         points: 9999,
         role: "admin",
@@ -154,106 +190,71 @@ const KF_STATE = {
     );
   },
 
-  // Dynamic Login by Name or Email - Always sets authenticated user's actual name
-  login(identifier, password, optionalName) {
+  // Authenticate user: strictly enforces account existence AND password verification.
+  // NEVER creates an account on login and NEVER accepts unchecked passwords.
+  verifyCredentials(identifier, password) {
     const trimmed = (identifier || '').trim();
-    if (!trimmed) return null;
-
-    // 1. Check if user already exists in registered database
-    let userRecord = this.findUser(trimmed);
-
-    // 2. If not found, create new record preserving exact name
-    if (!userRecord) {
-      const isEmail = trimmed.includes('@');
-      let displayName = '';
-      let displayEmail = '';
-
-      if (isEmail) {
-        displayEmail = trimmed.toLowerCase();
-        // Extract clean readable name from email local part
-        const localPart = trimmed.split('@')[0];
-        displayName = localPart
-          .split(/[._-]+/)
-          .filter(Boolean)
-          .map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase())
-          .join(' ') || 'Dining Guest';
-      } else {
-        displayName = trimmed;
-        const slug = trimmed.toLowerCase().replace(/[^a-z0-9]/g, '.');
-        displayEmail = `${slug}@koreflame.com`;
-      }
-
-      if (optionalName && optionalName.trim()) {
-        displayName = optionalName.trim();
-      }
-
-      userRecord = {
-        name: displayName,
-        email: displayEmail,
-        phone: '+1 (555) 000-0000',
-        tier: 'Bronze Member',
-        points: 200,
-        role: 'guest',
-        joinedDate: 'Today'
-      };
-
-      this.saveUserAccount(userRecord);
+    if (!trimmed) {
+      return { success: false, error: 'MISSING_EMAIL', message: 'Email address is required.' };
+    }
+    if (!password) {
+      return { success: false, error: 'MISSING_PASSWORD', message: 'Password is required.' };
     }
 
-    // 3. Establish active authenticated session
+    const clean = trimmed.toLowerCase();
+    const userRecord = this.findUser(clean);
+
+    // 1. REJECT if account does not exist. Never auto-create on login!
+    if (!userRecord) {
+      return {
+        success: false,
+        error: 'ACCOUNT_NOT_FOUND',
+        message: 'No account found with this email. Please create an account first.'
+      };
+    }
+
+    // 2. REJECT if password does not match registered account password
+    const expectedPassword = userRecord.password || userRecord.passwordHash;
+    if (!expectedPassword || password !== expectedPassword) {
+      return {
+        success: false,
+        error: 'INVALID_CREDENTIALS',
+        message: 'Invalid email address or password. Please try again.'
+      };
+    }
+
+    // 3. Establish session with verified credentials
     const activeSession = {
-      ...userRecord,
+      name: userRecord.name,
+      email: userRecord.email,
+      phone: userRecord.phone || '+1 (555) 000-0000',
+      tier: userRecord.tier || 'Bronze Member',
+      points: userRecord.points !== undefined ? userRecord.points : 200,
+      role: userRecord.role || 'guest',
+      joinedDate: userRecord.joinedDate || 'Today',
+      avatar: userRecord.avatar || null,
       isLoggedIn: true
     };
 
     this.setUser(activeSession);
-    return activeSession;
-  },
-
-  loginDemoGuest() {
-    const demo = {
-      isLoggedIn: true,
-      name: "Min-Ji Kim",
-      email: "guest@koreflame.com",
-      phone: "+1 (555) 382-7492",
-      tier: "Gold Grillmaster",
-      points: 1240,
-      role: "guest",
-      joinedDate: "January 2026",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
+    return {
+      success: true,
+      user: activeSession
     };
-    this.saveUserAccount(demo);
-    this.setUser(demo);
-    return demo;
   },
 
-  loginAdminDemo() {
-    const admin = {
-      isLoggedIn: true,
-      name: "Executive Chef Kang",
-      email: "admin@koreflame.com",
-      phone: "+1 (555) 890-1122",
-      tier: "Executive Staff",
-      points: 9999,
-      role: "admin",
-      joinedDate: "Founding 2024",
-      avatar: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400&auto=format&fit=crop"
-    };
-    this.saveUserAccount(admin);
-    this.setUser(admin);
-    return admin;
-  },
-
-  logout() {
+  async logout() {
+    try {
+      const current = this.getUser();
+      const headers = {};
+      if (current && current.token) {
+        headers['Authorization'] = `Bearer ${current.token}`;
+      }
+      await fetch('/api/auth/logout', { method: 'POST', credentials: 'include', headers });
+    } catch (e) {}
+    localStorage.removeItem(KF_STORAGE_KEYS.AUTH);
     const loggedOut = {
-      isLoggedIn: false,
-      name: "",
-      email: "",
-      phone: "",
-      tier: "Member",
-      points: 0,
-      role: "guest",
-      joinedDate: ""
+      ...this.defaultUser
     };
     this.setUser(loggedOut);
     return loggedOut;

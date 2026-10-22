@@ -182,11 +182,11 @@ class KoreFlameToast {
           </div>
           <h4 class="fw-extrabold mb-2 text-primary-app" id="kf-confirm-title">${config.title}</h4>
           <p class="text-secondary mb-4" style="font-size: 0.95rem; line-height: 1.55;">${config.message}</p>
-          <div class="d-flex gap-2.5 justify-content-center">
-            <button type="button" class="btn-flame-outline flex-fill py-2.5 justify-content-center" id="kf-confirm-btn-cancel">
+          <div class="kf-confirm-actions">
+            <button type="button" class="btn-flame-outline" id="kf-confirm-btn-cancel">
               <span>${config.cancelText}</span>
             </button>
-            <button type="button" class="btn-flame flex-fill py-2.5 justify-content-center shadow-md" id="kf-confirm-btn-ok">
+            <button type="button" class="btn-flame shadow-md" id="kf-confirm-btn-ok">
               <span>${config.confirmText}</span>
             </button>
           </div>

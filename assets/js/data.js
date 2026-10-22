@@ -145,7 +145,7 @@ const KF_DATA = {
       titleKr: "Grand Family Feast Platter",
       serves: "Serves 4 - 6 Guests",
       price: 189.00,
-      image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop",
+      image: "assets/images/menu/Family_feast_barbecue_dinner_2K_20261022174107.jpg",
       tag: "Family Value",
       badgeClass: "badge-popular",
       cuts: ["Prime Galbi (450g)", "Thick Pork Belly (350g)", "Spicy Chicken Bulgogi (300g)", "Jumbo Tiger Prawns (4pcs)"],
@@ -483,7 +483,7 @@ const KF_DATA = {
       "Best Value Platter"
     ],
     "popular": true,
-    "image": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop",
+    "image": "assets/images/menu/Family_feast_barbecue_dinner_2K_20261022174107.jpg",
     "description": "Prime Galbi (400g), Berkshire Belly (350g), Chicken Bulgogi (250g), Tiger Prawns, Seafood Pancake, Kimchi Stew, and unlimited sides."
   },
   {

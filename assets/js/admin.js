@@ -7,7 +7,34 @@ document.addEventListener('DOMContentLoaded', () => {
   initAdminDashboard();
 });
 
-function initAdminDashboard() {
+async function initAdminDashboard() {
+  try {
+    const res = await fetch('/api/admin/check', { credentials: 'include' });
+    const data = await res.json();
+
+    if (res.status === 401) {
+      window.location.replace('../login.html?redirect=admin/index.html');
+      return;
+    }
+
+    if (res.status === 403 || !data.success) {
+      alert('Access Denied: Administrator privileges required.');
+      window.location.replace('../dashboard.html');
+      return;
+    }
+
+    if (data.user && window.KF_STATE) {
+      window.KF_STATE.setUser({ ...data.user, isLoggedIn: true });
+    }
+  } catch (err) {
+    // If backend unavailable or local file opening
+    const user = window.KF_STATE ? window.KF_STATE.getUser() : null;
+    if (!user || !user.isLoggedIn || user.role !== 'admin') {
+      window.location.replace('../login.html?redirect=admin/index.html');
+      return;
+    }
+  }
+
   initAdminTabSwitching();
   renderAdminReservations();
   renderAdminMenuTable();
